@@ -1,13 +1,12 @@
-import { Button } from "@material-tailwind/react";
-
 function App() {
+  
   return (
-    <div className="">
-      <Button className="m-5">
-        Click me please!
-      </Button>
+    <div className='w-72 mx-auto'>
+      <h2 className='text-center text-3xl mb-3 text-sky-500'>
+        This is demo text
+      </h2>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

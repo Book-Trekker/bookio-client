@@ -18,6 +18,9 @@ module.exports = withMT({
         900: "#0c4a6e",
       },
     },
+    fontFamily: {
+      sans: ["Open Sans", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
