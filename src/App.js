@@ -1,10 +1,12 @@
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './Pages/HomePage/HomePage'
+
 function App() {
-  
   return (
-    <div className='w-72 mx-auto'>
-      <h2 className='text-center text-3xl mb-3 text-sky-500'>
-        This is demo text
-      </h2>
+    <div className='root-component'>
+      <Routes>
+        <Route path='/' element={<HomePage />}></Route>
+      </Routes>
     </div>
   )
 }
