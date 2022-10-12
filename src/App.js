@@ -1,11 +1,14 @@
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './Pages/HomePage/HomePage'
+
 function App() {
   return (
-    <div className="">
-      <h2 className="text-red-300">this is header</h2>
-      <h2>commit from development</h2>
-      <h2>commit from nazmul</h2>
+    <div className='root-component'>
+      <Routes>
+        <Route path='/' element={<HomePage />}></Route>
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

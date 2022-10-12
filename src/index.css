@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Lato', 'sans-serif';
+}
+.customBorder {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.middle_header {
+  display: grid;
+  grid-template-columns: 11.75rem auto 12.375rem;
+  gap: 1rem;
+}
