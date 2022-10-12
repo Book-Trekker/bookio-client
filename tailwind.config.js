@@ -4,8 +4,12 @@ module.exports = withMT({
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
-      black: '#000000',
+      primary: '#064532',
+      secondary: '#F1592B',
       gray: '#767a79',
+      grayDark: '#EFEFEF',
+      white: '#FFFFFF',
+      black: '#000000',
       sky: {
         50: '#f0f9ff',
         100: '#e0f2fe',
