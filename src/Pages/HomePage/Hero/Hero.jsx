@@ -25,15 +25,9 @@ const Hero = () => {
         modules={[Pagination, Navigation]}
         className='mySwiper'
       >
-        <SwiperSlide>
-          <img src={slider1} alt='' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slider2} alt='' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slider3} alt='' />
-        </SwiperSlide>
+        <SwiperSlide className='bg-1'></SwiperSlide>
+        <SwiperSlide className='bg-2'></SwiperSlide>
+        <SwiperSlide className='bg-3'></SwiperSlide>
       </Swiper>
     </section>
   )

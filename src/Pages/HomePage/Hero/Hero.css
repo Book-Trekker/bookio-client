@@ -9,6 +9,7 @@
   text-align: center;
   font-size: 18px;
   background: #fff;
+  height: 90vh;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -30,4 +31,26 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.bg-1 {
+  background: url('../../../assets/images/hero/slider1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.bg-2 {
+  background: url('../../../assets/images/hero/slider2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.bg-3 {
+  background: url('../../../assets/images/hero/slider3.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
