@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const TopHeader = () => {
   return (
-    <section className='top_header py-5 px-10 customBorder'>
+    <section className='top_header py-5 px-10 customBorder hidden md:block'>
       <div className='flex justify-between items-center'>
         <div className='menu_link flex gap-3'>
           <li className='list-none text-[12px] font-lato font-bold text-gray hover:text-black'>

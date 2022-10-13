@@ -1,9 +1,7 @@
-import React, { useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import { Pagination, Navigation } from 'swiper'
+import React from 'react'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
 
 import './Hero.css'
 
@@ -12,23 +10,30 @@ import slider2 from '../../../assets/images/hero/slider2.png'
 import slider3 from '../../../assets/images/hero/slider3.png'
 
 const Hero = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+    ltr: true,
+  }
+
   return (
-    <section className='w-full h-full'>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className='mySwiper'
-      >
-        <SwiperSlide className='bg-1'></SwiperSlide>
-        <SwiperSlide className='bg-2'></SwiperSlide>
-        <SwiperSlide className='bg-3'></SwiperSlide>
-      </Swiper>
+    <section className='hero'>
+      <Slider {...settings}>
+        <div className='slider-1'>
+          <img src={slider1} alt='' />
+        </div>
+        <div>
+          <img src={slider2} alt='' />
+        </div>
+        <div>
+          <img src={slider3} alt='' />
+        </div>
+      </Slider>
     </section>
   )
 }
