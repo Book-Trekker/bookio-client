@@ -41,7 +41,7 @@ const Hero = () => {
               We deliver books all over the world 10,000 + Books in stock
             </p>
             <div className='btn_ text-center'>
-              <Button className='bg-secondary rounded-none hover:bg-primary'>
+              <Button className='bg-secondary text-[9px] md:text-[12px] rounded-none hover:bg-primary'>
                 MEET OUR BESTSELLERS{' '}
                 <span className='ml-1'>
                   <i class='ri-arrow-right-line'></i>
@@ -64,7 +64,7 @@ const Hero = () => {
               $15,343,695.75 raised for local bookstores.
             </p>
             <div className='btn_ text-center'>
-              <Button className='bg-secondary rounded-none hover:bg-primary'>
+              <Button className='bg-secondary text-[9px] md:text-[12px] rounded-none hover:bg-primary'>
                 MEET OUR BESTSELLERS{' '}
                 <span className='ml-1'>
                   <i class='ri-arrow-right-line'></i>
@@ -87,7 +87,7 @@ const Hero = () => {
               Over 120,000 Trustpilot reviews
             </p>
             <div className='btn_ text-center'>
-              <Button className='bg-secondary rounded-none hover:bg-primary'>
+              <Button className='bg-secondary text-[9px] md:text-[12px] rounded-none hover:bg-primary'>
                 MEET OUR BESTSELLERS{' '}
                 <span className='ml-1'>
                   <i class='ri-arrow-right-line'></i>
