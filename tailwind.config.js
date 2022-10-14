@@ -23,9 +23,18 @@ module.exports = withMT({
         900: '#0c4a6e',
       },
     },
+    // font-family
     fontFamily: {
       lato: ['Lato', 'sans-serif'],
       libre: ['Libre Baskerville', 'serif'],
+    },
+    // custom breakpoint
+    screens: {
+      xsm: '320px',
+      sm: '640px',
+      md: '825px',
+      lg: '1024px',
+      xl: '1280px',
     },
     extend: {},
   },
