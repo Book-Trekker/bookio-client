@@ -9,6 +9,7 @@ const HomePage = () => {
       <TopHeader />
       <MIddleHeder />
       <Hero />
+      <h2 className="2xl">Test</h2>
     </section>
   )
 }
