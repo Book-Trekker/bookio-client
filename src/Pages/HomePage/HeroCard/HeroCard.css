@@ -19,3 +19,25 @@
   background-repeat: no-repeat;
   max-width: 100%;
 }
+
+.card_hover:hover {
+  animation: card-shaking 0.7s;
+}
+
+@keyframes card-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
