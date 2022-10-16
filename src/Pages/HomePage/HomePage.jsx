@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../Shared/Footer/Footer'
 import MobileMenu from '../MobileMenu/MobileMenu'
 import Discount from './Discount/Discount'
 import MIddleHeder from './Header/MIddleHeder'
@@ -14,6 +15,7 @@ const HomePage = () => {
       <Hero />
       <HeroCard />
       <Discount />
+      <Footer />
       <MobileMenu />
     </section>
   )
