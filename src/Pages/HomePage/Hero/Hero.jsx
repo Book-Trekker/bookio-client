@@ -13,13 +13,13 @@ import { Button } from '@material-tailwind/react'
 
 const Hero = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
-    // pauseOnHover: false,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    pauseOnHover: false,
     ltr: true,
   }
 
@@ -32,16 +32,16 @@ const Hero = () => {
             <img src={slider1} alt='' />
           </div>
           <div className='content absolute'>
-            <h1 className='animate__animated animate__fadeInDown animate__delay-2s text-3xl md:text-5xl lg:text-7xl text-primary text-center font-libre font-bold'>
+            <h1 className='animate__animated animate__fadeInDown animate__delay-2s text-4xl md:text-6xl lg:text-7xl text-primary text-center font-libre font-bold'>
               Biggest{' '}
               <span className='text-secondary underline'>Bookstore</span> <br />{' '}
               in Europe
             </h1>
-            <p className='py-4 text-gray font-medium text-center text-xl'>
+            <p className='py-4 px-6 text-gray font-medium text-center text-xl'>
               We deliver books all over the world 10,000 + Books in stock
             </p>
             <div className='btn_ text-center'>
-              <Button className='bg-secondary rounded-none hover:bg-primary'>
+              <Button className='bg-secondary text-[9px] md:text-[12px] rounded-none hover:bg-primary'>
                 MEET OUR BESTSELLERS{' '}
                 <span className='ml-1'>
                   <i class='ri-arrow-right-line'></i>
@@ -56,16 +56,15 @@ const Hero = () => {
             <img src={slider2} alt='' />
           </div>
           <div className='content absolute'>
-            <h1 className='animate__animated animate__fadeInDown animate__delay-2s text-3xl md:text-5xl lg:text-7xl text-primary text-center font-libre font-bold'>
-              Biggest{' '}
-              <span className='text-secondary underline'>Bookstore</span> <br />{' '}
-              in Europe
+            <h1 className='animate__animated animate__fadeInDown animate__delay-2s text-4xl md:text-6xl lg:text-7xl text-primary text-center font-libre font-bold'>
+              Support <span className='text-secondary underline'>Local</span>{' '}
+              <br /> Bookstores
             </h1>
-            <p className='py-4 text-gray font-medium text-center text-xl'>
-              We deliver books all over the world 10,000 + Books in stock
+            <p className='py-4 px-6 text-gray font-medium text-center text-xl'>
+              $15,343,695.75 raised for local bookstores.
             </p>
             <div className='btn_ text-center'>
-              <Button className='bg-secondary rounded-none hover:bg-primary'>
+              <Button className='bg-secondary text-[9px] md:text-[12px] rounded-none hover:bg-primary'>
                 MEET OUR BESTSELLERS{' '}
                 <span className='ml-1'>
                   <i class='ri-arrow-right-line'></i>
@@ -80,16 +79,15 @@ const Hero = () => {
             <img src={slider3} alt='' />
           </div>
           <div className='content absolute'>
-            <h1 className='animate__animated animate__fadeInDown animate__delay-2s text-3xl md:text-5xl lg:text-7xl text-primary text-center font-libre font-bold'>
-              Biggest{' '}
-              <span className='text-secondary underline'>Bookstore</span> <br />{' '}
-              in Europe
+            <h1 className='animate__animated animate__fadeInDown animate__delay-2s text-4xl md:text-6xl lg:text-7xl text-primary text-center font-libre font-bold'>
+              Bestselling <br />
+              <span className='text-secondary underline'>Fiction</span> Books
             </h1>
-            <p className='py-4 text-gray font-medium text-center text-xl'>
-              We deliver books all over the world 10,000 + Books in stock
+            <p className='py-4 px-6 text-gray font-medium text-center text-xl'>
+              Over 120,000 Trustpilot reviews
             </p>
             <div className='btn_ text-center'>
-              <Button className='bg-secondary rounded-none hover:bg-primary'>
+              <Button className='bg-secondary text-[9px] md:text-[12px] rounded-none hover:bg-primary'>
                 MEET OUR BESTSELLERS{' '}
                 <span className='ml-1'>
                   <i class='ri-arrow-right-line'></i>
