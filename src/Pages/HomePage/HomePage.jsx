@@ -1,5 +1,6 @@
 import React from 'react'
 import MobileMenu from '../MobileMenu/MobileMenu'
+import Discount from './Discount/Discount'
 import MIddleHeder from './Header/MIddleHeder'
 import TopHeader from './Header/TopHeader'
 import Hero from './Hero/Hero'
@@ -12,6 +13,7 @@ const HomePage = () => {
       <MIddleHeder />
       <Hero />
       <HeroCard />
+      <Discount />
       <MobileMenu />
     </section>
   )
