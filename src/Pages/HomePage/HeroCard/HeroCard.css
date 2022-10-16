@@ -1,18 +1,21 @@
 .card-bg-1 {
   background: url(../../../assets/images/card/card-1.png);
   background-size: cover;
-  background-position: center;
+  background-position: right 35%;
   background-repeat: no-repeat;
+  max-width: 100%;
 }
 .card-bg-2 {
   background: url(../../../assets/images/card/card-2.png);
   background-size: cover;
-  background-position: center;
+  background-position: right 35%;
   background-repeat: no-repeat;
+  max-width: 100%;
 }
 .card-bg-3 {
   background: url(../../../assets/images/card/card-3.png);
   background-size: cover;
-  background-position: center;
+  background-position: right 35%;
   background-repeat: no-repeat;
+  max-width: 100%;
 }
