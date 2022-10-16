@@ -13,7 +13,7 @@ import { Button } from '@material-tailwind/react'
 
 const Hero = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
