@@ -1,0 +1,50 @@
+/* css for trend card image  */
+.trend-bg-1{
+    background: url(../../../assets/images/trending/trending-1.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
+.trend-bg-2{
+    background: url(../../../assets/images/trending/trending-2.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
+.trend-bg-3{
+    background: url(../../../assets/images/trending/trending-3.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
+.trend-bg-4{
+    background: url(../../../assets/images/trending/trending-4.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
+.trend-bg-5{
+    background: url(../../../assets/images/trending/trending-5.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
+.trend-bg-6{
+    background: url(../../../assets/images/trending/trending-6.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
+.trend-bg-7{
+    background: url(../../../assets/images/trending/trending-7.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 335px;
+}
