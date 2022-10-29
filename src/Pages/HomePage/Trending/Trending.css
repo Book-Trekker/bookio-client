@@ -6,6 +6,13 @@
   background-size: cover;
   height: 335px;
 }
+.trend-bg-1_1 {
+  background: url(../../../assets/images/trending/trending-1.1.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
 .trend-bg-2 {
   background: url(../../../assets/images/trending/trending-2.png);
   background-position: center center;
@@ -28,11 +35,11 @@
   height: 335px;
 }
 .trend-bg-5 {
-    background: url(../../../assets/images/trending/trending-4.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 335px;
+  background: url(../../../assets/images/trending/trending-4.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
 }
 .trend-bg-6 {
   background: url(../../../assets/images/trending/trending-6.png);
@@ -42,11 +49,11 @@
   height: 335px;
 }
 .trend-bg-7 {
-    background: url(../../../assets/images/trending/trending-4.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 335px;
+  background: url(../../../assets/images/trending/trending-4.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
 }
 
 .swiper {
@@ -81,20 +88,20 @@
   object-fit: cover;
 }
 
-.swiper-pagination-bullet{
-    display: none;
+.swiper-pagination-bullet {
+  display: none;
 }
 
-.custom-border::after{
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    bottom: 50%;
-    margin: auto 0;
-    width: 1px;
-    height: 25px;
-    background: #ffffff5b;
+.custom-border::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  bottom: 50%;
+  margin: auto 0;
+  width: 1px;
+  height: 25px;
+  background: #ffffff5b;
 }
 
 .trending-cart-1,
@@ -104,7 +111,7 @@
 .trending-cart-5,
 .trending-cart-6,
 .trending-cart-7 {
-    display: none;
+  display: none;
 }
 .trending-1:hover .trending-cart-1,
 .trending-2:hover .trending-cart-2,
@@ -113,7 +120,5 @@
 .trending-5:hover .trending-cart-5,
 .trending-6:hover .trending-cart-6,
 .trending-7:hover .trending-cart-7 {
-    display: block;
+  display: block;
 }
-
-
