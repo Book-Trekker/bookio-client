@@ -6,7 +6,8 @@
   background-size: cover;
   height: 335px;
 }
-.trend-bg-1_1 {
+
+.change-bg-1:hover .trend-bg-1 {
   background: url(../../../assets/images/trending/trending-1.1.png);
   background-position: center center;
   background-repeat: no-repeat;
@@ -20,6 +21,14 @@
   background-size: cover;
   height: 335px;
 }
+.change-bg-2:hover .trend-bg-2 {
+  background: url(../../../assets/images/trending/trending-2.1-5.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
+
 .trend-bg-3 {
   background: url(../../../assets/images/trending/trending-3.png);
   background-position: center center;
@@ -27,6 +36,14 @@
   background-size: cover;
   height: 335px;
 }
+.change-bg-3:hover .trend-bg-3 {
+  background: url(../../../assets/images/trending/trending-3.1.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
+
 .trend-bg-4 {
   background: url(../../../assets/images/trending/trending-4.png);
   background-position: center center;
@@ -34,27 +51,56 @@
   background-size: cover;
   height: 335px;
 }
+.change-bg-4:hover .trend-bg-4 {
+  background: url(../../../assets/images/trending/trending-4.1.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
 .trend-bg-5 {
-  background: url(../../../assets/images/trending/trending-4.png);
+  background: url(../../../assets/images/trending/trending-2.1-5.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
+.change-bg-5:hover .trend-bg-5 {
+  background: url(../../../assets/images/trending/trending-5.1.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 335px;
 }
 .trend-bg-6 {
-  background: url(../../../assets/images/trending/trending-6.png);
+  background: url(../../../assets/images/trending/trending-2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
+.change-bg-6:hover .trend-bg-6 {
+  background: url(../../../assets/images/trending/trending-6.1.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 335px;
 }
 .trend-bg-7 {
-  background: url(../../../assets/images/trending/trending-4.png);
+  background: url(../../../assets/images/trending/trending-6.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 335px;
 }
+.change-bg-7:hover .trend-bg-7 {
+  background: url(../../../assets/images/trending/trending-7.1.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 335px;
+}
+
 
 .swiper {
   width: 100%;
@@ -71,6 +117,7 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -113,12 +160,12 @@
 .trending-cart-7 {
   display: none;
 }
-.trending-1:hover .trending-cart-1,
-.trending-2:hover .trending-cart-2,
-.trending-3:hover .trending-cart-3,
-.trending-4:hover .trending-cart-4,
-.trending-5:hover .trending-cart-5,
-.trending-6:hover .trending-cart-6,
-.trending-7:hover .trending-cart-7 {
+.change-bg-1:hover .trending-cart-1,
+.change-bg-2:hover .trending-cart-2,
+.change-bg-3:hover .trending-cart-3,
+.change-bg-4:hover .trending-cart-4,
+.change-bg-5:hover .trending-cart-5,
+.change-bg-6:hover .trending-cart-6,
+.change-bg-7:hover .trending-cart-7 {
   display: block;
 }
