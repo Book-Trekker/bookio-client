@@ -96,7 +96,7 @@ const Trending = () => {
               <p className='book-name text-lg font-libre font-medium text-primary'>
                 The Art of Fashion
               </p>
-              <p className='price font-libre font-bold text-secondary'>
+              <p className='price text-sm font-libre font-bold text-secondary'>
                 $80.00 - $200.00
               </p>
             </div>
@@ -136,13 +136,13 @@ const Trending = () => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>Alyce Kris</span>
               </p>
-              <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+              <p className='book-name text-sm font-libre font-bold my-2 text-primary'>
+                100 Selected Poems
               </p>
-              <p className='price font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+              <p className='price text-sm font-libre font-bold text-secondary'>
+                <span className="line-through text-gray">$400.00 </span>  $350.00
               </p>
             </div>
           </div>
@@ -181,13 +181,13 @@ const Trending = () => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>Glenna Berge</span>
               </p>
-              <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+              <p className='book-name text-sm font-libre font-bold my-2 text-primary'>
+                Life is What you make it
               </p>
-              <p className='price font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+              <p className='price text-sm font-libre font-bold text-secondary'>
+                <span className="line-through text-gray">$120.00 </span>  $100.00
               </p>
             </div>
           </div>
@@ -226,13 +226,13 @@ const Trending = () => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>Norenne Mayart</span>
               </p>
-              <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+              <p className='book-name text-sm font-libre font-bold my-2 text-primary'>
+                Heartless Marissa Meyer
               </p>
-              <p className='price font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+              <p className='price text-sm font-libre font-bold text-secondary'>
+                $214.22
               </p>
             </div>
           </div>
@@ -271,13 +271,13 @@ const Trending = () => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>Glenna Berge</span>
               </p>
-              <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+              <p className='book-name text-sm font-libre font-bold my-2 text-primary'>
+                The Untetheres Soul
               </p>
-              <p className='price font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+              <p className='price text-sm font-libre font-bold text-secondary'>
+                $214.22
               </p>
             </div>
           </div>
@@ -316,13 +316,13 @@ const Trending = () => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>Norenne Mayart</span>
               </p>
-              <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+              <p className='book-name text-sm font-libre font-bold my-2 text-primary'>
+                Africa Rising
               </p>
-              <p className='price font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+              <p className='price text-sm font-libre font-bold text-secondary'>
+                <span className="line-through text-gray">$130.00 </span>  $125.00
               </p>
             </div>
           </div>
@@ -361,13 +361,13 @@ const Trending = () => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>Grenna Berge</span>
               </p>
-              <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+              <p className='book-name text-sm font-libre font-bold my-2 text-primary'>
+                Once Upon A Reunion
               </p>
-              <p className='price font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+              <p className='price text-sm font-libre font-bold text-secondary'>
+                <span className="line-through text-gray">$200.00 </span>  $180.00
               </p>
             </div>
           </div>
