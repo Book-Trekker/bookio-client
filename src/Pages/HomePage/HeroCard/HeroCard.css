@@ -1,0 +1,43 @@
+.card-bg-1 {
+  background: url(../../../assets/images/card/card-1.png);
+  background-size: cover;
+  background-position: right 35%;
+  background-repeat: no-repeat;
+  max-width: 100%;
+}
+.card-bg-2 {
+  background: url(../../../assets/images/card/card-2.png);
+  background-size: cover;
+  background-position: right 35%;
+  background-repeat: no-repeat;
+  max-width: 100%;
+}
+.card-bg-3 {
+  background: url(../../../assets/images/card/card-3.png);
+  background-size: cover;
+  background-position: right 35%;
+  background-repeat: no-repeat;
+  max-width: 100%;
+}
+
+.card_hover:hover {
+  animation: card-shaking 0.7s;
+}
+
+@keyframes card-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
