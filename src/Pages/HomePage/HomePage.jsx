@@ -6,6 +6,7 @@ import MIddleHeder from './Header/MIddleHeder'
 import TopHeader from './Header/TopHeader'
 import Hero from './Hero/Hero'
 import HeroCard from './HeroCard/HeroCard'
+import TopCategories from './TopCategories/TopCategories'
 import Trending from './Trending/Trending'
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
       <HeroCard />
       <Discount />
       <Trending />
+      <TopCategories />
       <Footer />
       <MobileMenu />
     </section>
