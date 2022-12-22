@@ -16,6 +16,7 @@ const TopCategories = () => {
   return (
     <section className='top_categories w-full'>
       <div className='top_slider py-16'>
+      <h2 className='text-center text-3xl text-primary mb-8'>Top Categories</h2>
         <Swiper
          slidesPerView={5}
          spaceBetween={10}
@@ -55,37 +56,37 @@ const TopCategories = () => {
             <div className='b-3 w-56 h-56 relative overflow-hidden bg-white rounded-full'>
               <img className='absolute top_image' src={topImg1} alt="top/books" />
             </div>
-              <h2 className='text-xl mt-3 text-primary font-medium'>Romance</h2>
+              <h2 className='text-sm mt-3 text-primary font-bold'>ROMANCE</h2>
           </SwiperSlide>
           <SwiperSlide>
             <div className='b-3 w-56 h-56 relative overflow-hidden bg-white rounded-full'>
               <img className='absolute top_image' src={topImg2} alt="top/books" />
             </div>
-              <h2 className='text-xl mt-3 text-primary font-medium'>Romance</h2>
+              <h2 className='text-sm mt-3 text-primary font-bold'>FANTASY</h2>
           </SwiperSlide>
           <SwiperSlide>
             <div className='b-3 w-56 h-56 relative overflow-hidden bg-white rounded-full'>
               <img className='absolute top_image' src={topImg3} alt="top/books" />
             </div>
-              <h2 className='text-xl mt-3 text-primary font-medium'>Romance</h2>
+              <h2 className='text-sm mt-3 text-primary font-bold'>MODERN FICTION</h2>
           </SwiperSlide>
           <SwiperSlide>
             <div className='b-3 w-56 h-56 relative overflow-hidden bg-white rounded-full'>
               <img className='absolute top_image' src={topImg4} alt="top/books" />
             </div>
-              <h2 className='text-xl mt-3 text-primary font-medium'>Romance</h2>
+              <h2 className='text-sm mt-3 text-primary font-bold'>THRILLER & SUSPENSE</h2>
           </SwiperSlide>
           <SwiperSlide>
             <div className='b-3 w-56 h-56 relative overflow-hidden bg-white rounded-full'>
               <img className='absolute top_image' src={topImg5} alt="top/books" />
             </div>
-              <h2 className='text-xl mt-3 text-primary font-medium'>Romance</h2>
+              <h2 className='text-sm mt-3 text-primary font-bold'>ADVENTURE</h2>
           </SwiperSlide>
           <SwiperSlide>
             <div className='b-3 w-56 h-56 relative overflow-hidden bg-white rounded-full'>
               <img className='absolute top_image' src={topImg6} alt="top/books" />
             </div>
-              <h2 className='text-xl mt-3 text-primary font-medium'>Romance</h2>
+              <h2 className='text-sm mt-3 text-primary font-bold'>CLASSIC FICTION</h2>
           </SwiperSlide>
         </Swiper>
       </div>
