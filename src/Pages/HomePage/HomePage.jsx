@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../Shared/Footer/Footer";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import BookAdventure from "./BookAdventure/BookAdventure";
 import BookOfTheMonth from "./BookOfTheMonth/BookOfTheMonth";
 import BottomHeader from "./BottomHeader/BottomHeader";
 import Discount from "./Discount/Discount";
@@ -23,6 +24,7 @@ const HomePage = () => {
       <Trending />
       <TopCategories />
       <BookOfTheMonth />
+      <BookAdventure />
       <Footer />
       <MobileMenu />
     </section>
