@@ -3,7 +3,7 @@ import './FantasticChoice.css'
 
 const FantasticChoice = () => {
   return (
-    <section className='w-full my-44'>
+    <section className='w-full my-16 md:my-44'>
       <div className='choice_main w-full md:w-[85%] h-[600px] flex items-center relative'>
         <div className='pl-10 text-white'>
           <p className='font-bold font-lato text-lg'>
