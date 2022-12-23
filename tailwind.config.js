@@ -10,6 +10,7 @@ module.exports = withMT({
       grayDark: '#EFEFEF',
       white: '#FFFFFF',
       black: '#000000',
+      yellow: '#FF9900',
       sky: {
         50: '#f0f9ff',
         100: '#e0f2fe',

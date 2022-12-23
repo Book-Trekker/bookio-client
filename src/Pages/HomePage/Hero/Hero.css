@@ -1,9 +1,9 @@
-.hero {
+.hero, .trending {
   overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.hero::-webkit-scrollbar {
+.hero::-webkit-scrollbar, .trending::-webkit-scrollbar {
   display: none;
 }
 .hero img {
