@@ -1,0 +1,27 @@
+.drawerMenu {
+  display: none;
+  margin: 0px 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 1051px) {
+  .drawerMenu {
+    display: block;
+  }
+  .HeaderMenu {
+    display: none;
+  }
+}
+
+.animationHeder {
+  animation: headerDownAnimation 1s linear forwards;
+}
+
+@keyframes headerDownAnimation {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
