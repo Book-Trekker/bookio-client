@@ -1,0 +1,13 @@
+.choice_main{
+    background: url('../../../assets/images/fantastic-choice/bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.side-bg{
+    background: url('../../../assets/images/fantastic-choice/side.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}

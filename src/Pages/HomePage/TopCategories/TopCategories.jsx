@@ -25,6 +25,7 @@ const TopCategories = () => {
          autoplay={{
            delay: 2000,
            disableOnInteraction: false,
+           reverseDirection: true,
          }}
          breakpoints={{
           200: {
