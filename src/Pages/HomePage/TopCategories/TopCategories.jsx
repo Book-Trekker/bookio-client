@@ -16,7 +16,7 @@ const TopCategories = () => {
   return (
     <section className='top_categories w-full'>
       <div className='top_slider py-16'>
-      <h2 className='text-center text-3xl text-primary mb-8'>Top Categories</h2>
+      <h2 className='text-center text-3xl text-primary mb-8 font-libre'>Top Categories</h2>
         <Swiper
          slidesPerView={5}
          spaceBetween={10}
