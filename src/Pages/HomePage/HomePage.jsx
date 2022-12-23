@@ -10,6 +10,7 @@ import MIddleHeder from "./Header/MIddleHeder";
 import TopHeader from "./Header/TopHeader";
 import Hero from "./Hero/Hero";
 import HeroCard from "./HeroCard/HeroCard";
+import PopularShop from "./PopularShop/PopularShop";
 import Testimonial from "./Testimonial/Testimonial";
 import TopCategories from "./TopCategories/TopCategories";
 import Trending from "./Trending/Trending";
@@ -23,6 +24,7 @@ const HomePage = () => {
       <Hero />
       <HeroCard />
       <Discount />
+      <PopularShop />
       <Trending title='Trending On Bookio' />
       <TopCategories />
       <BookOfTheMonth />
