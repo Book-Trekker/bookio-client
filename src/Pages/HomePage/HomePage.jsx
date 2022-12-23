@@ -21,10 +21,11 @@ const HomePage = () => {
       <Hero />
       <HeroCard />
       <Discount />
-      <Trending />
+      <Trending title='Trending On Bookio' />
       <TopCategories />
       <BookOfTheMonth />
       <BookAdventure />
+      <Trending title='Bookio Top Books' />
       <Footer />
       <MobileMenu />
     </section>
