@@ -3,21 +3,21 @@ import ScrollCarousel from 'scroll-carousel'
 import 'scroll-carousel/dist/scroll.carousel.min.css'
 import popular from '../../../assets/images/popularShop/cate-2.jpg.png'
 
-const PopularShop = () => {
+const PopularShopTwo = () => {
     useEffect(() => {
-        new ScrollCarousel('.popular', {
+        new ScrollCarousel('.popular2', {
             autoplay: false,
             autoplaySpeed: 1,
             speed: 10,
             smartSpeed: false,
-            direction: 'rtl',
+            direction: 'ltr',
         })
       }, [])
     
   return (
     <section className='px-10 my-16'>
-        <h2 className='text-primary text-2xl font-bold font-libre my-3'>Popular Shop</h2>
-        <div className="popular">
+        {/* <h2 className='text-primary text-2xl font-bold font-libre my-3'>Popular Shop</h2> */}
+        <div className="popular2">
         <img src={popular} alt="popular/shop" />
         <img src={popular} alt="popular/shop" />
         <img src={popular} alt="popular/shop" />
@@ -31,4 +31,4 @@ const PopularShop = () => {
   )
 }
 
-export default PopularShop
+export default PopularShopTwo
