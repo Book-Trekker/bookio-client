@@ -5,6 +5,7 @@ import BookAdventure from "./BookAdventure/BookAdventure";
 import BookOfTheMonth from "./BookOfTheMonth/BookOfTheMonth";
 import BottomHeader from "./BottomHeader/BottomHeader";
 import Discount from "./Discount/Discount";
+import FantasticChoice from "./FantasticChoice/FantasticChoice";
 import MIddleHeder from "./Header/MIddleHeder";
 import TopHeader from "./Header/TopHeader";
 import Hero from "./Hero/Hero";
@@ -26,6 +27,7 @@ const HomePage = () => {
       <BookOfTheMonth />
       <BookAdventure />
       <Trending title='Bookio Top Books' />
+      <FantasticChoice />
       <Footer />
       <MobileMenu />
     </section>
