@@ -9,3 +9,7 @@
     right: 0;
     margin: auto;
 }
+label.text-gray-700{
+    color: black;
+    font-weight: 500;
+}
