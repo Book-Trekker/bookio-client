@@ -13,10 +13,11 @@ const initialValues = {
 const SignUp = () => {
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
-      initialValues: initialValues,
+      initialValues,
       validationSchema: signUpSchema,
-      onSubmit: (values) => {
+      onSubmit: (values, action) => {
         console.log(values)
+        action.resetForm()
       },
     })
 
