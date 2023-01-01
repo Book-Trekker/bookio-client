@@ -1,0 +1,11 @@
+.custom_border::before{
+    content: '';
+    position: absolute;
+    background-color: black;
+    width: 150px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
