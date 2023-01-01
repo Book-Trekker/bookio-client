@@ -26,16 +26,16 @@ const SignUp = () => {
       <div className='login_title'>
         <h2 className='custom_border relative flex items-center justify-center text-center text-2xl font-bold text-black font-libre pb-2'>
           <span>
-            <i className='ri-user-line px-2'></i>
+          <i className="ri-logout-box-line pr-2"></i>
           </span>{' '}
-          Login
+          Register
         </h2>
       </div>
       <form onSubmit={handleSubmit} className='input_field px-12 py-5'>
         {/* input email  */}
         <div className='input_email flex flex-col mb-2'>
           <label htmlFor='email' className='input-label pb-2 text-[#767a79]'>
-            Username or email address <span className='text-red-500'>*</span>
+            Email address <span className='text-red-500'>*</span>
           </label>
           <input
             className='border-2 px-2 py-4 border-[#eaeaea]'
@@ -94,14 +94,12 @@ const SignUp = () => {
         </div>
         {/* remember me  */}
         <div className='remember_me flex justify-between items-center'>
-          <Checkbox className='rounded-full' label='Remember Me' />
-          <Link to={''} className='border-b-[1px]'>
-            Lost Your Password?
-          </Link>
+          <Checkbox defaultChecked className='rounded-full' label='I am a customer' />
+          <Checkbox className='rounded-full' label='I am a seller' />
         </div>
         {/* login button  */}
         <div className='login_btn my-3'>
-          <button className='text-center bg-black w-full text-white py-4 text-sm'>
+          <button className='text-center bg-[#B9B9B9] w-full text-white py-4 text-sm hover:bg-primary'>
             LOGIN
           </button>
         </div>
