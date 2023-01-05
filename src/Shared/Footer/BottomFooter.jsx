@@ -20,19 +20,19 @@ const BottomFooter = () => {
           style={{ border: "1px solid #EDEDED" }}
           className="w-[40px] h-[40px]  rounded-full flex items-center justify-center  hover:bg-[#064532] group mr-2"
         >
-          <i class="ri-instagram-line"></i>
+          <i className="ri-instagram-line text-[#064532] group-hover:text-white"></i>
         </span>
         <span
           style={{ border: "1px solid #EDEDED" }}
           className="w-[40px] h-[40px]  rounded-full flex items-center justify-center  hover:bg-[#064532] group mr-2"
         >
-          <i class="ri-facebook-line"></i>
+          <i className="ri-facebook-line text-[#064532] group-hover:text-white"></i>
         </span>
         <span
           style={{ border: "1px solid #EDEDED" }}
           className="w-[40px] h-[40px]  rounded-full flex items-center justify-center  hover:bg-[#064532] group mr-2"
         >
-          <i class="ri-youtube-line"></i>
+          <i className="ri-youtube-line  text-[#064532] group-hover:text-white"></i>
         </span>
       </div>
       <div>
