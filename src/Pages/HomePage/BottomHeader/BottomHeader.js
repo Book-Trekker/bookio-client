@@ -45,7 +45,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
 
   return (
     <>
-      <div className="mb-5">
+      <div className="mb-5 md:block hidden">
         <div className="flex justify-between items-center container mx-auto px-10">
           <div className="flex items-center">
             <button className="bg-[#064532] text-[#fff] flex items-center gap-2 px-6 py-3 ">
