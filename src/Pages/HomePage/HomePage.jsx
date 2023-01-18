@@ -4,6 +4,7 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 import BookAdventure from "./BookAdventure/BookAdventure";
 import BookOfTheMonth from "./BookOfTheMonth/BookOfTheMonth";
 import BottomHeader from "./BottomHeader/BottomHeader";
+import MobileHeader from "./BottomHeader/MobileHeader";
 import Discount from "./Discount/Discount";
 import FantasticChoice from "./FantasticChoice/FantasticChoice";
 import MIddleHeder from "./Header/MIddleHeder";
@@ -19,6 +20,7 @@ import Trending from "./Trending/Trending";
 const HomePage = () => {
   return (
     <section className="homepage">
+      <MobileHeader />
       <TopHeader />
       <MIddleHeder />
       <BottomHeader />
@@ -27,11 +29,11 @@ const HomePage = () => {
       <Discount />
       <PopularShop />
       <PopularShopTwo />
-      <Trending title='Trending On Bookio' />
+      <Trending title="Trending On Bookio" />
       <TopCategories />
       <BookOfTheMonth />
       <BookAdventure />
-      <Trending title='Bookio Top Books' />
+      <Trending title="Bookio Top Books" />
       <FantasticChoice />
       <Testimonial />
       <Footer />
