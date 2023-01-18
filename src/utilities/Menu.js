@@ -2,12 +2,6 @@ import { BiChevronDown } from "react-icons/bi";
 
 const HeaderMenu = [
   {
-    menu: "Home",
-    path: "/",
-    // subMenu: [{ subMenuName :  "Job Listing" , subMenuPath: '/jobListing'}, { subMenuName :  "Job Finding" , subMenuPath: '/jobListing'}]
-  },
-
-  {
     menu: "Shop",
     path: "/job",
     subMenu: [
