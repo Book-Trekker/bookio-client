@@ -4,7 +4,7 @@ import styles from "../../../style/headers.module.css";
 import menuList from "../../../utilities/Menu";
 import { Link } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
-import DropDownMenu from "../../../Pages/HomePage/BottomHeader/DropDownMenu";
+import DropDownMenu from "./DropDownMenu";
 import { motion } from "framer-motion";
 import { CgMenuRight } from "react-icons/cg";
 

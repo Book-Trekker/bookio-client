@@ -24,7 +24,7 @@ const TopHeader = () => {
         <div className='account_link'>
           <div className='flex justify-between items-center gap-3'>
             <li className='list-none text-[12px] font-lato font-bold text-gray hover:text-black'>
-              <Link to='/'>
+              <Link to='/account'>
                 <span className='mx-2'>
                   <i class='fas fa-user'></i>
                 </span>{' '}

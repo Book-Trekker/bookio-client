@@ -1,14 +1,20 @@
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./Pages/HomePage/HomePage";
+import { Route, Routes } from 'react-router-dom'
+import Account from './Pages/Account/Account'
+import Header from './Pages/HomePage/Header/Header'
+import HomePage from './Pages/HomePage/HomePage'
+import Footer from './Shared/Footer/Footer'
 
 function App() {
   return (
-    <div className="root-component">
+    <div className='root-component'>
+      <Header />
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
+        <Route path='/' element={<HomePage />}></Route>
+        <Route path='/account' element={<Account />}></Route>
       </Routes>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
