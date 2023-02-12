@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../../Shared/Footer/Footer";
+import TopFooter from "../../Shared/Footer/TopFooter";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import BookAdventure from "./BookAdventure/BookAdventure";
 import BookOfTheMonth from "./BookOfTheMonth/BookOfTheMonth";
@@ -36,6 +37,7 @@ const HomePage = () => {
       <Trending title="Bookio Top Books" />
       <FantasticChoice />
       <Testimonial />
+      <TopFooter />
       <Footer />
       <MobileMenu />
     </section>
