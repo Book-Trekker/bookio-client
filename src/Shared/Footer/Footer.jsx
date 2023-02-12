@@ -4,6 +4,7 @@ import {
   categoriesData,
   helpNeedData,
 } from "../../utilities/Footer";
+import TopFooter from "./TopFooter";
 import BottomFooter from "./BottomFooter";
 import "./Footer.css";
 import FooterExtraInfo from "./FooterExtraInfo";
