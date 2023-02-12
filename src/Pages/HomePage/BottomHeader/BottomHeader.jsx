@@ -55,7 +55,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
             </button>
             <div>
               <div
-                className={` ${styles.HeaderMenu} flex text-light_gray_white items-center gap-8 font-normal text-[1.2rem] ml-10 `}
+                className={` ${styles.HeaderMenu} flex text-light_gray_white items-center gap-8 font-normal text-[1.2rem] ml-10 cursor-pointer `}
               >
                 {menuList.map((m, index) => {
                   if (m.subMenu) {
@@ -66,7 +66,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
                         key={index}
                         className="py-3 text-[16px] text-[#064532] font-semibold"
                       >
-                        <Link key={m.menu} href="/">
+                        <Link key={m.menu} href={`/`}>
                           {m.menu}
                         </Link>
                       </div>
