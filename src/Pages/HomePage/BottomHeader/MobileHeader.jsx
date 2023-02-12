@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import Sidebar from "../Sidebar/Sidebar";
 
 const MobileHeader = () => {
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   return (
-    <div>
-      <div className="flex justify-between px-10 items-center py-4">
+    <div className="md:hidden block">
+      <div className="flex  justify-between px-10 items-center py-4">
         <div>
-          <span>
+          <span onClick={() => setIsOpenSidebar(true)}>
             <i className="ri-menu-line text-[22px]"></i>
           </span>
+          <Sidebar {...{ isOpenSidebar, setIsOpenSidebar }} />
         </div>
         <div>
           <img
