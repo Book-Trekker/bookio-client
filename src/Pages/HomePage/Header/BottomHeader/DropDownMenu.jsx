@@ -18,7 +18,7 @@ const DropDownMenu = ({ m }) => {
             className=" text-[14px]  bg-[#fff] font-medium text-[#767a79] hover:text-[#064532] mb-2"
             key={index}
           >
-            <Link href={sub.subMenuPath}>{sub.subMenuName}</Link>
+            <Link to={sub.subMenuPath}>{sub.subMenuName}</Link>
           </div>
         ))}
       </motion.div>

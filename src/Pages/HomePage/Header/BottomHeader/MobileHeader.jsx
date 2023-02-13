@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Sidebar from '../Sidebar/Sidebar'
+import Sidebar from '../../Sidebar/Sidebar'
 
 const MobileHeader = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
