@@ -1,8 +1,8 @@
 import React from 'react'
-import MobileHeader from '../BottomHeader/MobileHeader'
+import MobileHeader from './BottomHeader/MobileHeader'
 import MIddleHeder from './MIddleHeder'
 import TopHeader from './TopHeader'
-import BottomHeader from '../BottomHeader/BottomHeader'
+import BottomHeader from './BottomHeader/BottomHeader'
 
 const Header = () => {
   return (

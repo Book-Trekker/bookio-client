@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 // import BlogImage from "../assets/images/blog-img1.jpg";
-import styles from "../../../style/headers.module.css";
-import menuList from "../../../utilities/Menu";
+import styles from "../../../../style/headers.module.css";
+import menuList from "../../../../utilities/Menu";
 import { Link } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 import DropDownMenu from "./DropDownMenu";
@@ -66,7 +66,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
                         key={index}
                         className="py-3 text-[16px] text-[#064532] font-semibold"
                       >
-                        <Link key={m.menu} href={`/`}>
+                        <Link key={m.menu} to={m.path}>
                           {m.menu}
                         </Link>
                       </div>

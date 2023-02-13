@@ -3,41 +3,27 @@ import { BiChevronDown } from "react-icons/bi";
 const HeaderMenu = [
   {
     menu: "Shop",
-    path: "/job",
-    subMenu: [
-      { subMenuName: "Job Listing", subMenuPath: "/jobListing" },
-      { subMenuName: "Post A Job", subMenuPath: "/jobListing" },
-      { subMenuName: "Job Listing", subMenuPath: "/jobListing" },
-    ],
+    path: "/shop"
   },
   {
     menu: "Blog",
-    path: "/blog",
-    subMenu: [
-      { subMenuName: "Employers Listing", subMenuPath: "/jobListing" },
-      { subMenuName: "Employers Details", subMenuPath: "/jobListing" },
-      { subMenuName: "Employers Dashboard", subMenuPath: "/jobListing" },
-    ],
+    path: "/blog"
   },
   {
-    menu: "Page",
-    path: "/page",
-    subMenu: [
-      { subMenuName: "Candidates  Listing", subMenuPath: "/jobListing" },
-      { subMenuName: "Candidates  Details", subMenuPath: "/jobListing" },
-      { subMenuName: "Candidates  Dashboard", subMenuPath: "/jobListing" },
-    ],
+    menu: "About Us",
+    path: "/about"
+  },
+  {
+    menu: "Contact Us",
+    path: "/contact"
   },
   {
     menu: "Vendor",
-    path: "/vendor",
+    path: "",
     subMenu: [
-      { subMenuName: "Blog Grid", subMenuPath: "/jobListing" },
-      { subMenuName: "Blog Left Sidebar", subMenuPath: "/jobListing" },
-      { subMenuName: "Blog Right Sidebar", subMenuPath: "/jobListing" },
-      { subMenuName: "Blog Details", subMenuPath: "/jobListing" },
-      { subMenuName: "Categories", subMenuPath: "/jobListing" },
-      { subMenuName: "Tag", subMenuPath: "/jobListing" },
+      { subMenuName: "Product Author", subMenuPath: "/author" },
+      { subMenuName: "Store List", subMenuPath: "/store-list" },
+      { subMenuName: "Store Details", subMenuPath: "/store-details" }
     ],
   },
 ];

@@ -1,16 +1,10 @@
 import React from "react";
-import Footer from "../../Shared/Footer/Footer";
 import TopFooter from "../../Shared/Footer/TopFooter";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import BookAdventure from "./BookAdventure/BookAdventure";
 import BookOfTheMonth from "./BookOfTheMonth/BookOfTheMonth";
-import BottomHeader from "./BottomHeader/BottomHeader";
 import Discount from "./Discount/Discount";
 import FantasticChoice from "./FantasticChoice/FantasticChoice";
-import Header from "./Header/Header";
-import MobileHeader from "./BottomHeader/MobileHeader";
-import MIddleHeder from "./Header/MIddleHeder";
-import TopHeader from "./Header/TopHeader";
 import Hero from "./Hero/Hero";
 import HeroCard from "./HeroCard/HeroCard";
 import PopularShop from "./PopularShop/PopularShop";
@@ -22,11 +16,6 @@ import Trending from "./Trending/Trending";
 const HomePage = () => {
   return (
     <section className="homepage">
-      {/* <MobileHeader />
-      <TopHeader />
-      <MIddleHeder /> */}
-      {/* <Header /> */}
-      {/* <BottomHeader /> */}
       <Hero />
       <HeroCard />
       <Discount />
