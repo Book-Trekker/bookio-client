@@ -5,9 +5,10 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 import BookAdventure from "./BookAdventure/BookAdventure";
 import BookOfTheMonth from "./BookOfTheMonth/BookOfTheMonth";
 import BottomHeader from "./BottomHeader/BottomHeader";
-import MobileHeader from "./BottomHeader/MobileHeader";
 import Discount from "./Discount/Discount";
 import FantasticChoice from "./FantasticChoice/FantasticChoice";
+import Header from "./Header/Header";
+import MobileHeader from "./BottomHeader/MobileHeader";
 import MIddleHeder from "./Header/MIddleHeder";
 import TopHeader from "./Header/TopHeader";
 import Hero from "./Hero/Hero";
@@ -21,10 +22,11 @@ import Trending from "./Trending/Trending";
 const HomePage = () => {
   return (
     <section className="homepage">
-      <MobileHeader />
+      {/* <MobileHeader />
       <TopHeader />
-      <MIddleHeder />
-      <BottomHeader />
+      <MIddleHeder /> */}
+      {/* <Header /> */}
+      {/* <BottomHeader /> */}
       <Hero />
       <HeroCard />
       <Discount />
@@ -38,7 +40,7 @@ const HomePage = () => {
       <FantasticChoice />
       <Testimonial />
       <TopFooter />
-      <Footer />
+      {/* <Footer /> */}
       <MobileMenu />
     </section>
   );

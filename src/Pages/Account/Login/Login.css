@@ -1,0 +1,15 @@
+.custom_border::before{
+    content: '';
+    position: absolute;
+    background-color: black;
+    width: 150px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+label.text-gray-700{
+    color: black;
+    font-weight: 500;
+}
