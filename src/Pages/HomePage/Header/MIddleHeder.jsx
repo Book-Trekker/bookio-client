@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../../assets/images/logo/logo.png'
 import Carts from './Carts'
 
@@ -7,7 +8,9 @@ const MIddleHeder = () => {
     <div className='hidden md:block'>
       <section className='middle_header px-10 py-3 items-center'>
         <div className='brand'>
-          <img src={logo} alt='/brand-logo' />
+          <Link to='/'>
+            <img src={logo} alt='/brand-logo' />
+          </Link>
         </div>
         <div className='search m-2 bg-grayDark'>
           <div class='sm:flex rounded shadow-sm flex justify-center items-center text-gray'>

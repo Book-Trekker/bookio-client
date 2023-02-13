@@ -9,10 +9,13 @@ const DropDownMenu = ({ m }) => {
       <div className="hover:text-light_green flex items-center text-[16px] text-[#064532] font-semibold">
         {m.menu} <BiChevronDown />
       </div>
-      <motion.div className="absolute text-light_black top-12  left-0 w-[230px] transform  opacity-0 shadow-lg  skew-y-12  bg-light_white flex flex-col    group-hover:visible rounded-lg  transition-all ease-linear delay-100 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 group-hover:skew-y-0">
+      <motion.div className="absolute text-light_black top-12  left-0 w-[200px] p-[20px]  transform  opacity-0 shadow-lg bg-[#fff]  translate-y-[30px] group-hover:translate-y-0 bg-light_white flex flex-col    group-hover:visible  transition-all ease-linear delay-200 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100  border-t-[2px] border-[#064532]">
+        <span className="absolute top-[-22px] left-2">
+          <i className="ri-arrow-up-s-fill text-[1.5rem] text-[#064532]"></i>
+        </span>
         {m.subMenu?.map((sub, index) => (
           <div
-            className="pb-3 px-2 py-2 border-b-2 border-[#69696911] font-medium text-light_gray_white"
+            className=" text-[14px]  bg-[#fff] font-medium text-[#767a79] hover:text-[#064532] mb-2"
             key={index}
           >
             <Link href={sub.subMenuPath}>{sub.subMenuName}</Link>

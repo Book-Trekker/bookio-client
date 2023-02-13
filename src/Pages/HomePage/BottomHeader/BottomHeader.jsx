@@ -4,7 +4,7 @@ import styles from "../../../style/headers.module.css";
 import menuList from "../../../utilities/Menu";
 import { Link } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
-import DropDownMenu from "../../../Pages/HomePage/BottomHeader/DropDownMenu";
+import DropDownMenu from "./DropDownMenu";
 import { motion } from "framer-motion";
 import { CgMenuRight } from "react-icons/cg";
 
@@ -45,7 +45,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
 
   return (
     <>
-      <div className="mb-5">
+      <div className="mb-5 md:block hidden">
         <div className="flex justify-between items-center container mx-auto px-10">
           <div className="flex items-center">
             <button className="bg-[#064532] text-[#fff] flex items-center gap-2 px-6 py-3 ">
@@ -55,7 +55,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
             </button>
             <div>
               <div
-                className={` ${styles.HeaderMenu} flex text-light_gray_white items-center gap-8 font-normal text-[1.2rem] ml-10 `}
+                className={` ${styles.HeaderMenu} flex text-light_gray_white items-center gap-8 font-normal text-[1.2rem] ml-10 cursor-pointer `}
               >
                 {menuList.map((m, index) => {
                   if (m.subMenu) {
@@ -66,7 +66,7 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
                         key={index}
                         className="py-3 text-[16px] text-[#064532] font-semibold"
                       >
-                        <Link key={m.menu} href="/">
+                        <Link key={m.menu} href={`/`}>
                           {m.menu}
                         </Link>
                       </div>
