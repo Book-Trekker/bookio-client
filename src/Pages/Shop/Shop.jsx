@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Products from "./Products";
 
 const Shop = () => {
   return (
-    <section className='shop_'>
-        
+    <section className="shop_">
+      <Products />
     </section>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop;
