@@ -5,7 +5,6 @@ import catImg from '../../assets/images/shop/hero/bg-cate-4.png'
 import catImg2 from '../../assets/images/shop/hero/bg-cate-1.png'
 import catImg3 from '../../assets/images/shop/hero/bg-cate-2.png'
 import catImg4 from '../../assets/images/shop/hero/bg-cate-3.png'
-import './Shop.css'
 import ShopBasicCategory from './ShopBasicCategory'
 
 const ShopHero = () => {

@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Account from './Pages/Account/Account'
+import Contact from './Pages/Contact/Contact'
 import Header from './Pages/HomePage/Header/Header'
 import HomePage from './Pages/HomePage/HomePage'
 import Shop from './Pages/Shop/Shop'
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/account' element={<Account />}></Route>
         <Route path='/shop' element={<Shop />}></Route>
+        <Route path='/contact' element={<Contact />}></Route>
       </Routes>
       <Footer />
     </div>
