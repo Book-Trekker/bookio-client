@@ -1,0 +1,6 @@
+.shop_cover{
+    background: url("../../assets/images/shop/hero/banner-shop.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
