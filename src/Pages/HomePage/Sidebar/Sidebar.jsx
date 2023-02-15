@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, NavLink } from "react-router-dom";
-import DropDownMenu from "../BottomHeader/DropDownMenu";
+import DropDownMenu from "../Header/BottomHeader/BottomHeader";
 import menuList from "../../../utilities/Menu";
 import SidebarMenu from "./SidebarMenu";
 
