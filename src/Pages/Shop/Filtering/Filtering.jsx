@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Rating from "react-rating";
-import ReactStars from "react-rating-stars-component";
 import { brands, category, Ratings, years } from "../../../utilities/Filtering";
 import Brand from "./Brand";
 import Category from "./category";
@@ -14,7 +13,6 @@ const Filtering = () => {
   const [activeYears, setActiveYears] = useState([]);
   const [activeRatings, setActiveRatings] = useState([]);
 
-  console.log("activeCategory", activeCategory);
   return (
     <div className="mx-4">
       <div>
@@ -22,7 +20,7 @@ const Filtering = () => {
           <FilterTitle>Categories</FilterTitle>
           {category.map((cate, index) => (
             <Category
-              key={index}
+              key={cate}
               {...{ cate, activeCategory, setActiveCategory }}
             />
           ))}
@@ -34,20 +32,20 @@ const Filtering = () => {
         <div className="brand border-2 border-[#e6e6e6] px-5 py-2 mb-5">
           <FilterTitle>Brands</FilterTitle>
           {brands.map((brand, index) => (
-            <Brand key={index} {...{ brand, activeBrands, setActiveBrands }} />
+            <Brand key={brand} {...{ brand, activeBrands, setActiveBrands }} />
           ))}
         </div>
         <div className="years border-2 border-[#e6e6e6] px-5 py-2 mb-5">
           <FilterTitle>Years</FilterTitle>
           {years.map((year, index) => (
-            <Year key={index} {...{ year, activeYears, setActiveYears }} />
+            <Year key={year} {...{ year, activeYears, setActiveYears }} />
           ))}
         </div>
         <div className="years border-2 border-[#e6e6e6] px-5 py-2 mb-5">
           <FilterTitle>Ratings</FilterTitle>
           {Ratings.map((rating, index) => (
             <SRating
-              key={index}
+              key={index + rating}
               {...{ rating, activeRatings, setActiveRatings }}
             />
           ))}

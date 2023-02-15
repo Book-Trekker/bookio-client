@@ -7,13 +7,11 @@ const SRating = ({ rating, activeRatings, setActiveRatings }) => {
 
   const handleChange = () => {
     setChecked((prev) => !prev);
-    if (activeRatings.includes(rating.toLocaleLowerCase())) {
-      const notExitCategory = activeRatings.filter(
-        (c) => c !== rating.toLocaleLowerCase()
-      );
+    if (activeRatings.includes(rating)) {
+      const notExitCategory = activeRatings.filter((c) => c !== rating);
       setActiveRatings(notExitCategory);
     } else {
-      setActiveRatings((prev) => [...prev, rating.toLocaleLowerCase()]);
+      setActiveRatings((prev) => [...prev, rating]);
     }
   };
   const ratingChanged = (newRating) => {

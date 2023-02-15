@@ -1,5 +1,6 @@
 import React from "react";
 import Filtering from "./Filtering/Filtering";
+import ProductHeader from "./ProductHeader";
 
 const Products = () => {
   return (
@@ -8,7 +9,9 @@ const Products = () => {
         <div className="col-span-3">
           <Filtering />
         </div>
-        <div className="col-span-9">product</div>
+        <div className="col-span-9">
+          <ProductHeader />
+        </div>
       </div>
     </div>
   );
