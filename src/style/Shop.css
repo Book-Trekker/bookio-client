@@ -27,3 +27,34 @@
   bottom: 0;
   left: 0;
 }
+
+.showPerPageMenu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
+  padding: 15px 0;
+  min-width: 10rem;
+  z-index: 999999;
+  transform: translate3d(0px, 30px, 0px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.2s ease-in;
+}
+.showPerPageMenu.active {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
+  padding: 15px 0;
+  min-width: 10rem;
+  z-index: 999999;
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 0.2s ease-out;
+  pointer-events: painted;
+  visibility: visible;
+  opacity: 1;
+}
