@@ -28,7 +28,7 @@ const Contact = () => {
             referrerpolicy='no-referrer-when-downgrade'
           ></iframe>
         </div>
-        <div className='contact_information px-10 grid grid-cols-12 gap-5 mb-16'>
+        <div className='contact_information px-10 grid grid-cols-1 md:grid-cols-12 gap-5 mb-16'>
           <div className='col-span-5'>
             <div className='contact_icon'>
               <div className='contact_icon_one flex items-start border-b border-[#E8E8E8] my-8 pb-5'>
@@ -93,7 +93,7 @@ const Contact = () => {
           <div className='col-span-7'>
             {/* leave Us message  */}
             <div className='leave_message relative'>
-              <h2 className='text-3xl font-libre font-bold'>
+              <h2 className='text-2xl md:text-3xl font-libre font-bold'>
                 Leave Us a Message
               </h2>
               <div className='absolute bottom-[-15px] left-0 w-full h-[1px] bg-[#E8E8E8]'></div>
@@ -101,7 +101,7 @@ const Contact = () => {
             </div>
             {/* contact form  */}
             <div className='form mt-10'>
-              <div className='grid grid-cols-2 gap-5'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 <div className='w-full'>
                   <Input label='Name*' />
                 </div>
