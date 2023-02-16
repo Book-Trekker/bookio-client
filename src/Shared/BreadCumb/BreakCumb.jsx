@@ -12,7 +12,7 @@ const BreakCumb = ({second, MyAccount, first, route}) => {
           </Link>
           {<Link to={route}>{second}</Link>}
         </Breadcrumbs>
-        {MyAccount && <h2 className='text-2xl font-bold font-libre text-black'>{MyAccount}</h2>}
+        {MyAccount && <h2 className='text-lg md:text-2xl font-bold font-libre text-black'>{MyAccount}</h2>}
       </div>
     </section>
   )

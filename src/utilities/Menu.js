@@ -23,7 +23,8 @@ const HeaderMenu = [
     subMenu: [
       { subMenuName: "Product Author", subMenuPath: "/author" },
       { subMenuName: "Store List", subMenuPath: "/store-list" },
-      { subMenuName: "Store Details", subMenuPath: "/store-details" }
+      { subMenuName: "Store Details", subMenuPath: "/store-details" },
+      { subMenuName: "FAQ", subMenuPath: "/faq" }
     ],
   },
 ];
