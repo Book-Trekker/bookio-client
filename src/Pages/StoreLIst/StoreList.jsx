@@ -94,11 +94,11 @@ const StoreList = () => {
         {/* sorted list card  */}
         <div className='sorted_list_card mx-5 md:mx-10 my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
           <SortedListCard title={'Bookshop'} bg={bg1} profile={profile1} />
-          <SortedListCard title={'Bookshop'} bg={bg2} profile={profile2} />
-          <SortedListCard title={'Bookshop'} bg={bg3} profile={profile3} />
-          <SortedListCard title={'Bookshop'} bg={bg4} profile={profile4} />
-          <SortedListCard title={'Bookshop'} bg={bg5} profile={profile5} />
-          <SortedListCard title={'Bookshop'} bg={bg6} profile={profile6} />
+          <SortedListCard title={'Hardback Book'} bg={bg2} profile={profile2} />
+          <SortedListCard title={'V-Book'} bg={bg3} profile={profile3} />
+          <SortedListCard title={'BOA Bookstore'} bg={bg4} profile={profile4} />
+          <SortedListCard title={"Powell's Books"} bg={bg5} profile={profile5} />
+          <SortedListCard title={'Wpbingo'} bg={bg6} profile={profile6} />
         </div>
       </div>
     </section>

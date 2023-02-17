@@ -47,7 +47,7 @@ const SortedListCard = ({title, profile, bg}) => {
             <span className='cursor-pointer bg-white hover:bg-primary hover:text-white shadow border rounded-full border-gray w-10 h-10 flex justify-center items-center'>
               <i class='ri-arrow-right-s-line text-3xl'></i>
             </span>
-            <div className='profile w-24 h-24 -mt-20 p-2 bg-white rounded-full static z-50'>
+            <div className='profile w-24 h-24 -mt-20 p-2 bg-white rounded-full static z-50 cursor-pointer'>
               <Avatar className='w-full h-full' src={profile} alt='avatar' variant='circular' />
             </div>
           </div>
