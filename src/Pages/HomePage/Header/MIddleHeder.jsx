@@ -32,12 +32,14 @@ const MIddleHeder = () => {
           </div>
         </div>
         <div className='cart flex justify-between items-center'>
-          <div className='bookshop'>
-            <p className='text-center'>
-              <i class='ri-map-pin-line'></i>
-            </p>
-            <p className='text-sm'>Bookshop Finder</p>
-          </div>
+          <Link to={"/contact"}>
+            <div className='bookshop cursor-pointer'>
+              <p className='text-center'>
+                <i class='ri-map-pin-line'></i>
+              </p>
+              <p className='text-sm'>Bookshop Finder</p>
+            </div>
+          </Link>
           {/* Add to cart  */}
           <Carts />
         </div>
