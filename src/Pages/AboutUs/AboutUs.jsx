@@ -4,6 +4,9 @@ import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
 import aboutBg from '../../assets/images/about/about-bg.png'
 import aboutCover from '../../assets/images/about/about-cover.png'
 import DeliveryProcess from './DeliveryProcess'
+import Subscribe from './Subscribe'
+import TopFooterCard from '../../Shared/TopFooterCard'
+import { TopFooterData } from "../../utilities/DemoData";
 
 const AboutUs = () => {
   return (
@@ -100,6 +103,21 @@ const AboutUs = () => {
           title={'180 Days Return'}
           subtitle={'180 Days Return'}
         />
+      </div>
+      {/* subscribe  */}
+      <div className='subscribe_section px-10'>
+        <Subscribe />
+      </div>
+      {/* top footer  */}
+      <div
+        style={{ borderTop: '1px solid #EDEDED' }}
+        className='px-10 my-5 py-8'
+      >
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+          {TopFooterData.map((d) => (
+            <TopFooterCard key={d.name} data={d} />
+          ))}
+        </div>
       </div>
     </section>
   )
