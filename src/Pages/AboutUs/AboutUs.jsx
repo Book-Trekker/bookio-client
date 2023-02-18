@@ -3,6 +3,7 @@ import '../../style/Global.css'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
 import aboutBg from '../../assets/images/about/about-bg.png'
 import aboutCover from '../../assets/images/about/about-cover.png'
+import DeliveryProcess from './DeliveryProcess'
 
 const AboutUs = () => {
   return (
@@ -76,6 +77,29 @@ const AboutUs = () => {
             Curae; In ac dui quis mi consectetuer lacinia..
           </p>
         </div>
+      </div>
+      {/* delivery info  */}
+      <div className='delivery_info px-5 md:px-10 my-10 md:my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+        <DeliveryProcess
+          icon={'ri-truck-line'}
+          title={'Free delivery'}
+          subtitle={'For all orders above $45'}
+        />
+        <DeliveryProcess
+          icon={'ri-secure-payment-line'}
+          title={'Secure payments'}
+          subtitle={'Confidence on all your devices'}
+        />
+        <DeliveryProcess
+          icon={'ri-headphone-line'}
+          title={'Top-notch support'}
+          subtitle={'sayhello&vapier.com'}
+        />
+        <DeliveryProcess
+          icon={'ri-refresh-line'}
+          title={'180 Days Return'}
+          subtitle={'180 Days Return'}
+        />
       </div>
     </section>
   )
