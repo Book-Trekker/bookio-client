@@ -6,7 +6,9 @@ import aboutCover from '../../assets/images/about/about-cover.png'
 import DeliveryProcess from './DeliveryProcess'
 import Subscribe from './Subscribe'
 import TopFooterCard from '../../Shared/TopFooterCard'
-import { TopFooterData } from "../../utilities/DemoData";
+import { TopFooterData } from '../../utilities/DemoData'
+import bookio from '../../assets/images/about/bookio.png'
+import BookioSlider from './BookioSlider'
 
 const AboutUs = () => {
   return (
@@ -107,6 +109,17 @@ const AboutUs = () => {
       {/* subscribe  */}
       <div className='subscribe_section px-10'>
         <Subscribe />
+      </div>
+      {/* bookio testimonial  */}
+      <div className='bookio_testimonial px-10'>
+        <div className='bookio_main grid grid-cols-1 md:grid-cols-2 gap-4 my-14'>
+          <div className='w-full'>
+            <img className='top_image' src={bookio} alt='bookio/img' />
+          </div>
+          <div className='slider__ border border-[#E9E9E9]'>
+            <BookioSlider />
+          </div>
+        </div>
       </div>
       {/* top footer  */}
       <div
