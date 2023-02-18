@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import AboutUs from './Pages/AboutUs/AboutUs'
 import Account from './Pages/Account/Account'
 import Contact from './Pages/Contact/Contact'
 import Faq from './Pages/FAQ/Faq'
@@ -22,6 +23,7 @@ function App() {
         <Route path='/faq' element={<Faq />}></Route>
         <Route path='/store-list' element={<StoreList />}></Route>
         <Route path='/store-details' element={<Shop />}></Route>
+        <Route path='/about' element={<AboutUs />}></Route>
       </Routes>
       <Footer />
     </div>
