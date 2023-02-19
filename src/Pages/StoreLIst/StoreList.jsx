@@ -76,8 +76,8 @@ const StoreList = () => {
         <div
           className={
             openSearch
-              ? 'sorted_menu mx-10 h-full opacity-1 transition-all duration-100 ease-in'
-              : 'sorted_menu mx-10 h-0 opacity-0 transition-all duration-100 ease-in'
+              ? 'sorted_menu mx-10 h-[200px] opacity-1 transition-all duration-300 ease-in'
+              : 'sorted_menu mx-10 h-0 opacity-0 transition-all duration-300 ease-in'
           }
         >
           <div className='sorted_search p-10 shadow-inner'>
