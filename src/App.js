@@ -9,6 +9,7 @@ import MobileMenu from './Pages/MobileMenu/MobileMenu'
 import Author from './Pages/ProducctAuthor/Author'
 import Shop from './Pages/Shop/Shop'
 import StoreList from './Pages/StoreLIst/StoreList'
+import WishList from './Pages/WishList/WishList'
 import Footer from './Shared/Footer/Footer'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/store-list' element={<StoreList />}></Route>
         <Route path='/store-details' element={<Shop />}></Route>
         <Route path='/about' element={<AboutUs />}></Route>
+        <Route path='/wishlist' element={<WishList />}></Route>
       </Routes>
       <MobileMenu />
       <Footer />
