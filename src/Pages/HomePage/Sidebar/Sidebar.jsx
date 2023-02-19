@@ -73,7 +73,7 @@ const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }) => {
                       exit="hidden"
                       className="link_text"
                     >
-                      {m.name}
+                      {m.menu}
                     </motion.div>
                   )}
                 </AnimatePresence>

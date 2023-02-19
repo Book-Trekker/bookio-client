@@ -32,7 +32,7 @@ const TopHeader = () => {
               </Link>{' '}
             </li>
             <li className='list-none text-[12px] font-lato font-bold text-gray hover:text-black'>
-              <Link to='/'>
+              <Link to='/wishlist'>
                 <span className='mx-2'>
                   <i class='far fa-heart'></i>
                 </span>{' '}
