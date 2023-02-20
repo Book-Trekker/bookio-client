@@ -1,21 +1,20 @@
 import React from 'react'
-import blogs1 from '../../assets/images/blogs/blogs1.png'
 
-const Blog = () => {
+const Blog = ({img, title}) => {
   return (
     <section className=''>
       <div className='w-full h-screen relative'>
-        <img className='w-full h-full' src={blogs1} alt='blogs/img' />
+        <img className='w-full h-full' src={img} alt='blogs/img' />
         <div className='absolute bottom-5 left-5'>
           <div className='flex gap-2'>
             <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[12px] font-libre'>
               BACPACK
             </button>
             <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[12px] font-libre'>
-              BACPACK
+              FASHION
             </button>
             <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[12px] font-libre'>
-              BACPACK
+              LIFE STYLE
             </button>
           </div>
         </div>
@@ -36,7 +35,7 @@ const Blog = () => {
             </span>
           </p>
           <h1 className='text-2xl md:text-4xl text-primary font-libre font-bold py-2'>
-            Traveling Solo Is Awesome
+            {title}
           </h1>
           <p className='text-gray py-2'>
             sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero,
