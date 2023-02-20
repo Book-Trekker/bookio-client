@@ -17,7 +17,7 @@ const Blogs = () => {
         MyAccount={'Blogs'}
       />
       {/* blogs section  */}
-      <div className='blogs__ my-10 mx-16'>
+      <div className='blogs__ my-10 mx-5 md:mx-16'>
         <Blog img={blogs1} title={'Traveling Solo Is Awesome'} />
         <hr className='my-5 md:my-10 text-[#e2e2e2]' />
         <Blog img={blogs2} title={'A Beautiful Sunday Morning'} />

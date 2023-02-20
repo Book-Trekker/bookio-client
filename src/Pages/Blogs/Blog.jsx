@@ -3,17 +3,17 @@ import React from 'react'
 const Blog = ({img, title}) => {
   return (
     <section className=''>
-      <div className='w-full h-screen relative'>
+      <div className='w-full h-full md:h-screen relative'>
         <img className='w-full h-full' src={img} alt='blogs/img' />
-        <div className='absolute bottom-5 left-5'>
-          <div className='flex gap-2'>
-            <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[12px] font-libre'>
+        <div className='absolute bottom-2 md:bottom-5 left-2 md:left-5'>
+          <div className='flex gap-1 md:gap2'>
+            <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[10px] md:text-[12px]  font-libre'>
               BACPACK
             </button>
-            <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[12px] font-libre'>
+            <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[10px] md:text-[12px]  font-libre'>
               FASHION
             </button>
-            <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[12px] font-libre'>
+            <button className='px-5 py-2 bg-primary hover:bg-black text-white text-[10px] md:text-[12px]  font-libre'>
               LIFE STYLE
             </button>
           </div>
@@ -23,7 +23,7 @@ const Blog = ({img, title}) => {
       <div className='blog_details my-3'>
         <div>
           <p className='text-gray'>
-            <span className='flex items-center'>
+            <span className='flex flex-wrap items-center'>
               <i class='ri-calendar-event-line'></i> &nbsp;August 18, 2021
               &nbsp;/&nbsp;
               <span>
