@@ -53,10 +53,10 @@
 
   /* style for mobile menu  */
   .custom_link_.active_{
-    background-color: green !important;
-    color: white !important;
+    background-color: #064532;
+    color: white;
   }
   .custom_link_{
-    background-color: white !important;
-    color: black !important;
+    background-color: white;
+    color: black;
   }

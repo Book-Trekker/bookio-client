@@ -14,7 +14,7 @@ const initialValues = {
 }
 
 const SignUp = () => {
-  const [checkedBox, setCheckedBox] = useState(null)
+  const [checkedBox, setCheckedBox] = useState("checkbox1")
   console.log(checkedBox)
 
   const handleCheckboxClick = (event) => {
