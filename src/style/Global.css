@@ -51,4 +51,12 @@
     width:100%;
   }
 
-  
+  /* style for mobile menu  */
+  .custom_link_.active_{
+    background-color: green !important;
+    color: white !important;
+  }
+  .custom_link_{
+    background-color: white !important;
+    color: black !important;
+  }
