@@ -13,7 +13,7 @@ const Testimonial = () => {
   return (
     <section className='testimonial pt-16 px-10'>
       <div className='testimonial_main'>
-        <h2 className='text-3xl text-primary font-bold font-libre'>
+        <h2 className='text-xl md:text-3xl text-primary font-bold font-libre'>
           Happy Client Say !
         </h2>
 
@@ -71,7 +71,7 @@ const Testimonial = () => {
                     <FaQuoteRight className='text-4xl text-primary' />{' '}
                     </div>
                 </div>
-                <p className='py-2 text-gray font-lato text-left'>
+                <p className='text-sm md:text-lg py-2 text-gray font-lato text-left'>
                     Blood bank canine teeth larynx occupational therapist oncologist
                     optician plaque spinal tap stat strep screen violence joints
                     symptoms x-ray
@@ -112,7 +112,7 @@ const Testimonial = () => {
                     <FaQuoteRight className='text-4xl text-primary' />{' '}
                     </div>
                 </div>
-                <p className='py-2 text-gray font-lato text-left'>
+                <p className='text-sm md:text-lg py-2 text-gray font-lato text-left'>
                     Blood bank canine teeth larynx occupational therapist oncologist
                     optician plaque spinal tap stat strep screen violence joints
                     symptoms x-ray
@@ -153,7 +153,7 @@ const Testimonial = () => {
                     <FaQuoteRight className='text-4xl text-primary' />{' '}
                     </div>
                 </div>
-                <p className='py-2 text-gray font-lato text-left'>
+                <p className='text-sm md:text-lg py-2 text-gray font-lato text-left'>
                     Blood bank canine teeth larynx occupational therapist oncologist
                     optician plaque spinal tap stat strep screen violence joints
                     symptoms x-ray
@@ -194,7 +194,7 @@ const Testimonial = () => {
                     <FaQuoteRight className='text-4xl text-primary' />{' '}
                     </div>
                 </div>
-                <p className='py-2 text-gray font-lato text-left'>
+                <p className='text-sm md:text-lg py-2 text-gray font-lato text-left'>
                     Blood bank canine teeth larynx occupational therapist oncologist
                     optician plaque spinal tap stat strep screen violence joints
                     symptoms x-ray

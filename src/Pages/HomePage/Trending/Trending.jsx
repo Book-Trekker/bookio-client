@@ -13,7 +13,7 @@ const Trending = ({title}) => {
     <section className='trending px-5 my-8 w-full overflow-x-hidden'>
       {/* trending title  */}
       <div className='trending_title flex justify-between items-center my-4'>
-        <h2 className='text-2xl font-bold font-libre my-5'>{title}</h2>
+        <h2 className='text-xl md:text-2xl font-bold font-libre my-5'>{title}</h2>
         <div className='flex items-center justify-center'>
           <p className='underline cursor-pointer'>View All</p>
           <span className='flex justify-center items-center ml-1'>

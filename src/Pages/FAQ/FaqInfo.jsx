@@ -4,7 +4,7 @@ const FaqInfo = ({ title }) => {
   return (
     <section className='faq_ px-10'>
       <div className='faq_main_'>
-        <span className='faq_heading_ text-[28px] font-libre font-bold pb-8 block'>
+        <span className='faq_heading_ text-[24px] md:text-[28px] font-libre font-bold pb-8 block'>
           {title}
         </span>
         <span className='faq_subtitle font-lato font-bold text-gray'>

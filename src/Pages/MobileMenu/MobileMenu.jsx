@@ -5,6 +5,7 @@ import { Input } from '@material-tailwind/react'
 
 const MobileMenu = () => {
   const [openSearch, setOpenSearch] = useState(false)
+  // mobile menu
 
   return (
     <>

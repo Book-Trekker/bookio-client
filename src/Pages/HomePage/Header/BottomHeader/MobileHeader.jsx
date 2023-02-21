@@ -6,7 +6,7 @@ const MobileHeader = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
   return (
     <div className='md:hidden block'>
-      <div className='flex  justify-between px-10 items-center py-4'>
+      <div className='flex  justify-between px-5 md:px-10 items-center py-4'>
         <div>
           <span onClick={() => setIsOpenSidebar(true)}>
             <i className='ri-menu-line text-[22px]'></i>
@@ -24,7 +24,7 @@ const MobileHeader = () => {
           </Link>
         </div>
         <div>
-          <span>
+          <span className='hidden md:block'>
             <i className='ri-menu-3-fill text-[22px]'></i>
           </span>
           <span>

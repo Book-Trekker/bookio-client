@@ -42,24 +42,25 @@ const StoreList = () => {
               {/* filter icon  */}
               <div
                 onClick={() => setOpenSearch(!openSearch)}
-                className='w-full md:w-auto flt_icon px-5 py-1 bg-primary text-white cursor-pointer'
+                className='w-full md:w-auto flt_icon px-5 py-1 bg-primary text-white cursor-pointer order-2 md:order-1'
               >
                 <h4 className='flex items-center'>
                   <i class='ri-filter-3-line text-2xl mr-1'></i> FILTER
                 </h4>
               </div>
               {/* sort by  */}
-              <div className='sort_by flex items-center w-full md:w-auto'>
-                <span className='text-[#767a79] font-lato block pr-1'>
+              <div className='sort_by flex items-center w-full md:w-auto order-1 md:order-2'>
+                <span className='text-[#767a79] font-lato pr-1 hidden md:block'>
                   Sort by:{' '}
                 </span>
-                <div className='custom_filter'>
+                <div className='custom_filter w-full md:w-auto'>
                   <Select label='Select Filter'>
                     <Option>Most Recent</Option>
                     <Option>Most Popular</Option>
                     <Option>Random</Option>
                   </Select>
                 </div>
+                {/* icon  */}
                 <div className='icon ml-2 hidden md:block'>
                   <span>
                     <i class='ri-layout-grid-fill text-2xl ml-1 cursor-pointer'></i>
@@ -76,11 +77,11 @@ const StoreList = () => {
         <div
           className={
             openSearch
-              ? 'sorted_menu mx-10 h-[200px] opacity-1 transition-all duration-300 ease-in'
+              ? 'sorted_menu mx-10 h-[100px] md:h-[200px] opacity-1 transition-all duration-300 ease-in'
               : 'sorted_menu mx-10 h-0 opacity-0 transition-all duration-300 ease-in'
           }
         >
-          <div className='sorted_search p-10 shadow-inner'>
+          <div className='sorted_search p-0 md:p-10 shadow-inner'>
             <div className='w-full'>
               <Input label='Search Vendors' />
               <div className='text-right'>
