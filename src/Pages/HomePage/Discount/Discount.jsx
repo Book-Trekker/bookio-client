@@ -8,7 +8,7 @@ const Discount = () => {
       <div className='discount-bg h-80 flex justify-center items-center'>
         <div className='discount_content text-center'>
           <p className='my-3 text-white font-bold'>MORE BANG FOR YOUR BOOKS</p>
-          <h2 className='text-3xl md:text-5xl text-white font-libre font-bold'>
+          <h2 className='text-2xl md:text-5xl text-white font-libre font-bold'>
             20% Off Select Books
           </h2>
           <Button className='bg-black text-white my-5 rounded-none hover:bg-primary'>

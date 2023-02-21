@@ -7,7 +7,7 @@ const HeaderMenu = [
   },
   {
     menu: "Blog",
-    path: "/blog"
+    path: "/blogs"
   },
   {
     menu: "About Us",

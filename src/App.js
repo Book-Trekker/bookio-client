@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import AboutUs from './Pages/AboutUs/AboutUs'
 import Account from './Pages/Account/Account'
+import Blogs from './Pages/Blogs/Blogs'
 import Contact from './Pages/Contact/Contact'
 import Faq from './Pages/FAQ/Faq'
 import Header from './Pages/HomePage/Header/Header'
@@ -27,6 +28,7 @@ function App() {
         <Route path='/store-details' element={<Shop />}></Route>
         <Route path='/about' element={<AboutUs />}></Route>
         <Route path='/wishlist' element={<WishList />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
       </Routes>
       <MobileMenu />
       <Footer />

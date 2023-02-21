@@ -10,7 +10,7 @@ const BookOfTheMonth = () => {
     <section className='px-10'>
       {/* title  */}
       <div className='trending_title flex justify-between items-center my-4'>
-        <h2 className='text-3xl text-primary font-bold font-libre my-8'>
+        <h2 className='text-xl md:text-2xl text-primary font-bold font-libre my-8'>
           Books of the Month
         </h2>
         <div className='flex items-center justify-center'>
@@ -44,7 +44,7 @@ const BookOfTheMonth = () => {
               <i class='ri-star-s-fill text-yellow'></i>
               <p className='text-gray'>(5)</p>
             </div>
-            <h3 className='text-3xl text-primary font-bold font-libre py-3'>
+            <h3 className='text-xl md:text-3xl text-primary font-bold font-libre py-3'>
               Healed New Life
             </h3>
             <p className='text-gray font-bold'>
@@ -100,7 +100,7 @@ const BookOfTheMonth = () => {
               <i class='ri-star-s-fill text-gray'></i>
               <p className='text-gray'>(0)</p>
             </div>
-            <h3 className='text-3xl text-primary font-bold font-libre py-3'>
+            <h3 className='text-xl md:text-3xl text-primary font-bold font-libre py-3'>
               Cup Cake Diares
             </h3>
             <p className='text-gray font-bold'>
