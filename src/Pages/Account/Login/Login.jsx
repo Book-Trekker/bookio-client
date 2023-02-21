@@ -5,9 +5,10 @@ import { useFormik } from 'formik'
 import { signUpSchema } from '../../../schemas'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import swipe from '../../../assets/images/account/swipe.gif'
 const initialValues = {
   loginEmail: '',
-  loginPassword: ''
+  loginPassword: '',
 }
 
 const Login = () => {
@@ -23,16 +24,37 @@ const Login = () => {
     })
 
   return (
-    <section className='login border-2 border-[#eaeaea] rounded pt-12 pb-4'>
+    <section className='login border-2 border-[#eaeaea] rounded pt-0 md:pt-12 pb-4 w-full'>
       <div className='login_title'>
+        <div className='block md:hidden'>
+          <div className='flex justify-center items-center gap-4 w-full'>
+            <div className='flex items-center justify-center'>
+              <h3 className='font-libre text-gray text-sm flex justify-center items-center'>
+                Swipe Right{' '}
+                <span className='flex justify-center items-center'>
+                  <i class='ri-arrow-right-s-fill text-primary text-3xl'></i>
+                </span>{' '}
+              </h3>
+            </div>
+            <div className='w-14 flex items-center justify-center'>
+              <img src={swipe} alt='swipe/img' />
+            </div>
+            <div className='flex items-center justify-center text-gray text-sm'>
+              <h3 className='font-libre'>To Register</h3>
+            </div>
+          </div>
+        </div>
         <h2 className='custom_border relative flex items-center justify-center text-center text-2xl font-bold text-black font-libre pb-2'>
           <span>
-          <i className='ri-user-line px-2'></i>
+            <i className='ri-user-line px-2'></i>
           </span>{' '}
           Login
         </h2>
       </div>
-      <form onSubmit={handleSubmit} className='input_field px-5 md:px-12 py-5'>
+      <form
+        onSubmit={handleSubmit}
+        className='input_field px-5 md:px-12 py-5 text-left'
+      >
         {/* input email  */}
         <div className='input_email flex flex-col mb-2'>
           <label htmlFor='email' className='input-label pb-2 text-[#767a79]'>

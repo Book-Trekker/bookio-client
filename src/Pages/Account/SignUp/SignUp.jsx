@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Checkbox } from '@material-tailwind/react'
 import { useFormik } from 'formik'
 import { signUpSchema } from '../../../schemas'
+import swipe from '../../../assets/images/account/swipe.gif'
 
 const initialValues = {
   name: '',
@@ -38,16 +39,37 @@ const SignUp = () => {
     })
 
   return (
-    <section className='login border-2 border-[#eaeaea] rounded pt-12 pb-4'>
+    <section className='login border-2 border-[#eaeaea] rounded pt-0 md:pt-12 pb-4'>
       <div className='login_title'>
-        <h2 className='custom_border relative flex items-center justify-center text-center text-2xl font-bold text-black font-libre pb-2'>
+        <div className='block md:hidden'>
+          <div className='flex justify-center items-center gap-4 w-full'>
+            <div className='flex items-center justify-center'>
+              <h3 className='font-libre text-gray text-sm flex justify-center items-center'>
+                <span className='flex justify-center items-center'>
+                  <i class='ri-arrow-left-s-fill text-primary text-3xl'></i>
+                </span>{' '}
+                Swipe Left
+              </h3>
+            </div>
+            <div className='w-14 flex items-center justify-center'>
+              <img src={swipe} alt='swipe/img' />
+            </div>
+            <div className='flex items-center justify-center text-gray text-sm'>
+              <h3 className='font-libre'>To Login</h3>
+            </div>
+          </div>
+        </div>
+        <h2 className='custom_border relative flex items-center justify-center text-2xl font-bold text-black font-libre pb-2'>
           <span>
             <i className='ri-logout-box-line pr-2'></i>
           </span>{' '}
           Register
         </h2>
       </div>
-      <form onSubmit={handleSubmit} className='input_field px-5 md:px-12 py-5'>
+      <form
+        onSubmit={handleSubmit}
+        className='input_field px-2 md:px-12 py-5 text-left w-full'
+      >
         {/* input email  */}
         <div className='input_email flex flex-col mb-2'>
           <label htmlFor='email' className='input-label pb-2 text-[#767a79]'>
