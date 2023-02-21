@@ -4,12 +4,14 @@ import { Checkbox } from '@material-tailwind/react'
 import { useFormik } from 'formik'
 import { signUpSchema } from '../../../schemas'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 const initialValues = {
-  email: '',
-  password: ''
+  loginEmail: '',
+  loginPassword: ''
 }
 
 const Login = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false)
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues,
@@ -40,14 +42,14 @@ const Login = () => {
             className='border-2 px-2 py-4 border-[#eaeaea]'
             type='email'
             autoComplete='off'
-            name='email'
-            id='email'
-            values={values.email}
+            name='loginEmail'
+            id='loginEmail'
+            values={values.loginEmail}
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.email && touched.email ? (
-            <p className='text-red-500'>{errors.email}</p>
+          {errors.loginEmail && touched.loginEmail ? (
+            <p className='text-red-500'>{errors.loginEmail}</p>
           ) : null}
         </div>
         {/* input password  */}
@@ -55,18 +57,31 @@ const Login = () => {
           <label htmlFor='password' className='input-label pb-2 text-[#767a79]'>
             Password <span className='text-red-500'>*</span>
           </label>
-          <input
-            className='border-2 px-2 py-4 border-[#eaeaea]'
-            type='password'
-            autoComplete='off'
-            name='password'
-            id='password'
-            values={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
+          <div className='w-full relative'>
+            <input
+              className='w-full border-2 px-2 py-4 border-[#eaeaea]'
+              type={passwordVisible ? 'text' : 'password'}
+              autoComplete='off'
+              name='password'
+              id='password'
+              values={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <span
+              onClick={() => setPasswordVisible(!passwordVisible)}
+              className='absolute right-2 top-2 text-3xl text-[#767a79] '
+            >
+              {passwordVisible ? (
+                <i class='ri-eye-off-line'></i>
+              ) : (
+                <i class='ri-eye-line'></i>
+              )}
+            </span>
+          </div>
+
           {errors.password && touched.password ? (
-            <p className='text-red-500'>{errors.password}</p>
+            <p className='text-red-500 italic'>{errors.password}</p>
           ) : null}
         </div>
         {/* remember me  */}
