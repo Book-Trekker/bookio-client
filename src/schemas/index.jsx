@@ -21,8 +21,23 @@ export const signUpSchema = Yup.object({
       'Input a valid phone number - Ex: +8801xxxxxxxx'
     ),
   email: Yup.string().email().required('Please enter your email'),
-  password: Yup.string().min(6).required('Please enter your password'),
+  password: Yup.string()
+    .min(6, 'Password must be at least 6 characters')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])/,
+      'Password must contain at least one uppercase letter and one lowercase letter'
+    )
+    .matches(
+      /^(?=.*[!@#$%^&*])/,
+      'Password must contain at least one special character Ex:(!@#$%^&*)'
+    )
+    .required('Password is required'),
   confirmPassword: Yup.string()
     .required()
     .oneOf([Yup.ref('password'), null], 'Password mismatch'),
+  // validate for login
+  loginEmail: Yup.string()
+    .email('Invalid email address')
+    .required('Email is required'),
+  loginPassword: Yup.string().required('Password is required'),
 })

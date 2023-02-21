@@ -51,4 +51,14 @@
     width:100%;
   }
 
-  
+  /* style for mobile menu  */
+  .custom_link_.active_{
+    background-color: #064532;
+    color: white;
+  }
+  .custom_link_{
+    background-color: white;
+    color: black;
+  }
+
+  /* password show toggle  */
