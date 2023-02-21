@@ -39,7 +39,7 @@ const Account = () => {
             <SwiperSlide className='w-full'>
               <Login />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='w-full'>
               <SignUp />
             </SwiperSlide>
           </Swiper>

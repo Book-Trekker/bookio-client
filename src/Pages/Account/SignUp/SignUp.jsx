@@ -39,9 +39,9 @@ const SignUp = () => {
     })
 
   return (
-    <section className='login border-2 border-[#eaeaea] rounded pt-0 md:pt-12 pb-4'>
-      <div className='login_title'>
-        <div className='block md:hidden'>
+    <section className='login border-2 border-[#eaeaea] rounded pt-0 md:pt-12 pb-4 w-full'>
+      <div className='login_title w-full'>
+        <div className='block md:hidden w-full'>
           <div className='flex justify-center items-center gap-4 w-full'>
             <div className='flex items-center justify-center'>
               <h3 className='font-libre text-gray text-sm flex justify-center items-center'>
