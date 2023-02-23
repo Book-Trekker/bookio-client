@@ -45,6 +45,7 @@ const Account = () => {
           </Swiper>
         </div>
       </section>
+      
     </section>
   )
 }
