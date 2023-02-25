@@ -9,7 +9,7 @@ const FantasticChoice = () => {
           <p className='font-bold font-lato text-lg'>
             Welcome to the Wonderful World of Books
           </p>
-          <h2 className='text-3xl md:text-5xl font-libre font-bold my-5'>
+          <h2 className='text-xl md:text-3xl md:text-5xl font-libre font-bold my-5'>
             Cheap Books, <br /> Fantastic Choice{' '}
           </h2>
           <hr className='w-[60px] border-b-2' />
