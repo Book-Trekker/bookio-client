@@ -168,27 +168,6 @@ const SignUp = () => {
           </div>
         )}
 
-        {/* input Last Name  */}
-        {checkedBox === 'checkbox2' && (
-          <div className='input_email flex flex-col mb-2'>
-            <label htmlFor='lname' className='input-label pb-2 text-[#767a79]'>
-              Last Name <span className='text-red-500'>*</span>
-            </label>
-            <input
-              className='border-2 px-2 py-4 border-[#eaeaea]'
-              type='text'
-              autoComplete='off'
-              name='lname'
-              id='lname'
-              values={values.lname}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {errors.lname && touched.lname ? (
-              <p className='text-red-500'>{errors.lname}</p>
-            ) : null}
-          </div>
-        )}
 
         {/* input shop Name  */}
         {checkedBox === 'checkbox2' && (
@@ -260,11 +239,9 @@ const SignUp = () => {
         </div>
 
         {/* login button  */}
-        <div className='login_btn my-3'>
-          <button className='text-center bg-[#B9B9B9] w-full text-white py-4 text-sm hover:bg-primary'>
+          <button type="submit" className='text-center bg-[#B9B9B9] w-full text-white py-4 text-sm hover:bg-primary'>
             LOGIN
           </button>
-        </div>
       </form>
     </section>
   )
