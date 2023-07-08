@@ -54,7 +54,7 @@ export default authSlice.reducer;
 // Thunk  for Signup
 export const registerThunk = (user) => async (dispatch) => {
   try {
-    console.log(user);
+    // console.log(user);
     dispatch(startRequestForUser());
     const config = {
       headers: { "Content-Type": "application/json" },

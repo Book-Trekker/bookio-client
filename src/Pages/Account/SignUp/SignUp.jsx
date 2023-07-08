@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Checkbox } from "@material-tailwind/react";
-import { signUpSchema } from "../../../schemas";
 import swipe from "../../../assets/images/account/swipe.gif";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -33,7 +31,7 @@ const SignUp = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log("user", user);
+    // console.log("user", user);
     dispatch(registerThunk({ ...user, role }));
   };
 
