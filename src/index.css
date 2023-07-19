@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,4 +33,47 @@ body {
 .shopping_cart_product {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+
+/* custom input field */
+.inputField {
+  border: 1px solid ;
+  border-radius: .375rem;
+  appearance : none;
+  -webkit-appearance: none;
+  background-color:  rgba(255,255,255,1);
+  padding: .5rem .75rem;
+  border-color: rgba(209,213,219,1);
+}
+
+.inputLabel{
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color : rgba(55,65,81,1);
+  font-family: 'Fira Sans', sans-serif;
+  margin: 4px 0;
+}
+
+.accountTitle {
+  color: rgba(17,24,39,1);
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-top: 1.5rem;
+}
+
+.socialLogin{
+  color: rgba(107,114,128,1);
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  background-color: rgba(255,255,255,1)  ;
+  border-width: 1px  ;
+  border-radius: .375rem;
+  border-color: rgba(209,213,219,1);
+  padding: .5rem 2rem;
+  margin-bottom: 6px;
+
 }

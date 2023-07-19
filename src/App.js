@@ -15,6 +15,8 @@ import WishList from "./Pages/WishList/WishList";
 import Footer from "./Shared/Footer/Footer";
 import { useDispatch } from "react-redux";
 import { loadUserThunk } from "./reduxStore/slice/authSlice";
+import SignUp from "./Pages/Sign_up/SignUp";
+import SignIn from "./Pages/SignIn/SignIn";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +31,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/account" element={<Account />}></Route>
+        <Route path="/sign_up" element={<SignUp />}></Route>
+        <Route path="/sign_in" element={<SignIn />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/author" element={<Author />}></Route>
