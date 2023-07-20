@@ -1,2 +1,2 @@
-export const BASE_API = "http://localhost:4000";
-// export const BASE_API = "https://bookio-server-production.up.railway.app";
+export const BASE_URL = 'http://localhost:5000'
+// export const BASE_API = 'https://book-trekker-backend.vercel.app'

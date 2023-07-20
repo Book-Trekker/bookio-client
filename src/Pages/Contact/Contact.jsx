@@ -1,10 +1,13 @@
 import React from 'react'
 import BreakCumb from '../../Shared/BreadCumb/BreakCumb'
 import { Input, Textarea } from '@material-tailwind/react'
+import Header from '../HomePage/Header/Header'
+import Footer from '../../Shared/Footer/Footer'
 
 const Contact = () => {
   return (
     <section className='contact_section'>
+      <Header />
       <div className='contact_main'>
         {/* breadCumb  */}
         <div className='breadCumb'>
@@ -120,6 +123,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   )
 }

@@ -1,33 +1,29 @@
-import { useEffect } from "react";
+
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Account from "./Pages/Account/Account";
 import Blogs from "./Pages/Blogs/Blogs";
 import Contact from "./Pages/Contact/Contact";
 import Faq from "./Pages/FAQ/Faq";
-import Header from "./Pages/HomePage/Header/Header";
 import HomePage from "./Pages/HomePage/HomePage";
 import MobileMenu from "./Pages/MobileMenu/MobileMenu";
 import Author from "./Pages/ProducctAuthor/Author";
 import Shop from "./Pages/Shop/Shop";
 import StoreList from "./Pages/StoreLIst/StoreList";
 import WishList from "./Pages/WishList/WishList";
-import Footer from "./Shared/Footer/Footer";
-import { useDispatch } from "react-redux";
-import { loadUserThunk } from "./reduxStore/slice/authSlice";
 import SignUp from "./Pages/Sign_up/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const id = localStorage.getItem("id");
-    dispatch(loadUserThunk(id));
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   const id = localStorage.getItem("id");
+  //   dispatch(loadUserThunk(id));
+  // }, [dispatch]);
 
   return (
     <div className="root-component">
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/account" element={<Account />}></Route>
@@ -44,7 +40,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />}></Route>
       </Routes>
       <MobileMenu />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

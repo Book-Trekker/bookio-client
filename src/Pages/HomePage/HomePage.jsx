@@ -12,10 +12,13 @@ import PopularShopTwo from "./PopularShopTwo/PopularShopTwo";
 import Testimonial from "./Testimonial/Testimonial";
 import TopCategories from "./TopCategories/TopCategories";
 import Trending from "./Trending/Trending";
+import Header from "./Header/Header";
+import Footer from "../../Shared/Footer/Footer";
 
 const HomePage = () => {
   return (
     <section className="homepage">
+      <Header />
       <Hero />
       <HeroCard />
       <Discount />
@@ -29,7 +32,7 @@ const HomePage = () => {
       <FantasticChoice />
       <Testimonial />
       <TopFooter />
-      {/* <Footer /> */}
+      <Footer />
       <MobileMenu />
     </section>
   );
