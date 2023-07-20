@@ -6,10 +6,13 @@ import author3 from '../../assets/images/author/author-3.png'
 import author4 from '../../assets/images/author/author-4.png'
 import author5 from '../../assets/images/author/author-5.png'
 import author6 from '../../assets/images/author/author-6.png'
+import Header from '../HomePage/Header/Header'
+import Footer from '../../Shared/Footer/Footer'
 
 const Author = () => {
   return (
     <section className='product_author w-full'>
+      <Header />
       {/* breadcumb  */}
       <div className='breadCumb'>
         <BreakCumb
@@ -63,6 +66,7 @@ const Author = () => {
           <p className='text-gray font-lato'>5 Published Book</p>
         </div>
       </div>
+      <Footer />
     </section>
   )
 }

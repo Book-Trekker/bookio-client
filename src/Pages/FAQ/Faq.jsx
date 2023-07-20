@@ -1,10 +1,13 @@
 import React from 'react'
 import Breadcumb from '../../Shared/BreadCumb/BreakCumb'
 import FaqInfo from './FaqInfo'
+import Header from '../HomePage/Header/Header'
+import Footer from '../../Shared/Footer/Footer'
 
 const Faq = () => {
   return (
     <section className='faq_section'>
+      <Header />
       <div className='breadCumb'>
         <Breadcumb
           first={'Home'}
@@ -31,6 +34,7 @@ const Faq = () => {
           <FaqInfo title={'04. Returns, exchanges and complaints'} />
         </div>
       </div>
+      <Footer />
     </section>
   )
 }
