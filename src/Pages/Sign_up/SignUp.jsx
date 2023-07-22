@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import loginImage from '../../assets/gif/login.gif'
 import { Button, Input } from '@material-tailwind/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
+import { useLoginMutation, useSignupMutation } from '../../redux/api/authApi'
 
 export default function SignUp() {
   const location = useLocation()
   const navigate = useNavigate()
-
+  const [signup, { isLoading }] = useSignupMutation();
+  const [role , setRole] = useState("")
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location])
@@ -25,9 +27,20 @@ export default function SignUp() {
   } = useForm()
 
   const onSubmit = async (data) => {
-    console.log(data)
-  }
 
+    signup({...data, phoneNumber: parseInt(data.phoneNumber)})
+    .unwrap()
+    .then((data) => {
+      // Handle successful signup
+      console.log('Signed up:', data);
+    })
+    .catch((error) => {
+      // Handle signup error
+      console.error('Signup Error:', error);
+    });
+    console.log("aignUp data", data)
+  }
+console.log("role", role)
   return (
     <>
       {/* breadCumb  */}

@@ -4,10 +4,14 @@ import loginImage from '../../assets/gif/login.gif'
 import { Button, Checkbox, Input, Typography } from '@material-tailwind/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
+import { useLoadUserMutation, useLoginMutation } from '../../redux/api/authApi'
+import Cookie from "js-cookie"
 
 export default function SignIp() {
   const location = useLocation()
   const navigate = useNavigate()
+  const [login, { isLoading }] = useLoginMutation();
+  const [loadUser, { data, error }] = useLoadUserMutation();
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -25,8 +29,25 @@ export default function SignIp() {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
-  }
+    login(data)
+    .unwrap()
+    .then((data) => {
+      // Handle successful login
+      console.log('Logged in:', data.data.accessToken);
+      const token = data.data.accessToken
+
+
+   
+      
+      if(token){
+        Cookie.set("accessToken", token)
+      }
+    })
+    .catch((error) => {
+      // Handle login error
+      console.error('Login Error:', error);
+    });
+  } 
 
   const termsAndConditionsChecked = watch('termsAndConditions', false)
 
@@ -119,7 +140,7 @@ export default function SignIp() {
                       </Typography>
                     }
                     containerProps={{ className: '-ml-2.5' }}
-                    {...register('termsAndConditions', { required: true })}
+                    {...register('termsAndConditions', { required: false })}
                   />
                 </div>
                 <Button type='submit' className='bg-secondary mt-3'>
