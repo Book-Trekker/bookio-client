@@ -4,15 +4,18 @@ import loginImage from '../../assets/gif/login.gif'
 import { Button, Checkbox, Input, Typography } from '@material-tailwind/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
-import { useLoadUserMutation, useLoginMutation } from '../../redux/api/authApi'
-import Cookie from "js-cookie"
+import Cookies from "js-cookie"
+import { useLoginMutation } from '../../redux/features/users/userApiSlice'
+import { getAccessToken } from '../../redux/api/apiSlice'
 
 export default function SignIp() {
   const location = useLocation()
   const navigate = useNavigate()
   const [login, { isLoading }] = useLoginMutation();
-  const [loadUser, { data, error }] = useLoadUserMutation();
 
+  const myToken = getAccessToken()
+  console.log(myToken)
+  
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location])
@@ -33,14 +36,11 @@ export default function SignIp() {
     .unwrap()
     .then((data) => {
       // Handle successful login
-      console.log('Logged in:', data.data.accessToken);
+      // console.log('Logged in:', data.data.accessToken);
+      console.log("Successfully logged in")
       const token = data.data.accessToken
-
-
-   
-      
       if(token){
-        Cookie.set("accessToken", token)
+        Cookies.set("accessToken", token)
       }
     })
     .catch((error) => {
@@ -89,16 +89,12 @@ export default function SignIp() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col gap-4'>
                   <Input
-                    type='tel'
+                    type='text'
                     label='Phone Number'
                     className=''
                     icon={<i className='ri-phone-line'></i>}
                     {...register('phoneNumber', {
-                      required: 'Phone Number is required',
-                      minLength: {
-                        value: 11,
-                        message: 'Phone Number must have 11 characters',
-                      },
+                      required: 'Phone Number is required'
                     })}
                     error={errors.phoneNumber?.message}
                   />
