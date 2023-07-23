@@ -6,6 +6,8 @@ import { ThemeProvider } from '@material-tailwind/react'
 import { BrowserRouter } from 'react-router-dom'
 import {store} from "./redux/store"
 import {Provider} from "react-redux"
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 ReactDOM.render(
@@ -17,6 +19,7 @@ ReactDOM.render(
       </ThemeProvider>
     </BrowserRouter>
     </Provider>
+    <ToastContainer />
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -4,18 +4,21 @@ import loginImage from '../../assets/gif/login.gif'
 import { Button, Checkbox, Input, Typography } from '@material-tailwind/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
-import Cookies from "js-cookie"
-import { useLoginMutation } from '../../redux/features/users/userApiSlice'
-import { getAccessToken } from '../../redux/api/apiSlice'
+import Cookies from 'js-cookie'
+import {
+  useGetProfileQuery,
+  useLoginMutation,
+} from '../../redux/features/users/userApiSlice'
+import { toast } from 'react-toastify'
 
 export default function SignIp() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation(undefined, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 50,
+  })
 
-  const myToken = getAccessToken()
-  console.log(myToken)
-  
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location])
@@ -33,21 +36,28 @@ export default function SignIp() {
 
   const onSubmit = (data) => {
     login(data)
-    .unwrap()
-    .then((data) => {
-      // Handle successful login
-      // console.log('Logged in:', data.data.accessToken);
-      console.log("Successfully logged in")
-      const token = data.data.accessToken
-      if(token){
-        Cookies.set("accessToken", token)
-      }
-    })
-    .catch((error) => {
-      // Handle login error
-      console.error('Login Error:', error);
-    });
-  } 
+      .unwrap()
+      .then((data) => {
+        const token = data.data.accessToken
+        if (token) {
+          Cookies.set('accessToken', token)
+        }
+        toast.success('Welcome 👋👋👋 ', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        })
+        navigate('/')
+      })
+      .catch((error) => {
+        // Handle login error
+        console.error('Login Error:', error)
+      })
+  }
 
   const termsAndConditionsChecked = watch('termsAndConditions', false)
 
@@ -94,7 +104,7 @@ export default function SignIp() {
                     className=''
                     icon={<i className='ri-phone-line'></i>}
                     {...register('phoneNumber', {
-                      required: 'Phone Number is required'
+                      required: 'Phone Number is required',
                     })}
                     error={errors.phoneNumber?.message}
                   />

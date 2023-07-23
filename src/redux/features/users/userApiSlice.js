@@ -8,6 +8,7 @@ const userApi = api.injectEndpoints({
         method: 'POST',
         body: credentials,
       }),
+      invalidatesTags: ['login'],
     }),
     signup: builder.mutation({
       query: (userData) => ({
@@ -20,6 +21,7 @@ const userApi = api.injectEndpoints({
       query: () => ({
         url: '/api/v1/users/my-profile',
         method: 'GET',
+        providesTags: ['profile'],
       }),
     }),
     updateProfile: builder.mutation({
