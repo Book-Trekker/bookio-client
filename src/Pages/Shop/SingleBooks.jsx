@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../HomePage/Header/Header'
 import Footer from '../../Shared/Footer/Footer'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
@@ -27,6 +27,80 @@ const SingleBooks = () => {
     setQty(isNaN(value) ? 0 : value)
   }
 
+  //   day counter
+  // New state for target date and remaining time
+  const [targetDate, setTargetDate] = useState(() => {
+    const storedTargetDate = localStorage.getItem('targetDate')
+    return storedTargetDate ? new Date(storedTargetDate) : null
+  })
+
+  // Function to calculate remaining time between now and the target date
+  const calculateRemainingTime = () => {
+    if (targetDate) {
+      const now = new Date().getTime()
+      const targetTime = targetDate.getTime()
+      const timeDiff = targetTime - now
+
+      if (timeDiff > 0) {
+        const days = Math.floor(timeDiff / (1000 * 3600 * 24))
+        const hours = Math.floor(
+          (timeDiff % (1000 * 3600 * 24)) / (1000 * 3600)
+        )
+        const minutes = Math.floor((timeDiff % (1000 * 3600)) / (1000 * 60))
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000)
+
+        return { days, hours, minutes, seconds }
+      }
+    }
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  }
+
+  const [remainingTime, setRemainingTime] = useState(() => {
+    return targetDate
+      ? calculateRemainingTime()
+      : { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  })
+
+  // Effect to update localStorage when target date or remaining time changes
+  useEffect(() => {
+    if (targetDate) {
+      localStorage.setItem('targetDate', targetDate.toISOString())
+    } else {
+      localStorage.removeItem('targetDate')
+    }
+    localStorage.setItem('remainingTime', JSON.stringify(remainingTime))
+  }, [targetDate, remainingTime])
+
+  // Effect to start timer when target date is selected
+  useEffect(() => {
+    let timer
+    if (targetDate) {
+      timer = setInterval(() => {
+        const time = calculateRemainingTime()
+        setRemainingTime(time)
+      }, 1000)
+    }
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [targetDate])
+
+  // Handle date selection
+//   const handleDateChange = (event) => {
+//     const selectedDate = event.target.value
+//     const target = new Date(selectedDate)
+//     setTargetDate(target)
+//   }
+
+  // Handle date and time selection
+  const handleDateTimeChange = (event) => {
+    const selectedDateTime = event.target.value
+    const target = new Date(selectedDateTime)
+    setTargetDate(target)
+  }
+  //  END  day counter
+
   //   review section
   const [activeTab, setActiveTab] = React.useState('Description')
   const data = [
@@ -45,14 +119,14 @@ const SingleBooks = () => {
     },
     {
       label: 'Vendor Info',
-      value: 'vendor info',
+      value: 'vendorInfo',
       desc: `We're not always in the position that we want to be at.
       We're constantly growing. We're constantly making mistakes. We're
       constantly trying to express ourselves and actualize our dreams.`,
     },
     {
       label: 'More Products',
-      value: 'More Products',
+      value: 'MoreProducts',
       desc: `Because it's about motivating the doers. Because I'm here
       to follow my dreams and inspire other people to follow their dreams, too.`,
     },
@@ -119,29 +193,34 @@ const SingleBooks = () => {
               <div className='flex justify-center items-center gap-3'>
                 <div className='flex flex-col justify-center items-center'>
                   <span className='bg-primary rounded-full p-3 text-white font-bold font-lato w-12 h-12 flex justify-center items-center'>
-                    564
+                    {remainingTime ? remainingTime.days : 0}
                   </span>
                   <span className='text-[12px] font-lato pt-1'>DAYS</span>
                 </div>
                 <div className='flex flex-col justify-center items-center'>
                   <span className='bg-primary rounded-full p-3 text-white font-bold font-lato w-12 h-12 flex justify-center items-center'>
-                    10
+                    {remainingTime ? remainingTime.hours : 0}
                   </span>
                   <span className='text-[12px] font-lato pt-1'>HOURS</span>
                 </div>
                 <div className='flex flex-col justify-center items-center'>
                   <span className='bg-primary rounded-full p-3 text-white font-bold font-lato w-12 h-12 flex justify-center items-center'>
-                    20
+                    {remainingTime ? remainingTime.minutes : 0}
                   </span>
                   <span className='text-[12px] font-lato pt-1'>MINS</span>
                 </div>
                 <div className='flex flex-col justify-center items-center'>
                   <span className='bg-primary rounded-full p-3 text-white font-bold font-lato w-12 h-12 flex justify-center items-center'>
-                    50
+                    {remainingTime ? remainingTime.seconds : 0}
                   </span>
                   <span className='text-[12px] font-lato pt-1'>SECS</span>
                 </div>
               </div>
+              <input
+                type='datetime-local'
+                value={targetDate ? targetDate.toISOString().slice(0, 16) : ''}
+                onChange={handleDateTimeChange}
+              />
             </div>
 
             <div className='QTY_section flex flex-wrap gap-2 w-full my-5'>
@@ -246,7 +325,9 @@ const SingleBooks = () => {
 
         {/* related products  */}
         <div className='my-10'>
-            <h2 className='text-center font-libre font-bold text-2xl '>Related Products</h2>
+          <h2 className='text-center font-libre font-bold text-2xl '>
+            Related Products
+          </h2>
         </div>
       </div>
       <Footer />
