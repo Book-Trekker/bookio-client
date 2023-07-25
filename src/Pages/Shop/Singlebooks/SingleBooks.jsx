@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../HomePage/Header/Header'
-import Footer from '../../Shared/Footer/Footer'
-import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
+import Header from '../../HomePage/Header/Header'
+import Footer from '../../../Shared/Footer/Footer'
+import BreadCumb from '../../../Shared/BreadCumb/BreakCumb'
 import { Button } from '@material-tailwind/react'
 import {
   Tabs,
@@ -10,6 +10,11 @@ import {
   Tab,
   TabPanel,
 } from '@material-tailwind/react'
+import Description from './Description'
+import Reviews from './Reviews'
+import VendorInfo from './VendorInfo'
+import MoreBooks from './MoreBooks'
+import RelatedBooks from './RelatedBooks'
 
 const SingleBooks = () => {
   const [qty, setQty] = useState(0)
@@ -87,11 +92,11 @@ const SingleBooks = () => {
   }, [targetDate])
 
   // Handle date selection
-//   const handleDateChange = (event) => {
-//     const selectedDate = event.target.value
-//     const target = new Date(selectedDate)
-//     setTargetDate(target)
-//   }
+  //   const handleDateChange = (event) => {
+  //     const selectedDate = event.target.value
+  //     const target = new Date(selectedDate)
+  //     setTargetDate(target)
+  //   }
 
   // Handle date and time selection
   const handleDateTimeChange = (event) => {
@@ -107,28 +112,22 @@ const SingleBooks = () => {
     {
       label: 'Description',
       value: 'Description',
-      desc: `It really matters and then like it really doesn't matter.
-      What matters is the people who are sparked by it. And the people 
-      who are like offended by it, it doesn't matter.`,
+      desc: <Description />,
     },
     {
       label: 'Reviews (0)',
       value: 'Reviews',
-      desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
+      desc: <Reviews />,
     },
     {
       label: 'Vendor Info',
       value: 'vendorInfo',
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
+      desc: <VendorInfo />,
     },
     {
-      label: 'More Products',
-      value: 'MoreProducts',
-      desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
+      label: 'More Books',
+      value: 'MoreBooks',
+      desc: <MoreBooks />,
     },
   ]
 
@@ -216,12 +215,14 @@ const SingleBooks = () => {
                   <span className='text-[12px] font-lato pt-1'>SECS</span>
                 </div>
               </div>
-              <input
-                type='datetime-local'
-                value={targetDate ? targetDate.toISOString().slice(0, 16) : ''}
-                onChange={handleDateTimeChange}
-              />
             </div>
+            <p className='mt-3 font-libre'>Set Offer Duration:</p>
+            <input
+              className='border mb-3 p-1 text-blue-gray-800 border-gray border-opacity-40'
+              type='datetime-local'
+              value={targetDate ? targetDate.toISOString().slice(0, 16) : ''}
+              onChange={handleDateTimeChange}
+            />
 
             <div className='QTY_section flex flex-wrap gap-2 w-full my-5'>
               <div className='QTY w-48 addToCart border border-gray border-opacity-50 px-3 py-1 flex justify-between items-center'>
@@ -289,13 +290,13 @@ const SingleBooks = () => {
           </div>
         </div>
         {/* review section  */}
-        <div className='w-full'>
+        <div className='w-full mt-10'>
           <Tabs value={activeTab} orientation='vertical'>
             <TabsHeader
               className='rounded-none border-b border-gray border-opacity-40 bg-transparent p-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3'
               indicatorProps={{
                 className:
-                  'bg-transparent border-b-2 border-gray border-opacity-40 shadow-none rounded-none',
+                  'bg-transparent border-b-2 border-opacity-40 shadow-none rounded-none',
               }}
             >
               {data.map(({ label, value }) => (
@@ -326,8 +327,9 @@ const SingleBooks = () => {
         {/* related products  */}
         <div className='my-10'>
           <h2 className='text-center font-libre font-bold text-2xl '>
-            Related Products
+            Related Books
           </h2>
+          <RelatedBooks />
         </div>
       </div>
       <Footer />

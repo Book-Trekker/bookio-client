@@ -13,7 +13,7 @@ import StoreList from "./Pages/StoreLIst/StoreList";
 import WishList from "./Pages/WishList/WishList";
 import SignUp from "./Pages/Sign_up/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
-import SingleBooks from "./Pages/Shop/SingleBooks";
+import SingleBooks from "./Pages/Shop/Singlebooks/SingleBooks";
 
 function App() {
   // const dispatch = useDispatch();
