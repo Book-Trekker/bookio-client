@@ -92,11 +92,11 @@ const SingleBooks = () => {
   }, [targetDate])
 
   // Handle date selection
-  //   const handleDateChange = (event) => {
-  //     const selectedDate = event.target.value
-  //     const target = new Date(selectedDate)
-  //     setTargetDate(target)
-  //   }
+    const handleDateChange = (event) => {
+      const selectedDate = event.target.value
+      const target = new Date(selectedDate)
+      setTargetDate(target)
+    }
 
   // Handle date and time selection
   const handleDateTimeChange = (event) => {

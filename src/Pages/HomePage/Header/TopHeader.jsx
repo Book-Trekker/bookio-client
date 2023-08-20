@@ -1,3 +1,4 @@
+import { Button } from '@material-tailwind/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -37,6 +38,11 @@ const TopHeader = () => {
                   <i class='far fa-heart'></i>
                 </span>{' '}
                 WISHLIST
+              </Link>{' '}
+            </li>
+            <li className='list-none text-[12px] font-lato font-bold text-gray hover:text-black'>
+              <Link to='/sign_in'>
+                <Button className='bg-primary hover:bg-secondary transition-all duration-300'>Login</Button>
               </Link>{' '}
             </li>
           </div>
