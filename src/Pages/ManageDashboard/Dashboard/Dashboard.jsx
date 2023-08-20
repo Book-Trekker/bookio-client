@@ -5,8 +5,8 @@ import { Link, Outlet } from 'react-router-dom'
 export const Dashboard = () => {
   return (
     <section className='w-full h-full'>
-      <div className='grid grid-cols-12'>
-        <div className='relative grid gap-4 col-span-2 bg-[#F5F7F6] h-screen p-2'>
+      <div className='flex'>
+        <div className='relative w-[300px] bg-[#F5F7F6] h-screen p-2'>
           <div>
             <div className='flex items-center gap-x-3 border-b pb-3 border-gray border-opacity-50'>
               <Link to='/'>
@@ -50,55 +50,55 @@ export const Dashboard = () => {
               <ul>
                 <li className='py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2'>
                   <span>
-                    <i class='ri-user-line'></i>
+                    <i class='ri-user-line text-blue-500'></i>
                   </span>{' '}
                   My Profile
                 </li>
                 <li className='py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2 '>
                   <span>
-                    <i class='ri-currency-line'></i>
+                    <i class='ri-currency-line text-blue-500'></i>
                   </span>{' '}
                   Orders
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-folder-add-line'></i>
+                    <i class='ri-folder-add-line text-blue-500'></i>
                   </span>{' '}
                   Create Product
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-list-unordered'></i>
+                    <i class='ri-list-unordered text-blue-500'></i>
                   </span>{' '}
                   Manage Orders
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-pages-line'></i>
+                    <i class='ri-pages-line text-blue-500'></i>
                   </span>{' '}
                   Manage Products
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-tools-fill'></i>
+                    <i class='ri-tools-fill text-blue-500'></i>
                   </span>{' '}
                   Manage Users
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-bar-chart-line'></i>
+                    <i class='ri-bar-chart-line text-blue-500'></i>
                   </span>{' '}
                   Total Revenue
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-exchange-dollar-line'></i>
+                    <i class='ri-exchange-dollar-line text-blue-500'></i>
                   </span>{' '}
                   Total Income
                 </li>
                 <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
                   <span>
-                    <i class='ri-line-chart-line'></i>
+                    <i class='ri-line-chart-line text-blue-500'></i>
                   </span>{' '}
                   Revenue Chart
                 </li>
@@ -110,7 +110,7 @@ export const Dashboard = () => {
             </Button>
           </div>
         </div>
-        <div className='grid col-span-10 h-screen'>
+        <div className='flex-1 h-screen'>
           <div>
             <div className='bg-[#F5F7F6] h-16 p-2'>
               <h2 className='font-lato font-bold text-xl text-gray flex items-center gap-x-2'>
