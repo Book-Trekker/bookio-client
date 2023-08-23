@@ -15,6 +15,15 @@ import SignIn from './Pages/SignIn/SignIn'
 import SingleBooks from './Pages/Shop/Singlebooks/SingleBooks'
 import { Dashboard } from './Pages/ManageDashboard/Dashboard/Dashboard'
 import Products from './Pages/ManageDashboard/Product/Products'
+import UserProfile from './Pages/ManageDashboard/UserProfile/UserProfile'
+import Orders from './Pages/ManageDashboard/Orders/Orders'
+import CreateProduct from './Pages/ManageDashboard/CreateProduct/CreateProduct'
+import ManageOrders from './Pages/ManageDashboard/ManageOrders/ManageOrders'
+import ManageProducts from './Pages/ManageDashboard/ManageProducts/ManageProducts'
+import ManageUsers from './Pages/ManageDashboard/ManageUsers/ManageUsers'
+import Chart from './Pages/ManageDashboard/Chart/Chart'
+import Income from './Pages/ManageDashboard/Income/Income'
+import Revenue from './Pages/ManageDashboard/Revenue/Revenue'
 
 function App() {
   // const dispatch = useDispatch();
@@ -46,8 +55,16 @@ function App() {
 
         <Route path='/dashboard' element={<Dashboard />}>
           {/* Nested Route */}
-          <Route index element={<Products />} />
-          <Route path='products' element={<Products />} />
+          <Route index element={<UserProfile />} />
+          <Route path='orders' element={<Orders />} />
+          <Route path='manage-product' element={<Products />} />
+          <Route path='create-product' element={<CreateProduct />} />
+          <Route path='manage-orders' element={<ManageOrders />} />
+          <Route path='manage-products' element={<ManageProducts />} />
+          <Route path='manage-users' element={<ManageUsers />} />
+          <Route path='revenue' element={<Revenue />} />
+          <Route path='income' element={<Income />} />
+          <Route path='revenue-chart' element={<Chart />} />
         </Route>
 
         {/* dashboard  */}

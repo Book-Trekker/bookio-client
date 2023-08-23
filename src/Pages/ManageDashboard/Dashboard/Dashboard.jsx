@@ -1,6 +1,6 @@
 import { Avatar, Breadcrumbs, Button } from '@material-tailwind/react'
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 export const Dashboard = () => {
   return (
@@ -48,60 +48,85 @@ export const Dashboard = () => {
               {/* <Link to='/dashboard'>Home</Link>
               <Link to='/dashboard/products'>my Product</Link> */}
               <ul>
-                <li className='py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2'>
-                  <span>
-                    <i class='ri-user-line text-blue-500'></i>
-                  </span>{' '}
-                  My Profile
-                </li>
-                <li className='py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2 '>
-                  <span>
-                    <i class='ri-currency-line text-blue-500'></i>
-                  </span>{' '}
-                  Orders
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-folder-add-line text-blue-500'></i>
-                  </span>{' '}
-                  Create Product
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-list-unordered text-blue-500'></i>
-                  </span>{' '}
-                  Manage Orders
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-pages-line text-blue-500'></i>
-                  </span>{' '}
-                  Manage Products
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-tools-fill text-blue-500'></i>
-                  </span>{' '}
-                  Manage Users
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-bar-chart-line text-blue-500'></i>
-                  </span>{' '}
-                  Total Revenue
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-exchange-dollar-line text-blue-500'></i>
-                  </span>{' '}
-                  Total Income
-                </li>
-                <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
-                  <span>
-                    <i class='ri-line-chart-line text-blue-500'></i>
-                  </span>{' '}
-                  Revenue Chart
-                </li>
+                <NavLink to='/dashboard'>
+                  <li className='py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2'>
+                    <span>
+                      <i class='ri-user-line text-blue-500'></i>
+                    </span>{' '}
+                    My Profile
+                  </li>
+                </NavLink>
+                <NavLink to='/dashboard/orders'>
+                  <li className='py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2 '>
+                    <span>
+                      <i class='ri-currency-line text-blue-500'></i>
+                    </span>{' '}
+                    Orders
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/create-product'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-folder-add-line text-blue-500'></i>
+                    </span>{' '}
+                    Create Product
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/manage-orders'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-list-unordered text-blue-500'></i>
+                    </span>{' '}
+                    Manage Orders
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/manage-products'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-pages-line text-blue-500'></i>
+                    </span>{' '}
+                    Manage Products
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/manage-users'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-tools-fill text-blue-500'></i>
+                    </span>{' '}
+                    Manage Users
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/revenue'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-bar-chart-line text-blue-500'></i>
+                    </span>{' '}
+                    Total Revenue
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/income'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-exchange-dollar-line text-blue-500'></i>
+                    </span>{' '}
+                    Total Income
+                  </li>
+                </NavLink>
+
+                <NavLink to='/dashboard/revenue-chart'>
+                  <li className='flex items-center gap-x-2 py-2 text-lg border-b-[1px] border-dotted hover:bg-[#00000012] border-gray border-opacity-40'>
+                    <span>
+                      <i class='ri-line-chart-line text-blue-500'></i>
+                    </span>{' '}
+                    Revenue Chart
+                  </li>
+                </NavLink>
               </ul>
             </div>
             {/* log out button  */}
