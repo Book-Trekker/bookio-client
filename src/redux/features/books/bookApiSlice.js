@@ -2,6 +2,13 @@ import { api } from '../../api/apiSlice'
 
 const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
+    createBook: builder.mutation({
+      query: (bookData) => ({
+        url: '/api/v1/books',
+        method: 'POST',
+        body: bookData,
+      }),
+    }),
     getAllBooks: builder.query({
       query: (group) => ({
         url: `/api/v1/books${group ? `?group=${group}` : ''}`,
@@ -35,4 +42,5 @@ export const {
   useGetBookByIdQuery,
   useDeleteBookMutation,
   useUpdateBookMutation,
+  useCreateBookMutation,
 } = bookApi

@@ -34,11 +34,11 @@ export default function SignIp() {
     watch,
   } = useForm()
 
-  const onSubmit = (data) => {
-    login(data)
+  const onSubmit = async (data) => {
+    await login(data)
       .unwrap()
       .then((data) => {
-        const token = data.data.accessToken
+        const token = data?.data?.accessToken
         if (token) {
           Cookies.set('accessToken', token)
         }
@@ -94,7 +94,17 @@ export default function SignIp() {
             </div>
           </div>
           <div className='col-span-12 md:col-span-5'>
-            <h3 className='accountTitle'>Login</h3>
+            <h3
+              // onClick={() =>
+              //   Cookies.set(
+              //     'accessToken',
+              //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUGhvbmVOdW1iZXIiOjQxNjQ2NDY1NDY1NDUsInJvbGUiOiJzZWxsZXIiLCJpYXQiOjE2OTI5NzYxNTAsImV4cCI6MTY5Mzg0MDE1MH0.n0RIdTzSzsRAZzi1urgI67E5eieTeejiQFh1N7mq7AI'
+              //   )
+              // }
+              className='accountTitle'
+            >
+              Login
+            </h3>
             <div className='mt-3'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col gap-4'>
