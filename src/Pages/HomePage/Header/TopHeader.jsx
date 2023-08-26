@@ -1,8 +1,17 @@
 import { Button } from '@material-tailwind/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getAccessToken } from '../../../redux/api/apiSlice'
 
 const TopHeader = () => {
+  const [accessToken, setAccessToken] = useState('')
+  const token = getAccessToken()
+  useEffect(() => {
+    setAccessToken(token)
+  }, [token])
+
+  console.log(accessToken)
+
   return (
     <section className='top_header py-5 px-10 customBorder hidden md:block'>
       <div className='flex justify-between items-center'>
@@ -40,11 +49,15 @@ const TopHeader = () => {
                 WISHLIST
               </Link>{' '}
             </li>
-            <li className='list-none text-[12px] font-lato font-bold text-gray hover:text-black'>
-              <Link to='/sign_in'>
-                <Button className='bg-primary hover:bg-secondary transition-all duration-300'>Login</Button>
-              </Link>{' '}
-            </li>
+            {!accessToken && (
+              <li className='list-none text-[12px] font-lato font-bold text-gray hover:text-black'>
+                <Link to='/sign_in'>
+                  <Button className='bg-primary hover:bg-secondary transition-all duration-300'>
+                    Login
+                  </Button>
+                </Link>{' '}
+              </li>
+            )}
           </div>
         </div>
       </div>

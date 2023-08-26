@@ -13,6 +13,10 @@ import {
   Avatar,
   Typography,
 } from '@material-tailwind/react'
+import Cookies from 'js-cookie'
+import Swal from 'sweetalert2'
+// import withReactContent from '@sweetalert/with-react'
+// const MySwal = withReactContent(Swal)
 
 const MIddleHeder = ({ showShoppingCart, setShowShoppingCart }) => {
   const [navSticky, setNavSticky] = useState(false)
@@ -44,6 +48,30 @@ const MIddleHeder = ({ showShoppingCart, setShowShoppingCart }) => {
 
   const wrapperRef = useRef(null)
   useOutsideAlerter(wrapperRef)
+
+  // sweet alert
+  const handleSignOut = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will be signed out',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, sign me out!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Remove token from cookies
+        Cookies.remove('accessToken')
+
+        // Perform any additional sign-out actions if needed
+
+        Swal.fire('Signed Out!', 'You have been signed out.', 'success')
+        // You can also redirect the user to a sign-in page or any other appropriate action
+        window.location.reload()
+      }
+    })
+  }
 
   return (
     <div className='hidden md:block'>
@@ -136,7 +164,7 @@ const MIddleHeder = ({ showShoppingCart, setShowShoppingCart }) => {
                     />
                   </svg>
                   <Typography variant='small' className='font-normal'>
-                    <Link to='/dashboard' >Dashboard</Link>
+                    <Link to='/dashboard'>Dashboard</Link>
                   </Typography>
                 </MenuItem>
                 <MenuItem className='flex items-center gap-2'>
@@ -178,7 +206,10 @@ const MIddleHeder = ({ showShoppingCart, setShowShoppingCart }) => {
                   </Typography>
                 </MenuItem>
                 <hr className='my-2 border-blue-gray-50' />
-                <MenuItem className='flex items-center gap-2 '>
+                <MenuItem
+                  onClick={handleSignOut}
+                  className='flex items-center gap-2 '
+                >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
