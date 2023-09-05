@@ -138,7 +138,7 @@ const SingleBooks = () => {
     {
       label: 'More Books',
       value: 'MoreBooks',
-      desc: <MoreBooks />,
+      desc: <MoreBooks books={books} />,
     },
   ]
 
