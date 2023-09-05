@@ -2,15 +2,27 @@ import React from 'react'
 import { useState } from 'react'
 import { AiOutlineEye } from 'react-icons/ai'
 import { BsMinecartLoaded } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 
 const Product = ({ bookData }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const { name, author, image, price, quantity, status, category } = bookData
+  const { name, author, image, price, quantity, status, category, _id } =
+    bookData
 
   // console.log(image[1])
 
+  const navigate = useNavigate()
+
+  const navigateToBookDetail = () => {
+    // Use the history object to navigate
+    navigate(`/shop/book/${_id}`)
+  }
+
   return (
-    <div className='w-full change-bg-1 cursor-pointer mb-6'>
+    <div
+      onClick={navigateToBookDetail}
+      className='w-full change-bg-1 cursor-pointer mb-6'
+    >
       {/* cart  */}
       <div
         style={{

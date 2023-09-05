@@ -14,7 +14,7 @@ const Products = () => {
 
   const { data: books, isLoading, isError } = useGetAllBooksQuery()
 
-  // console.log(books?.data)
+  console.log(books?.data)
 
   return (
     <div>

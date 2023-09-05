@@ -15,8 +15,24 @@ import Reviews from './Reviews'
 import VendorInfo from './VendorInfo'
 import MoreBooks from './MoreBooks'
 import RelatedBooks from './RelatedBooks'
+import { useParams } from 'react-router-dom'
+import { useGetBookByIdQuery } from '../../../redux/features/books/bookApiSlice'
 
 const SingleBooks = () => {
+  const { id } = useParams()
+  const { data: bookData, isLoading, isError, error } = useGetBookByIdQuery(id)
+  console.log(bookData?.data)
+  const {
+    author,
+    name,
+    image,
+    price,
+    rating,
+    quantity,
+    status,
+    category,
+    seller,
+  } = bookData?.data
   const [qty, setQty] = useState(0)
 
   const handleIncrease = () => {
@@ -92,11 +108,11 @@ const SingleBooks = () => {
   }, [targetDate])
 
   // Handle date selection
-    const handleDateChange = (event) => {
-      const selectedDate = event.target.value
-      const target = new Date(selectedDate)
-      setTargetDate(target)
-    }
+  const handleDateChange = (event) => {
+    const selectedDate = event.target.value
+    const target = new Date(selectedDate)
+    setTargetDate(target)
+  }
 
   // Handle date and time selection
   const handleDateTimeChange = (event) => {
@@ -146,7 +162,7 @@ const SingleBooks = () => {
           {/* product image  */}
           <div className='p-4'>
             <img
-              src='https://wpbingosite.com/wordpress/bookio/wp-content/webp-express/webp-images/uploads/2018/05/Image-10.jpg.webp'
+              src={image[0]}
               alt=''
             />
           </div>
@@ -155,14 +171,14 @@ const SingleBooks = () => {
             {/* title & price information  */}
             <div>
               <h1 className='text-primary text-2xl font-libre font-bold'>
-                Castle In The Sky
+                {name}
               </h1>
               <p className='text-gray py-1'>
-                Brand: <span className='text-primary'>Dental</span>{' '}
+                Brand: <span className='text-primary'>Unknown</span>{' '}
               </p>
               <p className='text-gray text-2xl font-libre font-bold py-2'>
-                <span className='line-through'>$300.00</span>
-                <span className='text-black pl-2'>$280.0</span>{' '}
+                {/* <span className='line-through'>$300.00</span> */}
+                <span className='text-black pl-2'>${price}</span>{' '}
               </p>
               <hr className='text-gray opacity-30 my-2' />
               <p className='font-lato'>
@@ -269,10 +285,10 @@ const SingleBooks = () => {
             <div className='seller_info'>
               <p>SKU: D2018</p>
               <p>
-                Category: <span>Fantasy</span>{' '}
+                Category: <span>{category}</span>{' '}
               </p>
               <p>Tags: Hot, Men</p>
-              <p>Author: Sabela Hupter</p>
+              <p>Author: {author}</p>
             </div>
 
             <div className='social_icon flex items-center gap-2 my-2'>
@@ -289,9 +305,11 @@ const SingleBooks = () => {
             {/* end single details  */}
           </div>
         </div>
+
+
         {/* review section  */}
         <div className='w-full mt-10'>
-          <Tabs value={activeTab} orientation='vertical'>
+          <Tabs value={activeTab} orientation='horizontal'>
             <TabsHeader
               className='rounded-none border-b border-gray border-opacity-40 bg-transparent p-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3'
               indicatorProps={{
