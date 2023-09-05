@@ -16,23 +16,18 @@ import VendorInfo from './VendorInfo'
 import MoreBooks from './MoreBooks'
 import RelatedBooks from './RelatedBooks'
 import { useParams } from 'react-router-dom'
-import { useGetBookByIdQuery } from '../../../redux/features/books/bookApiSlice'
+import {
+  useGetAllBooksQuery,
+  useGetBookByIdQuery,
+} from '../../../redux/features/books/bookApiSlice'
 
 const SingleBooks = () => {
   const { id } = useParams()
   const { data: bookData, isLoading, isError, error } = useGetBookByIdQuery(id)
-  console.log(bookData?.data)
-  const {
-    author,
-    name,
-    image,
-    price,
-    rating,
-    quantity,
-    status,
-    category,
-    seller,
-  } = bookData?.data
+
+  const { data: books } = useGetAllBooksQuery(bookData?.data?.category)
+  // console.log('RelatedBooksDataaaaaaa: --------------', books?.data)
+
   const [qty, setQty] = useState(0)
 
   const handleIncrease = () => {
@@ -161,24 +156,23 @@ const SingleBooks = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           {/* product image  */}
           <div className='p-4'>
-            <img
-              src={image[0]}
-              alt=''
-            />
+            <img src={bookData?.data?.image[0]} alt='' />
           </div>
           {/* product details  */}
           <div className='pl-4 pt-4 pb-4'>
             {/* title & price information  */}
             <div>
               <h1 className='text-primary text-2xl font-libre font-bold'>
-                {name}
+                {bookData?.data?.name}
               </h1>
               <p className='text-gray py-1'>
                 Brand: <span className='text-primary'>Unknown</span>{' '}
               </p>
               <p className='text-gray text-2xl font-libre font-bold py-2'>
                 {/* <span className='line-through'>$300.00</span> */}
-                <span className='text-black pl-2'>${price}</span>{' '}
+                <span className='text-black pl-2'>
+                  ${bookData?.data?.price}
+                </span>{' '}
               </p>
               <hr className='text-gray opacity-30 my-2' />
               <p className='font-lato'>
@@ -285,10 +279,10 @@ const SingleBooks = () => {
             <div className='seller_info'>
               <p>SKU: D2018</p>
               <p>
-                Category: <span>{category}</span>{' '}
+                Category: <span>{bookData?.data?.category}</span>{' '}
               </p>
               <p>Tags: Hot, Men</p>
-              <p>Author: {author}</p>
+              <p>Author: {bookData?.data?.author}</p>
             </div>
 
             <div className='social_icon flex items-center gap-2 my-2'>
@@ -305,7 +299,6 @@ const SingleBooks = () => {
             {/* end single details  */}
           </div>
         </div>
-
 
         {/* review section  */}
         <div className='w-full mt-10'>
@@ -343,11 +336,13 @@ const SingleBooks = () => {
         </div>
 
         {/* related products  */}
-        <div className='my-10'>
+        <div className='my-10 w-full'>
           <h2 className='text-center font-libre font-bold text-2xl '>
             Related Books
           </h2>
-          <RelatedBooks />
+          <div className='w-full'>
+            <RelatedBooks books={books} />
+          </div>
         </div>
       </div>
       <Footer />

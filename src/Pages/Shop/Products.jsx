@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import { AiOutlineEye } from 'react-icons/ai'
-import { BsMinecartLoaded } from 'react-icons/bs'
-import { shopProductData } from '../../utilities/shopData'
 import BestSeller from './BestSeller'
 import Filtering from './Filtering/Filtering'
 import MobileFiltering from './Filtering/MobileFiltering'
@@ -14,7 +11,7 @@ const Products = () => {
 
   const { data: books, isLoading, isError } = useGetAllBooksQuery()
 
-  console.log(books?.data)
+  // console.log(books?.data)
 
   return (
     <div>

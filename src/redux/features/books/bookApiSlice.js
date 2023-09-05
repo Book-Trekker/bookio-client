@@ -10,8 +10,8 @@ const bookApi = api.injectEndpoints({
       }),
     }),
     getAllBooks: builder.query({
-      query: (group) => ({
-        url: `/api/v1/books${group ? `?group=${group}` : ''}`,
+      query: (category) => ({
+        url: `/api/v1/books${category ? `?category=${category}` : ''}`,
         method: 'GET',
       }),
     }),

@@ -9,6 +9,7 @@ const Product = ({ bookData }) => {
   const { name, author, image, price, quantity, status, category, _id } =
     bookData
 
+
   // console.log(image[1])
 
   const navigate = useNavigate()
