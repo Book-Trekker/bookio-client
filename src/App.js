@@ -13,6 +13,9 @@ import StoreList from "./Pages/StoreLIst/StoreList";
 import WishList from "./Pages/WishList/WishList";
 import SignUp from "./Pages/Sign_up/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
+import Card from "./Pages/Card/Card";
+import Checkout from "./Pages/Checkout/Checkout";
+import OrderTracking from "./Pages/OrderTracking/OrderTracking";
 
 function App() {
   // const dispatch = useDispatch();
@@ -30,6 +33,9 @@ function App() {
         <Route path="/sign_up" element={<SignUp />}></Route>
         <Route path="/sign_in" element={<SignIn />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/card" element={<Card />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="/order-tracking" element={<OrderTracking />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/author" element={<Author />}></Route>
         <Route path="/faq" element={<Faq />}></Route>

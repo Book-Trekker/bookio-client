@@ -1,0 +1,35 @@
+.paymentHeader {
+ position: relative;
+ color: #767a79;
+ letter-spacing: 1px;
+}
+
+.paymentHeader:hover{
+    color: #000;
+}
+
+.paymentHeader::before {
+    content: "";
+    width: 0px;
+    height: 2px;
+    background: #000;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    position: absolute;
+    bottom: -1px;
+}
+.paymentHeader:hover:before {
+    width: 100%;
+}
+.paymentHeader.active {
+    color: #000 ;
+
+}
+.paymentHeader.active::before {
+    width: 100%;
+    color: #000 !important;
+
+}
