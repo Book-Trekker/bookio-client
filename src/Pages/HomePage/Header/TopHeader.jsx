@@ -10,7 +10,7 @@ const TopHeader = () => {
     setAccessToken(token)
   }, [token])
 
-  console.log(accessToken)
+  // console.log(accessToken)
 
   return (
     <section className='top_header py-5 px-10 customBorder hidden md:block'>

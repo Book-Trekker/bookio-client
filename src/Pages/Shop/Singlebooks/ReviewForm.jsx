@@ -2,11 +2,28 @@ import { Button, Input, Textarea } from '@material-tailwind/react'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import Rating from 'react-rating'
+import { useAddBookReviewMutation } from '../../../redux/features/review/reviewApiSlice'
+import { toast } from 'react-toastify'
 
-const ReviewForm = () => {
-  const { control, handleSubmit, register } = useForm()
-  const onSubmit = (data) => {
-    console.log('Form Data:', data)
+const ReviewForm = ({ id }) => {
+  const { control, handleSubmit, register, reset } = useForm()
+
+  // const { data: reviewData } = useGetBookReviewQuery(id)
+
+  const [postReview, {}] = useAddBookReviewMutation()
+
+  const onSubmit = async (data) => {
+    try {
+      await postReview({ id, data }).unwrap()
+      toast.success('Review added successfully!', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        hideProgressBar: true,
+      })
+      reset()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -20,7 +37,7 @@ const ReviewForm = () => {
         <div className='my-3'>
           <label className='font-normal text-sm text-gray'>Your rating:</label>
           <Controller
-            name='rating'
+            name='individualRating'
             control={control}
             defaultValue={0}
             render={({ field }) => (
@@ -59,11 +76,16 @@ const ReviewForm = () => {
           <div>
             <Textarea
               label='Your Review...'
-              {...register('review', { required: true })}
+              {...register('userReview', { required: true })}
             />
           </div>
         </div>
-        <Button className='rounded-none bg-transparent hover:bg-primary text-black hover:text-white border w-full' type='submit'>Submit</Button>
+        <Button
+          className='rounded-none bg-transparent hover:bg-primary text-black hover:text-white border w-full'
+          type='submit'
+        >
+          Submit
+        </Button>
       </form>
     </div>
   )

@@ -128,7 +128,7 @@ const SingleBooks = () => {
     {
       label: 'Reviews (0)',
       value: 'Reviews',
-      desc: <Reviews />,
+      desc: <Reviews id={id} />,
     },
     {
       label: 'Vendor Info',

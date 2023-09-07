@@ -1,8 +1,7 @@
 import React from 'react'
 import ReviewForm from './ReviewForm'
-import RelatedBooks from './RelatedBooks'
 
-const Reviews = () => {
+const Reviews = ({id}) => {
   return (
     <div>
       {/* Show user review */}
@@ -19,7 +18,7 @@ const Reviews = () => {
       </div>
       {/* create user review */}
       <div>
-        <ReviewForm />
+        <ReviewForm id={id} />
       </div>
     </div>
   )
