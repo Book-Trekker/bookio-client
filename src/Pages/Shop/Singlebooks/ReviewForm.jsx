@@ -8,8 +8,6 @@ import { toast } from 'react-toastify'
 const ReviewForm = ({ id }) => {
   const { control, handleSubmit, register, reset } = useForm()
 
-  // const { data: reviewData } = useGetBookReviewQuery(id)
-
   const [postReview, {}] = useAddBookReviewMutation()
 
   const onSubmit = async (data) => {

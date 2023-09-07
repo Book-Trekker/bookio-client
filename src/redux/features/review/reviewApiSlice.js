@@ -10,11 +10,11 @@ const reviewApi = api.injectEndpoints({
       }),
       invalidatesTags: ['review'],
     }),
-    getBookReview: builder.query({
+    getBookReviews: builder.query({
       query: (id) => `/api/v1/books/${id}/review`,
       providesTags: ['review'],
     }),
   }),
 })
 
-export const { useAddBookReviewMutation, useGetBookReviewQuery } = reviewApi
+export const { useAddBookReviewMutation, useGetBookReviewsQuery } = reviewApi
