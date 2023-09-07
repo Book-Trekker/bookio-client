@@ -27,7 +27,8 @@ const SingleBooks = () => {
 
   const { data: books } = useGetAllBooksQuery(bookData?.data?.category)
   // console.log('RelatedBooksDataaaaaaa: --------------', books?.data)
-
+  const [reviewCount, setReviewCount] = useState(0)
+  const [avgReviewCount, setAvgReviewCount] = useState(0)
   const [qty, setQty] = useState(0)
 
   const handleIncrease = () => {
@@ -126,9 +127,15 @@ const SingleBooks = () => {
       desc: <Description />,
     },
     {
-      label: 'Reviews (0)',
+      label: `Reviews ${avgReviewCount} / (${reviewCount})`,
       value: 'Reviews',
-      desc: <Reviews id={id} />,
+      desc: (
+        <Reviews
+          id={id}
+          setReviewCount={setReviewCount}
+          setAvgReviewCount={setAvgReviewCount}
+        />
+      ),
     },
     {
       label: 'Vendor Info',

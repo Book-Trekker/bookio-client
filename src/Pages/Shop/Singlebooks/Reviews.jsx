@@ -1,12 +1,67 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReviewForm from './ReviewForm'
 import { useGetBookReviewsQuery } from '../../../redux/features/review/reviewApiSlice'
 import { Button } from '@material-tailwind/react'
 import Rating from 'react-rating'
+import { useGetBookByIdQuery } from '../../../redux/features/books/bookApiSlice'
 
-const Reviews = ({ id }) => {
+const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
+  const [averageRating, setAverageRating] = useState(0)
   const { data: reviewData } = useGetBookReviewsQuery(id)
-  console.log(reviewData?.data?.length)
+  const { data: bookData } = useGetBookByIdQuery(id)
+  const [showAllReviews, setShowAllReviews] = useState(false)
+
+  // Check if reviewData?.data is defined and an array, and then sort it
+  const sortedReviews =
+    reviewData?.data && Array.isArray(reviewData?.data)
+      ? [...reviewData?.data].sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        )
+      : []
+
+  const displayedReviews = showAllReviews
+    ? sortedReviews
+    : sortedReviews.slice(0, 10)
+
+  const toggleShowAllReviews = () => {
+    setShowAllReviews(!showAllReviews)
+  }
+
+  const toggleShowFirst10Reviews = () => {
+    setShowAllReviews(false)
+  }
+
+  // get avg rating
+
+  useEffect(() => {
+    // Calculate the average rating
+    const reviews = bookData?.data?.reviews
+    let sumRatings = 0
+
+    if (reviews && reviews.length > 0) {
+      reviews.forEach((review) => {
+        const individualRating = review.individualRating
+        if (typeof individualRating === 'number') {
+          sumRatings += individualRating
+        } else {
+          console.warn('Invalid individualRating:', individualRating)
+        }
+      })
+
+      const calculatedAverageRating = sumRatings / reviews.length
+
+      // Update the state with the calculated average rating
+      setAverageRating(calculatedAverageRating.toFixed(1))
+    } else {
+      console.warn('No reviews found or empty reviews array.')
+    }
+  }, [bookData?.data?.reviews])
+
+  useEffect(() => {
+    setReviewCount(sortedReviews.length)
+    setAvgReviewCount(averageRating)
+  }, [sortedReviews.length, setReviewCount, averageRating, setAvgReviewCount])
+  // console.log(averageRating)
 
   return (
     <div>
@@ -30,7 +85,7 @@ const Reviews = ({ id }) => {
         </div>
 
         <div className=''>
-          {reviewData?.data?.map((d, index) => (
+          {displayedReviews?.map((d, index) => (
             <div className='pb-10 pt-2 px-2 border-b border-b-[#00000017] '>
               {/* <p>{d?.userReview}</p> */}
               <div className='grid grid-cols-12'>
@@ -70,13 +125,41 @@ const Reviews = ({ id }) => {
                         initialRating={d?.individualRating}
                         readonly
                       />
-                      <span className='text-gray pl-1'>({d?.individualRating})</span>
+                      <span className='text-gray pl-1'>
+                        ({d?.individualRating})
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+          <div className='flex justify-end py-5'>
+            {!showAllReviews && reviewData?.data.length > 10 && (
+              <Button
+                onClick={toggleShowAllReviews}
+                variant='outlined'
+                className='flex justify-center items-center gap-1 hover:gap-4'
+              >
+                See All Reviews{' '}
+                <span>
+                  <i class='ri-arrow-right-line text-lg text-gray'></i>
+                </span>{' '}
+              </Button>
+            )}
+            {showAllReviews && (
+              <Button
+                onClick={toggleShowFirst10Reviews}
+                variant='outlined'
+                className='flex justify-center items-center gap-1 hover:gap-4'
+              >
+                See Less{' '}
+                <span>
+                  <i class='ri-arrow-right-line text-lg text-gray'></i>
+                </span>{' '}
+              </Button>
+            )}
+          </div>
         </div>
         {reviewData?.data?.length === 0 && (
           <p className='text-gray w-full h-32 flex justify-center items-center'>
