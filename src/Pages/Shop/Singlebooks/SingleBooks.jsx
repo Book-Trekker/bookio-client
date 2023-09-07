@@ -20,6 +20,7 @@ import {
   useGetAllBooksQuery,
   useGetBookByIdQuery,
 } from '../../../redux/features/books/bookApiSlice'
+import Rating from 'react-rating'
 
 const SingleBooks = () => {
   const { id } = useParams()
@@ -127,7 +128,7 @@ const SingleBooks = () => {
       desc: <Description />,
     },
     {
-      label: `Reviews ${avgReviewCount} / (${reviewCount})`,
+      label: `Reviews ${reviewCount} / (${avgReviewCount})`,
       value: 'Reviews',
       desc: (
         <Reviews
@@ -172,6 +173,23 @@ const SingleBooks = () => {
               <h1 className='text-primary text-2xl font-libre font-bold'>
                 {bookData?.data?.name}
               </h1>
+              <div>
+                <span className='font-medium'>Rating:</span>
+                {'   '}
+                <Rating
+                  emptySymbol={
+                    <i className='fa fa-star-o fa-2x text-[#CECECE] text-sm'></i>
+                  }
+                  fullSymbol={
+                    <i className='fa fa-star fa-2x text-[#F7BC3D] text-sm'></i>
+                  }
+                  initialRating={avgReviewCount}
+                  readonly
+                />
+                <span className='text-gray pl-1'>
+                  ({avgReviewCount} / {reviewCount})
+                </span>
+              </div>
               <p className='text-gray py-1'>
                 Brand: <span className='text-primary'>Unknown</span>{' '}
               </p>
@@ -324,8 +342,8 @@ const SingleBooks = () => {
                   onClick={() => setActiveTab(value)}
                   className={
                     activeTab === value
-                      ? 'text-black font-libre font-bold text-[12px]'
-                      : 'text-gray font-libre font-bold text-[12px]'
+                      ? 'text-black font-lato font-bold text-lg'
+                      : 'text-gray font-lato font-bold text-lg'
                   }
                 >
                   {label}
