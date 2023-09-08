@@ -4,20 +4,21 @@ import loginImage from '../../assets/gif/login.gif'
 import { Button, Input } from '@material-tailwind/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
-import { useLoginMutation, useSignupMutation } from '../../redux/api/authApi'
+import { useSignupMutation } from '../../redux/features/users/userApiSlice'
+import { toast } from 'react-toastify'
 
 export default function SignUp() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [signup, { isLoading }] = useSignupMutation();
-  const [role , setRole] = useState("")
+  const [signup, { isLoading }] = useSignupMutation()
+  const [role, setRole] = useState('')
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location])
 
-  const handleNavigate = (path) => {
-    navigate(path)
-  }
+  // const handleNavigate = (path) => {
+  //   navigate(path)
+  // }
 
   const {
     register,
@@ -27,20 +28,26 @@ export default function SignUp() {
   } = useForm()
 
   const onSubmit = async (data) => {
-
-    signup({...data, phoneNumber: parseInt(data.phoneNumber)})
-    .unwrap()
-    .then((data) => {
-      // Handle successful signup
-      console.log('Signed up:', data);
-    })
-    .catch((error) => {
-      // Handle signup error
-      console.error('Signup Error:', error);
-    });
-    console.log("aignUp data", data)
+    signup({ ...data, phoneNumber: parseInt(data.phoneNumber) })
+      .unwrap()
+      .then((data) => {
+        toast.success('Registration Successful', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        })
+        // Redirect to another page if needed
+        navigate('/sign_in')
+      })
+      .catch((error) => {
+        // Handle signup error
+        console.error('Signup Error:', error)
+      })
   }
-console.log("role", role)
   return (
     <>
       {/* breadCumb  */}
