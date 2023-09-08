@@ -4,6 +4,7 @@ import { useGetBookReviewsQuery } from '../../../redux/features/review/reviewApi
 import { Button } from '@material-tailwind/react'
 import Rating from 'react-rating'
 import { useGetBookByIdQuery } from '../../../redux/features/books/bookApiSlice'
+import { format } from 'date-fns'
 
 const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
   const [averageRating, setAverageRating] = useState(0)
@@ -63,6 +64,28 @@ const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
   }, [sortedReviews.length, setReviewCount, averageRating, setAvgReviewCount])
   // console.log(averageRating)
 
+  // Review days count
+  const calculateDaysAgo = (date) => {
+    const currentDate = new Date()
+    const reviewDate = new Date(date)
+    const timeDifference = currentDate.getTime() - reviewDate.getTime()
+
+    // Calculate days, hours, and minutes
+    const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+    const hoursAgo = Math.floor(timeDifference / (1000 * 60 * 60))
+    const minutesAgo = Math.floor(timeDifference / (1000 * 60))
+
+    if (daysAgo >= 1) {
+      return `${daysAgo} day${daysAgo !== 1 ? 's' : ''} ago`
+    } else if (hoursAgo >= 1) {
+      return `${hoursAgo} hour${hoursAgo !== 1 ? 's' : ''} ago`
+    } else if (minutesAgo >= 1) {
+      return `${minutesAgo} minute${minutesAgo !== 1 ? 's' : ''} ago`
+    } else {
+      return 'Less than a minute ago'
+    }
+  }
+
   return (
     <div>
       {/* Show user review */}
@@ -103,7 +126,20 @@ const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
                         <h2 className='font-libre'>
                           {d?.name}{' '}
                           <span className='text-gray font-lato pl-5'>
-                            Jun 1 2018, 6:53 pm
+                            <p className='text-gray font-bold'>
+                              {(() => {
+                                try {
+                                  const createdAtDate = new Date(d?.date)
+                                  return format(
+                                    createdAtDate,
+                                    'MMM dd, yyyy - hh:mm a'
+                                  )
+                                } catch (error) {
+                                  return 'Review Time Not Found'
+                                }
+                              })()}{' '}
+                              <span className='font-normal pl-3'>{calculateDaysAgo(d?.date)}</span>
+                            </p>
                           </span>{' '}
                         </h2>
                         <span className='text-sm text-gray'>{d?.email}</span>
