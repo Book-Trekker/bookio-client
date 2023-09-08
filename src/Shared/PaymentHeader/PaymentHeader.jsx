@@ -14,7 +14,7 @@ export default function PaymentHeader() {
       <div className="mt-14">
         <ul className="flex items-center  justify-center gap-10 text-[1.5rem] font-semibold">
           <li className={location.pathname === "/card" ? "paymentHeader active": "paymentHeader "}>
-            <Link to="/card">SHOPPING CART(1)</Link>
+            <Link to="/cart">SHOPPING CART(1)</Link>
           </li>
           <li className={location.pathname === "/checkout" ? "paymentHeader active": "paymentHeader "}>
             <Link to="/checkout">CHECKOUT</Link>
