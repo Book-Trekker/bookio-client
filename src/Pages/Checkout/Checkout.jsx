@@ -2,6 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import Header from "../HomePage/Header/Header";
 import PaymentHeader from "../../Shared/PaymentHeader/PaymentHeader";
+import CardReturnService from "../Card/CardReturnService/CardReturnService";
 
 export default function Checkout() {
   return (
@@ -10,7 +11,7 @@ export default function Checkout() {
       <div>
         <PaymentHeader />
         <div>
-          <h2>Checkout</h2>
+          <CardReturnService />
         </div>
       </div>
     </Fragment>
