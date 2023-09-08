@@ -1,19 +1,17 @@
 import React from 'react'
 import { AiOutlineEye } from 'react-icons/ai'
 import { BsMinecartLoaded } from 'react-icons/bs'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
-const BestSeller = ({ title }) => {
+const MoreBooks = ({ books }) => {
   const navigate = useNavigate()
-
   return (
-    <div className='best_seller_items'>
-      <h2 className='text-2xl font-libre font-bold'>{title}</h2>
-      <div className='w-full h-[1px] bg-[#e2e2e2] relative mb-5 mt-2'>
-        <div className='w-14 h-1 bg-primary absolute left-0 bottom-0'></div>
-      </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3'>
-        <div onClick={() => navigate('/shop/book/1')}>
+    <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+      {books?.data?.slice(0, 20).map((bookData) => (
+        <div
+          onClick={() => navigate(`/shop/book/${bookData?._id}`)}
+          className=''
+        >
           <div className='w-full change-bg-1 cursor-pointer mb-6'>
             {/* cart  */}
             <div className='trending-1 trend-bg-1 w-full relative'>
@@ -47,20 +45,20 @@ const BestSeller = ({ title }) => {
             {/* cart details  */}
             <div className='details'>
               <p className='author text-sm text-gray mt-2 font-bold'>
-                By: <span className='font-normal'>Alec Hansen</span>
+                By: <span className='font-normal'>{bookData?.author}</span>
               </p>
               <p className='book-name text-lg font-libre font-medium text-primary'>
-                The Art of Fashion
+                {bookData?.name}
               </p>
               <p className='price text-sm font-libre font-bold text-secondary'>
-                $80.00 - $200.00
+                $ {bookData?.price}
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      ))}
+    </section>
   )
 }
 
-export default BestSeller
+export default MoreBooks

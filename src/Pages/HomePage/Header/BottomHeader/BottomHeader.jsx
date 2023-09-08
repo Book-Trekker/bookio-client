@@ -48,11 +48,11 @@ const Header = ({ sideDrawer, setSideDrawer }) => {
     <>
       <div className="mb-5 w-[60%] mx-auto">
         <div className="search m-2 bg-grayDark">
-          <div class="sm:flex rounded shadow-sm flex justify-center items-center text-gray">
+          <div className="sm:flex rounded shadow-sm flex justify-center items-center text-gray">
             <input
               type="text"
               placeholder="Search product..."
-              class="py-3 bg-grayDark px-4 pr-11 block w-full shadow-sm -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg text-sm relative dark:text-gray-400 focus:outline-none"
+              className="py-3 bg-grayDark px-4 pr-11 block w-full shadow-sm -mt-px -ml-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-l-lg sm:mt-0 sm:first:ml-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg text-sm relative dark:text-gray-400 focus:outline-none"
             />
             <span className=" hover:bg-primary h-[50px] w-[60px] flex justify-center items-center">
               <i class="ri-search-line text-secondary text-2xl"></i>

@@ -91,3 +91,17 @@ body {
 body{
   overflow-x: hidden;
 }
+
+::selection {
+  background-color: #064532;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 467px) {
+  .addToCart{
+    width: 100%;
+  }
+  .brd-text{
+    font-size: 14px;
+  }
+}

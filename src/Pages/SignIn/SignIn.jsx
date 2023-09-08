@@ -4,14 +4,20 @@ import loginImage from '../../assets/gif/login.gif'
 import { Button, Checkbox, Input, Typography } from '@material-tailwind/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BreadCumb from '../../Shared/BreadCumb/BreakCumb'
-import { useLoadUserMutation, useLoginMutation } from '../../redux/api/authApi'
-import Cookie from "js-cookie"
+import Cookies from 'js-cookie'
+import {
+  useGetProfileQuery,
+  useLoginMutation,
+} from '../../redux/features/users/userApiSlice'
+import { toast } from 'react-toastify'
 
 export default function SignIp() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [login, { isLoading }] = useLoginMutation();
-  const [loadUser, { data, error }] = useLoadUserMutation();
+  const [login, { isLoading }] = useLoginMutation(undefined, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 50,
+  })
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -28,26 +34,30 @@ export default function SignIp() {
     watch,
   } = useForm()
 
-  const onSubmit = (data) => {
-    login(data)
-    .unwrap()
-    .then((data) => {
-      // Handle successful login
-      console.log('Logged in:', data.data.accessToken);
-      const token = data.data.accessToken
-
-
-   
-      
-      if(token){
-        Cookie.set("accessToken", token)
-      }
-    })
-    .catch((error) => {
-      // Handle login error
-      console.error('Login Error:', error);
-    });
-  } 
+  const onSubmit = async (data) => {
+    await login(data)
+      .unwrap()
+      .then((data) => {
+        const token = data?.data?.accessToken
+        if (token) {
+          Cookies.set('accessToken', token)
+        }
+        toast.success('Welcome 👋👋👋 ', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        })
+        navigate('/')
+      })
+      .catch((error) => {
+        // Handle login error
+        console.error('Login Error:', error)
+      })
+  }
 
   const termsAndConditionsChecked = watch('termsAndConditions', false)
 
@@ -84,21 +94,27 @@ export default function SignIp() {
             </div>
           </div>
           <div className='col-span-12 md:col-span-5'>
-            <h3 className='accountTitle'>Login</h3>
+            <h3
+              // onClick={() =>
+              //   Cookies.set(
+              //     'accessToken',
+              //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUGhvbmVOdW1iZXIiOjQxNjQ2NDY1NDY1NDUsInJvbGUiOiJzZWxsZXIiLCJpYXQiOjE2OTI5NzYxNTAsImV4cCI6MTY5Mzg0MDE1MH0.n0RIdTzSzsRAZzi1urgI67E5eieTeejiQFh1N7mq7AI'
+              //   )
+              // }
+              className='accountTitle'
+            >
+              Login
+            </h3>
             <div className='mt-3'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col gap-4'>
                   <Input
-                    type='tel'
+                    type='text'
                     label='Phone Number'
                     className=''
                     icon={<i className='ri-phone-line'></i>}
                     {...register('phoneNumber', {
                       required: 'Phone Number is required',
-                      minLength: {
-                        value: 11,
-                        message: 'Phone Number must have 11 characters',
-                      },
                     })}
                     error={errors.phoneNumber?.message}
                   />
