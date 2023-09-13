@@ -8,8 +8,24 @@ const cartApi = api.injectEndpoints({
         method: 'POST',
         body: cartItem,
       }),
+      invalidatesTags: ['cart'],
+    }),
+    getCart: builder.query({
+      query: () => ({
+        url: '/api/v1/cart',
+        method: 'GET',
+        providesTags: ['cart'],
+      }),
+    }),
+    deleteCart: builder.mutation({
+      query: (id) => ({
+        url: `/api/v1/cart/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['cart'],
     }),
   }),
 })
 
-export const { useAddToCartMutation } = cartApi
+export const { useAddToCartMutation, useGetCartQuery, useDeleteCartMutation } =
+  cartApi
