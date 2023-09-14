@@ -90,149 +90,112 @@
 
 // export default CreateBook
 
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { useCreateBookMutation } from '../../../redux/features/books/bookApiSlice'
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useCreateBookMutation } from "../../../redux/features/books/bookApiSlice";
+import { uploadCloudinary } from "../../../utilities/imagesUpload/upload";
 
 const SimpleForm = () => {
-  const { register, handleSubmit, formState } = useForm()
+  const [images, setImages] = useState([]);
+  const [link, setLink] = useState([]);
+  const [createBook] = useCreateBookMutation();
 
-  const [createBook] = useCreateBookMutation()
-
-  const onSubmit = async (bookData) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const response = await createBook(bookData).unwrap()
-      console.log(response)
+      let arr = [];
+      for (let i = 0; i < images.length; i++) {
+        const data = await uploadCloudinary(images[i]);
+        arr.push(data);
+      }
+      setLink([...arr]);
     } catch (error) {
-      console.error(error)
+      console("error", error);
     }
-  }
-
+  };
+  
+  console.log("link", link);
   // const onSubmit = (data) => {
   //   console.log(data)
   // }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='max-w-md mx-auto'>
-      <div className='flex flex-wrap -mx-2'>
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+      <div className="flex flex-wrap -mx-2">
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Name:
-            <input
-              {...register('name', { required: true })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            />
+            <input className="border rounded-md px-2 py-1 w-full mt-1" />
           </label>
-          {formState.errors.name && (
-            <p className='text-red-500'>Name is required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Author:
-            <input
-              {...register('author', { required: true })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            />
+            <input className="border rounded-md px-2 py-1 w-full mt-1" />
           </label>
-          {formState.errors.author && (
-            <p className='text-red-500'>Author is required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
-            Image URLs (comma-separated):
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
+            Image
             <input
-              {...register('image', { required: true })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
+              type="file"
+              multiple={true}
+              onChange={(e) => setImages(e.target.files)}
             />
           </label>
-          {formState.errors.image && (
-            <p className='text-red-500'>Image URLs are required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Price:
-            <input
-              {...register('price', { required: true, pattern: /^[0-9]+$/ })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            />
+            <input className="border rounded-md px-2 py-1 w-full mt-1" />
           </label>
-          {formState.errors.price && (
-            <p className='text-red-500'>Valid price is required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Quantity:
-            <input
-              {...register('quantity', { required: true, pattern: /^[0-9]+$/ })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            />
+            <input className="border rounded-md px-2 py-1 w-full mt-1" />
           </label>
-          {formState.errors.quantity && (
-            <p className='text-red-500'>Valid quantity is required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Category:
-            <select
-              {...register('category', { required: true })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            >
-              <option value=''>Select Category</option>
-              <option value='science'>Science</option>
-              <option value='adventure'>Adventure</option>
-              <option value='romance'>Romance</option>
+            <select className="border rounded-md px-2 py-1 w-full mt-1">
+              <option value="">Select Category</option>
+              <option value="science">Science</option>
+              <option value="adventure">Adventure</option>
+              <option value="romance">Romance</option>
             </select>
           </label>
-          {formState.errors.category && (
-            <p className='text-red-500'>Category is required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Seller:
-            <input
-              {...register('seller', { required: true })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            />
+            <input className="border rounded-md px-2 py-1 w-full mt-1" />
           </label>
-          {formState.errors.seller && (
-            <p className='text-red-500'>Seller is required</p>
-          )}
         </div>
 
-        <div className='w-full px-2 mb-4'>
-          <label className='block mb-2'>
+        <div className="w-full px-2 mb-4">
+          <label className="block mb-2">
             Status:
-            <input
-              {...register('status', { required: true })}
-              className='border rounded-md px-2 py-1 w-full mt-1'
-            />
+            <input className="border rounded-md px-2 py-1 w-full mt-1" />
           </label>
-          {formState.errors.status && (
-            <p className='text-red-500'>Status is required</p>
-          )}
         </div>
       </div>
 
       <button
-        type='submit'
-        className='bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full hover:bg-blue-600'
+        type="submit"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full hover:bg-blue-600"
       >
         Submit
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default SimpleForm
+export default SimpleForm;
