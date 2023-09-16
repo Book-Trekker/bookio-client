@@ -21,16 +21,30 @@ import {
   useGetBookByIdQuery,
 } from '../../../redux/features/books/bookApiSlice'
 import Rating from 'react-rating'
+import { useGetProfileQuery } from '../../../redux/features/users/userApiSlice'
+import { useAddToCartMutation } from '../../../redux/features/cart/cartApiSlice'
+import { toast } from 'react-toastify'
 
 const SingleBooks = () => {
   const { id } = useParams()
   const { data: bookData, isLoading, isError, error } = useGetBookByIdQuery(id)
+  const {
+    data: profile,
+    isLoading: profileIsLoading,
+    error: profileError,
+  } = useGetProfileQuery()
+  const [addToCartMutation] = useAddToCartMutation()
+  const bookId = bookData?.data?._id
+  const userId = profile?.data?._id
 
   const { data: books } = useGetAllBooksQuery(bookData?.data?.category)
   // console.log('RelatedBooksDataaaaaaa: --------------', books?.data)
   const [reviewCount, setReviewCount] = useState(0)
   const [avgReviewCount, setAvgReviewCount] = useState(0)
   const [qty, setQty] = useState(0)
+
+  // console.log(img[0])
+  
 
   const handleIncrease = () => {
     setQty((prevQty) => prevQty + 1)
@@ -119,6 +133,30 @@ const SingleBooks = () => {
   }
   //  END  day counter
 
+  // ADD To CART
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      userId,
+      bookId,
+    }
+
+    addToCartMutation(cartItem)
+      .unwrap()
+      .then((response) => {
+        // Handle the successful response
+        console.log('Book added to cart successfully!', response)
+        toast.success('Book added to cart successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+        })
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error('Error adding book to cart:', error)
+      })
+  }
+
   //   review section
   const [activeTab, setActiveTab] = React.useState('Description')
   const data = [
@@ -164,7 +202,7 @@ const SingleBooks = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           {/* product image  */}
           <div className='p-4'>
-            <img src={bookData?.data?.image[0]} alt='' />
+            <img src={bookData?.data?.image[0]?.url} alt='' />
           </div>
           {/* product details  */}
           <div className='pl-4 pt-4 pb-4'>
@@ -282,7 +320,10 @@ const SingleBooks = () => {
                   <i class='ri-add-fill'></i>
                 </span>
               </div>
-              <Button className='bg-black rounded-[0px] hover:bg-primary text-sm font-lato w-48 addToCart'>
+              <Button
+                onClick={handleAddToCart}
+                className='bg-black rounded-[0px] hover:bg-primary text-sm font-lato w-48 addToCart'
+              >
                 ADD TO CART
               </Button>
             </div>

@@ -12,11 +12,11 @@ export default function Card() {
       <Header />
       <div>
         <PaymentHeader />
-        <div className="grid grid-cols-12 px-10 mt-14">
-          <div className="col-span-8">
+        <div className="grid grid-cols-12 px-5 gap-5 mt-14">
+          <div className="col-span-12 lg:col-span-8">
               <CardProducts />
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 lg:col-span-4">
             <CartTotals />
           </div>
         </div>
