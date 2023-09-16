@@ -43,6 +43,9 @@ const SingleBooks = () => {
   const [avgReviewCount, setAvgReviewCount] = useState(0)
   const [qty, setQty] = useState(0)
 
+  // console.log(img[0])
+  
+
   const handleIncrease = () => {
     setQty((prevQty) => prevQty + 1)
   }
@@ -199,7 +202,7 @@ const SingleBooks = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           {/* product image  */}
           <div className='p-4'>
-            <img src={bookData?.data?.image[0]} alt='' />
+            <img src={bookData?.data?.image[0]?.url} alt='' />
           </div>
           {/* product details  */}
           <div className='pl-4 pt-4 pb-4'>

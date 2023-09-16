@@ -4,7 +4,8 @@ import Swal from 'sweetalert2'
 
 const CartItem = ({ cartData }) => {
   const [deleteCartMutation] = useDeleteCartMutation()
-  // console.log(cartData?._id)
+  // console.log(cartData?.bookId?.image)
+
 
   const formatCreatedAt = (isoTimestamp) => {
     const createdAt = new Date(isoTimestamp)
@@ -41,11 +42,7 @@ const CartItem = ({ cartData }) => {
       <div className=' flex items-center'>
         <div className='flex p-3 justify-between w-full'>
           <div>
-            <img
-              className='w-20'
-              src={cartData?.bookId?.image[0]}
-              alt='wishlist/book'
-            />
+            <img className='w-20' src={cartData?.bookId?.image[0]?.url} alt='wishlist/book' />
           </div>
           <div className='pl-3 flex  flex-col justify-between py-3'>
             <div>
