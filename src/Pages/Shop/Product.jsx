@@ -13,7 +13,7 @@ import {
 
 const Product = ({ bookData }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const { name, author, image, price, quantity, status, category, _id } =
+  const { name, author, images, price, quantity, status, category, _id } =
     bookData
 
   const {
@@ -104,7 +104,7 @@ const Product = ({ bookData }) => {
       <div
         style={{
           backgroundImage: `url(${
-            isHovered ? bookData?.image[0]?.url : bookData?.image[1]?.url
+            isHovered ? bookData?.images[0]?.url : bookData?.images[1]?.url
           })`,
         }}
         onMouseEnter={() => setIsHovered(true)}

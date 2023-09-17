@@ -44,7 +44,6 @@ const SingleBooks = () => {
   const [qty, setQty] = useState(0)
 
   // console.log(img[0])
-  
 
   const handleIncrease = () => {
     setQty((prevQty) => prevQty + 1)
@@ -184,7 +183,7 @@ const SingleBooks = () => {
     {
       label: 'More Books',
       value: 'MoreBooks',
-      desc: <MoreBooks books={books} />,
+      desc: books?.data?.map((d) => <MoreBooks books={d} />),
     },
   ]
 
@@ -202,7 +201,7 @@ const SingleBooks = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           {/* product image  */}
           <div className='p-4'>
-            <img src={bookData?.data?.image[0]?.url} alt='' />
+            <img src={bookData?.data?.images[0]?.url} alt='' />
           </div>
           {/* product details  */}
           <div className='pl-4 pt-4 pb-4'>

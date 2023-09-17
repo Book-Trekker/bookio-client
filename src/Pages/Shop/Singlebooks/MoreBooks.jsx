@@ -4,6 +4,7 @@ import { BsMinecartLoaded } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 const MoreBooks = ({ books }) => {
+  // console.log(books?.images[0]?.url)
   const navigate = useNavigate()
   return (
     <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>

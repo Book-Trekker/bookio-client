@@ -45,7 +45,7 @@ const WishListCart = ({ wishListDat }) => {
             <div>
               <img
                 className='w-24'
-                src={wishListDat?.bookId?.image[1]?.url}
+                src={wishListDat?.bookId?.images[1]?.url}
                 alt='wishlist/book'
               />
             </div>
