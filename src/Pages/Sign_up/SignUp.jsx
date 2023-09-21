@@ -28,7 +28,7 @@ export default function SignUp() {
   } = useForm()
 
   const onSubmit = async (data) => {
-    signup({ ...data, phoneNumber: parseInt(data.phoneNumber) })
+    signup({ ...data, phoneNumber: data.phoneNumber })
       .unwrap()
       .then((data) => {
         toast.success('Registration Successful', {
@@ -140,7 +140,7 @@ export default function SignUp() {
                   )}
 
                   <Input
-                    type='tel'
+                    type='text'
                     label='Phone Number'
                     className=''
                     icon={<i className='ri-phone-line'></i>}
