@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import loginImage from '../../assets/gif/login.gif'
 import { Button, Checkbox, Input, Typography } from '@material-tailwind/react'
@@ -12,6 +12,7 @@ import {
 import { toast } from 'react-toastify'
 
 export default function SignIp() {
+  const [loginError, setLoginError] = useState()
   const location = useLocation()
   const navigate = useNavigate()
   const [login, { isLoading }] = useLoginMutation(undefined, {
@@ -55,7 +56,8 @@ export default function SignIp() {
       })
       .catch((error) => {
         // Handle login error
-        console.error('Login Error:', error)
+        // console.error('Login Error:', error?.data?.errorMessages[0]?.message)
+        setLoginError(error)
       })
   }
 
@@ -123,7 +125,12 @@ export default function SignIp() {
                       {errors.phoneNumber.message}
                     </span>
                   )}
-
+                  {loginError?.data?.errorMessages[0]?.message ===
+                    'User does not exist' && (
+                    <span className='text-red-500'>
+                      {loginError?.data?.errorMessages[0]?.message}
+                    </span>
+                  )}
                   <Input
                     type='password'
                     label='Password'
@@ -141,6 +148,12 @@ export default function SignIp() {
                   {errors.password && (
                     <span className='text-red-500'>
                       {errors.password.message}
+                    </span>
+                  )}
+                  {loginError?.data?.errorMessages[0]?.message ===
+                    'Password is incorrect' && (
+                    <span className='text-red-500'>
+                      {loginError?.data?.errorMessages[0]?.message}
                     </span>
                   )}
                 </div>
