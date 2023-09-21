@@ -28,6 +28,7 @@ export default function SignUp() {
   } = useForm()
 
   const onSubmit = async (data) => {
+    console.log("data", data)
     signup({ ...data, phoneNumber: parseInt(data.phoneNumber) })
       .unwrap()
       .then((data) => {
