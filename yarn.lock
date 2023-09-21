@@ -1724,10 +1724,10 @@
   resolved "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz"
   integrity sha512-6j56HdLTwWGO0fJPlrZtdU/B13q8Uwmo18Ck2GnGgN9PCFyKTZ3UbXeEdRFh18i9XQ92eH2VdtpJHpBD3aripQ==
 
-"@material-tailwind/react@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@material-tailwind/react/-/react-2.1.0.tgz#fb6c771b394ed58697d72ad7ad8ccb30ed5c3eb0"
-  integrity sha512-Z1YEy5oFbMJDuJ85ArPPVPgTexM/RvhkMNc/KlmJEeCAP4pQ1ImaBuckK1BKuRXUtZex+TlpFW+r49nkaes/Rg==
+"@material-tailwind/react@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@material-tailwind/react/-/react-2.1.2.tgz#4148a399d3cf12a68aad18865ada659066fab090"
+  integrity sha512-/R5aurer27jB4eFyw4YBgLHBRE5XZxWCLPuI8rz2VMaDdaTxgrFBBH0ZUW5YFJLE+71t+Bm9HY5KUtU3mZldMg==
   dependencies:
     "@floating-ui/react" "0.19.0"
     classnames "2.3.2"

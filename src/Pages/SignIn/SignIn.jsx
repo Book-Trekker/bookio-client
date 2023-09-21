@@ -32,7 +32,6 @@ export default function SignIp() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm()
 
   const onSubmit = async (data) => {
@@ -60,8 +59,6 @@ export default function SignIp() {
         setLoginError(error)
       })
   }
-
-  const termsAndConditionsChecked = watch('termsAndConditions', false)
 
   return (
     <>
@@ -112,23 +109,17 @@ export default function SignIp() {
                 <div className='flex flex-col gap-4'>
                   <Input
                     type='text'
-                    label='Phone Number'
+                    label='Email Or Phone Number'
                     className=''
                     icon={<i className='ri-phone-line'></i>}
                     {...register('phoneNumber', {
-                      required: 'Phone Number is required',
+                      required: 'This field is required',
                     })}
                     error={errors.phoneNumber?.message}
                   />
                   {errors.phoneNumber && (
                     <span className='text-red-500'>
                       {errors.phoneNumber.message}
-                    </span>
-                  )}
-                  {loginError?.data?.errorMessages[0]?.message ===
-                    'User does not exist' && (
-                    <span className='text-red-500'>
-                      {loginError?.data?.errorMessages[0]?.message}
                     </span>
                   )}
                   <Input
@@ -150,27 +141,11 @@ export default function SignIp() {
                       {errors.password.message}
                     </span>
                   )}
-                  {loginError?.data?.errorMessages[0]?.message ===
-                    'Password is incorrect' && (
+                  {loginError?.data?.errorMessages[0]?.message && (
                     <span className='text-red-500'>
-                      {loginError?.data?.errorMessages[0]?.message}
+                      {'User ID or Password is Incorrect'}
                     </span>
                   )}
-                </div>
-                <div className='mt-3 flex items-center'>
-                  <Checkbox
-                    label={
-                      <Typography
-                        variant='small'
-                        color='gray'
-                        className='flex items-center font-normal'
-                      >
-                        Remember me
-                      </Typography>
-                    }
-                    containerProps={{ className: '-ml-2.5' }}
-                    {...register('termsAndConditions', { required: false })}
-                  />
                 </div>
                 <Button type='submit' className='bg-secondary mt-3'>
                   Login
