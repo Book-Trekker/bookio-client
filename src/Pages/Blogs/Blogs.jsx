@@ -5,10 +5,13 @@ import blogs1 from '../../assets/images/blogs/blogs1.png'
 import blogs2 from '../../assets/images/blogs/blogs2.png'
 import blogs3 from '../../assets/images/blogs/blogs3.png'
 import blogs4 from '../../assets/images/blogs/blogs4.png'
+import Header from '../HomePage/Header/Header'
+import Footer from '../../Shared/Footer/Footer'
 
 const Blogs = () => {
   return (
     <section className='blogs_section'>
+      <Header />
       {/* breadCumb  */}
       <BreadCumb
         first={'Home'}
@@ -26,6 +29,7 @@ const Blogs = () => {
         <hr className='my-5 md:my-10 text-[#e2e2e2]' />
         <Blog img={blogs4} title={'Lorem Ipsum Dolor Sit Amet Enim'} />
       </div>
+      <Footer />
     </section>
   )
 }

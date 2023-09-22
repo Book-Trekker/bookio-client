@@ -9,10 +9,13 @@ import TopFooterCard from '../../Shared/TopFooterCard'
 import { TopFooterData } from '../../utilities/DemoData'
 import bookio from '../../assets/images/about/bookio.png'
 import BookioSlider from './BookioSlider'
+import Header from '../HomePage/Header/Header'
+import Footer from '../../Shared/Footer/Footer'
 
 const AboutUs = () => {
   return (
     <section className='about_us_section'>
+      <Header />
       {/* breadcumb  */}
       <div className='breadCumb'>
         <BreadCumb
@@ -132,6 +135,7 @@ const AboutUs = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </section>
   )
 }

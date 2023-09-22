@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .custom_filter{
     min-width: 10px !important;
 }
@@ -7,6 +11,7 @@
 .about_cover_hover img:hover{
     cursor: pointer;
 }
+
 
 
 

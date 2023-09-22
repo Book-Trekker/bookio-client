@@ -17,11 +17,14 @@ import profile3 from '../../assets/images/sorted-list/sorted3.3.png'
 import profile4 from '../../assets/images/sorted-list/sorted4.4.png'
 import profile5 from '../../assets/images/sorted-list/sorted5.5.png'
 import profile6 from '../../assets/images/sorted-list/sorted6.6.png'
+import Header from '../HomePage/Header/Header'
+import Footer from '../../Shared/Footer/Footer'
 
 const StoreList = () => {
   const [openSearch, setOpenSearch] = useState(false)
   return (
     <section className='store_list_section'>
+      <Header />
       <div className='store_list_main'>
         {/* breadcumb  */}
         <div className='breadCumb'>
@@ -102,6 +105,7 @@ const StoreList = () => {
           <SortedListCard title={'Wpbingo'} bg={bg6} profile={profile6} />
         </div>
       </div>
+      <Footer />
     </section>
   )
 }
