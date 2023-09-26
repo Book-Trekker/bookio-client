@@ -14,6 +14,7 @@ import TopCategories from "./TopCategories/TopCategories";
 import Trending from "./Trending/Trending";
 import Header from "./Header/Header";
 import Footer from "../../Shared/Footer/Footer";
+import TopBooks from "./TopBooks/TopBooks";
 
 const HomePage = () => {
   return (
@@ -28,7 +29,7 @@ const HomePage = () => {
       <TopCategories />
       <BookOfTheMonth />
       <BookAdventure />
-      <Trending title="Bookio Top Books" />
+      <TopBooks title="Bookio Top Books" />
       <FantasticChoice />
       <Testimonial />
       <TopFooter />
