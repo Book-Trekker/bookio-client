@@ -1,11 +1,7 @@
-import React, { Children } from "react";
+import React, { Children } from 'react'
 
 const FilterTitle = ({ children }) => {
-  return (
-    <h3 className="text-[20px] font-semibold text-[#000] FilterTitle">
-      {children}
-    </h3>
-  );
-};
+  return <h3 className='text-[20px] font-semibold text-[#000] '>{children}</h3>
+}
 
-export default FilterTitle;
+export default FilterTitle
