@@ -8,6 +8,7 @@ import { BsMinecartLoaded } from 'react-icons/bs'
 import { AiOutlineEye } from 'react-icons/ai'
 import '../Trending/Trending.css'
 import { useGetAllBooksQuery } from '../../../redux/features/books/bookApiSlice'
+import { useState } from 'react'
 
 const TopBooks = ({ title }) => {
   const { data: books } = useGetAllBooksQuery()
@@ -15,6 +16,9 @@ const TopBooks = ({ title }) => {
     ? [...books?.data].sort((a, b) => b?.avgRating - a?.avgRating)
     : []
   // console.log(sortedBooks)
+  const [isHoveredArray, setIsHoveredArray] = useState(
+    Array(sortedBooks.length).fill(false)
+  )
 
   return (
     <section className='trending px-5 my-8 w-full overflow-x-hidden'>
@@ -70,7 +74,26 @@ const TopBooks = ({ title }) => {
           <SwiperSlide key={index}>
             <div className='w-full change-bg-1 cursor-pointer'>
               {/* cart */}
-              <div className='trending-1 trend-bg-1 w-full relative'>
+              <div
+                style={{
+                  backgroundImage: `url(${
+                    isHoveredArray[index]
+                      ? bookData?.images[0]?.url
+                      : bookData?.images[1]?.url
+                  })`,
+                }}
+                onMouseEnter={() => {
+                  const newHoverArray = [...isHoveredArray]
+                  newHoverArray[index] = true
+                  setIsHoveredArray(newHoverArray)
+                }}
+                onMouseLeave={() => {
+                  const newHoverArray = [...isHoveredArray]
+                  newHoverArray[index] = false
+                  setIsHoveredArray(newHoverArray)
+                }}
+                className='trending-1 trend-bg-1 w-full relative'
+              >
                 <div className='trending_content flex justify-between p-2'>
                   <p className='text-sm'>
                     <span className='px-2 bg-yellow text-white py-[1px]'>
