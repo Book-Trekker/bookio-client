@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -11,7 +11,11 @@ import { useGetAllBooksQuery } from '../../../redux/features/books/bookApiSlice'
 
 const Trending = ({ title }) => {
   const { data: books } = useGetAllBooksQuery()
-  // console.log(books?.data)
+  const [isHovered, setIsHovered] = useState(false)
+  const [isHoveredArray, setIsHoveredArray] = useState(
+    Array(books?.data?.length).fill(false)
+  )
+  // console.log(books?.data?.length)
   // const bData = books?.data?.map(d => console.log(d?.name))
 
   return (
@@ -70,7 +74,26 @@ const Trending = ({ title }) => {
               <SwiperSlide key={index}>
                 <div className='w-full change-bg-1 cursor-pointer'>
                   {/* cart  */}
-                  <div className='trending-1 trend-bg-1 w-full relative'>
+                  <div
+                    style={{
+                      backgroundImage: `url(${
+                        isHoveredArray[index]
+                          ? bookData?.images[0]?.url
+                          : bookData?.images[1]?.url
+                      })`,
+                    }}
+                    onMouseEnter={() => {
+                      const newHoverArray = [...isHoveredArray]
+                      newHoverArray[index] = true
+                      setIsHoveredArray(newHoverArray)
+                    }}
+                    onMouseLeave={() => {
+                      const newHoverArray = [...isHoveredArray]
+                      newHoverArray[index] = false
+                      setIsHoveredArray(newHoverArray)
+                    }}
+                    className='trending-1 trend-bg-1 w-full relative'
+                  >
                     <div className='trending_content flex justify-between p-2'>
                       <p className='text-sm'>
                         <span className='px-2 bg-yellow text-white py-[1px]'>
