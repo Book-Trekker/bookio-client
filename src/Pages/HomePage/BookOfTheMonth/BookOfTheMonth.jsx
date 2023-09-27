@@ -1,12 +1,17 @@
 import React from 'react'
 import './BookOfTheMonth.css'
 import { useGetAllBooksQuery } from '../../../redux/features/books/bookApiSlice'
+import { useState } from 'react'
 
 const BookOfTheMonth = () => {
   const { data: books } = useGetAllBooksQuery()
   const sortedBooks = books?.data
     ? [...books?.data].sort((a, b) => b?.sellCount - a?.sellCount).slice(0, 2)
     : []
+
+  const [isHoveredArray, setIsHoveredArray] = useState(
+    Array(sortedBooks.length).fill(false)
+  )
 
   // console.log(sortedBooks)
 
@@ -29,7 +34,28 @@ const BookOfTheMonth = () => {
         {/* book-left  */}
         {sortedBooks?.map((bookData, index) => (
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4 book_of_the_month_main'>
-            <div className='book_of_the_month'>
+            <div
+              style={{
+                backgroundImage: `url(${
+                  isHoveredArray[index]
+                    ? bookData?.images[1]?.url
+                    : bookData?.images[0]?.url
+                })`,
+              }}
+              onMouseEnter={() => {
+                // Create a copy of the hover state array and set the specific index to true
+                const newHoverArray = [...isHoveredArray]
+                newHoverArray[index] = true
+                setIsHoveredArray(newHoverArray)
+              }}
+              onMouseLeave={() => {
+                // Create a copy of the hover state array and set the specific index to false
+                const newHoverArray = [...isHoveredArray]
+                newHoverArray[index] = false
+                setIsHoveredArray(newHoverArray)
+              }}
+              className='book_of_the_month'
+            >
               <div className='flex justify-between p-3'>
                 <span className='px-1 py-0 bg-[#FF0404] text-white'>-10%</span>
                 <span>
@@ -56,13 +82,16 @@ const BookOfTheMonth = () => {
                 By: <span className='font-medium'>{bookData?.author}</span>
               </p>
               <p className='text-gray font-bold'>
-                Total Sell: <span className='font-medium'>{bookData?.sellCount}</span>
+                Total Sell:{' '}
+                <span className='font-medium'>{bookData?.sellCount}</span>
               </p>
               <hr className='text-gray opacity-50 my-4' />
               <h2 className='text-gray text-2xl font-bold'>
                 {' '}
                 <span className='line-through text-xl'>100.00</span>{' '}
-                <span className='text-red-600 decoration-none'>${bookData?.price}</span>{' '}
+                <span className='text-red-600 decoration-none'>
+                  ${bookData?.price}
+                </span>{' '}
               </h2>
               <div className='top-info py-2'>
                 <p className='flex items-center text-gray'>
