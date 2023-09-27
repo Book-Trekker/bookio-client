@@ -25,7 +25,7 @@ const Hero = () => {
   }
 
   return (
-    <section className='hero'>
+    <section className='hero relative'>
       <Slider {...settings}>
         {/* slider 1  */}
         <div className='slider-1 relative'>

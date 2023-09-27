@@ -15,6 +15,12 @@ const bookApi = api.injectEndpoints({
         method: 'GET',
       }),
     }),
+    searchBooks: builder.query({
+      query: (searchTerm) => ({
+        url: `/api/v1/books?searchTerm=${searchTerm}`,
+        method: 'GET',
+      }),
+    }),
     getBookById: builder.query({
       query: (id) => ({
         url: `/api/v1/books/${id}`,
@@ -43,4 +49,5 @@ export const {
   useDeleteBookMutation,
   useUpdateBookMutation,
   useCreateBookMutation,
+  useSearchBooksQuery,
 } = bookApi
