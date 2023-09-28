@@ -2,6 +2,10 @@ import React from 'react'
 import './BookOfTheMonth.css'
 import { useGetAllBooksQuery } from '../../../redux/features/books/bookApiSlice'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import useCart from '../../../Hooks/useCart'
+import useWishList from '../../../Hooks/useWishList'
+import { useGetProfileQuery } from '../../../redux/features/users/userApiSlice'
 
 const BookOfTheMonth = () => {
   const { data: books } = useGetAllBooksQuery()
@@ -12,6 +16,26 @@ const BookOfTheMonth = () => {
   const [isHoveredArray, setIsHoveredArray] = useState(
     Array(sortedBooks.length).fill(false)
   )
+
+  const { data: profile } = useGetProfileQuery()
+
+  const userId = profile?.data?._id
+
+  const { addToCart } = useCart()
+  const { addToWishList } = useWishList()
+
+  // console.log(books?.data?.length)
+  // const bData = books?.data?.map(d => console.log(d?.name))
+
+  // Add to cart
+  const handleAddToCart = (bookId) => {
+    addToCart(userId, bookId)
+  }
+
+  // Add to wishList
+  const handleAddToWishlist = (bookId) => {
+    addToWishList(userId, bookId)
+  }
 
   // console.log(sortedBooks)
 
@@ -58,12 +82,14 @@ const BookOfTheMonth = () => {
             >
               <div className='flex justify-between p-3'>
                 <span className='px-1 py-0 bg-[#FF0404] text-white'>-10%</span>
-                <span>
+                <span onClick={() => handleAddToWishlist(bookData?._id)}>
                   <i class='ri-heart-line p-3 bg-white rounded-full hover:bg-primary hover:text-white cursor-pointer'></i>
                 </span>
               </div>
               <div className='bottom_cart absolute text-white cursor-pointer'>
-                <i class='ri-eye-line text-3xl '></i>
+                <Link to={`/shop/book/${bookData?._id}`}>
+                  <i class='ri-eye-line text-3xl '></i>
+                </Link>
               </div>
             </div>
             <div className='pl-5 flex flex-col justify-center'>
@@ -108,7 +134,7 @@ const BookOfTheMonth = () => {
                 </p>
               </div>
               <span className='mt-2'>
-                <button className='border-2 px-8 py-2 text-primary font-bold hover:bg-primary hover:text-white hover:border-transparent text-sm font-lato'>
+                <button onClick={()=> handleAddToCart(bookData?._id)} className='border-2 px-8 py-2 text-primary font-bold hover:bg-primary hover:text-white hover:border-transparent text-sm font-lato'>
                   {' '}
                   ADD TO CART
                 </button>
