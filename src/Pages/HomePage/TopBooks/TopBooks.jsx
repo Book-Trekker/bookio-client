@@ -9,6 +9,10 @@ import { AiOutlineEye } from 'react-icons/ai'
 import '../Trending/Trending.css'
 import { useGetAllBooksQuery } from '../../../redux/features/books/bookApiSlice'
 import { useState } from 'react'
+import useWishList from '../../../Hooks/useWishList'
+import useCart from '../../../Hooks/useCart'
+import { useGetProfileQuery } from '../../../redux/features/users/userApiSlice'
+import { Link } from 'react-router-dom'
 
 const TopBooks = ({ title }) => {
   const { data: books } = useGetAllBooksQuery()
@@ -19,6 +23,26 @@ const TopBooks = ({ title }) => {
   const [isHoveredArray, setIsHoveredArray] = useState(
     Array(sortedBooks.length).fill(false)
   )
+
+  const { data: profile } = useGetProfileQuery()
+
+  const userId = profile?.data?._id
+
+  const { addToCart } = useCart()
+  const { addToWishList } = useWishList()
+
+  // console.log(books?.data?.length)
+  // const bData = books?.data?.map(d => console.log(d?.name))
+
+  // Add to cart
+  const handleAddToCart = (bookId) => {
+    addToCart(userId, bookId)
+  }
+
+  // Add to wishList
+  const handleAddToWishlist = (bookId) => {
+    addToWishList(userId, bookId)
+  }
 
   return (
     <section className='trending px-5 my-8 w-full overflow-x-hidden'>
@@ -72,7 +96,7 @@ const TopBooks = ({ title }) => {
       >
         {sortedBooks?.map((bookData, index) => (
           <SwiperSlide key={index}>
-            <div className='w-full change-bg-1 cursor-pointer'>
+            <div className='w-full change-bg-1'>
               {/* cart */}
               <div
                 style={{
@@ -100,7 +124,10 @@ const TopBooks = ({ title }) => {
                       Hot
                     </span>
                   </p>
-                  <p className=' bg-white text-black rounded-full'>
+                  <p
+                    onClick={() => handleAddToWishlist(bookData?._id)}
+                    className=' bg-white text-black rounded-full'
+                  >
                     <span>
                       <i className='far fa-heart p-2 cursor-pointer hover:bg-primary hover:text-white bg-white text-black rounded-full'></i>
                     </span>
@@ -108,15 +135,20 @@ const TopBooks = ({ title }) => {
                 </div>
                 <div className='trending-cart-1 w-full absolute bottom-0'>
                   <div className='action flex justify-between items-center w-full'>
-                    <button className='py-3 bg-black text-white w-full custom-border relative hover:bg-primary flex justify-center items-center'>
+                    <button
+                      onClick={() => handleAddToCart(bookData?._id)}
+                      className='py-3 bg-black text-white w-full custom-border relative hover:bg-primary flex justify-center items-center'
+                    >
                       <span>
                         <BsMinecartLoaded className='text-2xl' />
                       </span>
                     </button>
                     <button className='py-3 bg-black text-white w-full hover:bg-primary  flex justify-center items-center'>
-                      <span>
-                        <AiOutlineEye className='text-2xl' />
-                      </span>
+                      <Link to={`/shop/book/${bookData?._id}`}>
+                        <span>
+                          <AiOutlineEye className='text-2xl' />
+                        </span>
+                      </Link>
                     </button>
                   </div>
                 </div>
