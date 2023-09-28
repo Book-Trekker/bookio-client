@@ -8,6 +8,11 @@ import { BsMinecartLoaded } from 'react-icons/bs'
 import { AiOutlineEye } from 'react-icons/ai'
 import './Trending.css'
 import { useGetAllBooksQuery } from '../../../redux/features/books/bookApiSlice'
+import { Link } from 'react-router-dom'
+import useCart from '../../../Hooks/useCart'
+import useWishList from '../../../Hooks/useWishList'
+import { useGetProfileQuery } from '../../../redux/features/users/userApiSlice'
+import { useGetWishListQuery } from '../../../redux/features/wishlist/wishListApi'
 
 const Trending = ({ title }) => {
   const { data: books } = useGetAllBooksQuery()
@@ -15,8 +20,31 @@ const Trending = ({ title }) => {
   const [isHoveredArray, setIsHoveredArray] = useState(
     Array(books?.data?.length).fill(false)
   )
+  const {
+    data: wishListData,
+    isLoading: wishListIsLoading,
+    error: wishListError,
+  } = useGetWishListQuery()
+
+  const { data: profile } = useGetProfileQuery()
+
+  const userId = profile?.data?._id
+
+  const { addToCart } = useCart()
+  const { addToWishList } = useWishList()
+
   // console.log(books?.data?.length)
   // const bData = books?.data?.map(d => console.log(d?.name))
+
+  // Add to cart
+  const handleAddToCart = (bookId) => {
+    addToCart(userId, bookId)
+  }
+
+  // Add to wishList
+  const handleAddToWishlist = (bookId) => {
+    addToWishList(userId, bookId)
+  }
 
   return (
     <section className='trending px-5 my-8 w-full overflow-x-hidden'>
@@ -72,7 +100,7 @@ const Trending = ({ title }) => {
           if (bookData.group === 'bestSeller') {
             return (
               <SwiperSlide key={index}>
-                <div className='w-full change-bg-1 cursor-pointer'>
+                <div className='w-full change-bg-1'>
                   {/* cart  */}
                   <div
                     style={{
@@ -100,24 +128,35 @@ const Trending = ({ title }) => {
                           Hot
                         </span>
                       </p>
-                      <p className=' bg-white text-black rounded-full'>
+                      <p
+                        onClick={() => handleAddToWishlist(bookData?._id)}
+                        className={` rounded-full`}
+                      >
                         <span>
-                          <i class='far fa-heart p-2 cursor-pointer hover:bg-primary hover:text-white bg-white text-black rounded-full'></i>
+                          <i
+                            class={`far fa-heart p-2 cursor-pointer  rounded-full`}
+                          ></i>
                         </span>
                       </p>
                     </div>
                     <div className='trending-cart-1 w-full absolute bottom-0'>
                       <div className='action flex justify-between items-center w-full'>
-                        <button className='py-3 bg-black text-white w-full custom-border relative hover:bg-primary flex justify-center items-center'>
+                        <button
+                          onClick={() => handleAddToCart(bookData?._id)}
+                          className='py-3 bg-black text-white w-full custom-border relative hover:bg-primary flex justify-center items-center'
+                        >
                           <span>
                             <BsMinecartLoaded className='text-2xl' />
                           </span>
                         </button>
-                        <button className='py-3 bg-black text-white w-full hover:bg-primary  flex justify-center items-center'>
+                        <Link
+                          to={`/shop/book/${bookData?._id}`}
+                          className='py-3 bg-black text-white w-full hover:bg-primary  flex justify-center items-center'
+                        >
                           <span>
                             <AiOutlineEye className='text-2xl' />
                           </span>
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
