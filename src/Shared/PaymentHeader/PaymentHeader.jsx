@@ -12,7 +12,7 @@ export default function PaymentHeader() {
   return (
     <div>
       <div className="mt-14">
-        <ul className="flex items-center  justify-center gap-10 text-[1.5rem] font-semibold">
+        <ul className="flex flex-wrap items-center  justify-center gap-10 text-[1.5rem] font-semibold">
           <li className={location.pathname === "/card" ? "paymentHeader active": "paymentHeader "}>
             <Link to="/cart">SHOPPING CART(1)</Link>
           </li>

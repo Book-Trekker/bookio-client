@@ -1,11 +1,10 @@
 import React from 'react'
-import { useDeleteCartMutation } from '../../../redux/features/cart/cartApiSlice'
 import Swal from 'sweetalert2'
+import useRemoveCartItem from '../../../Hooks/useRemoveCartItem'
 
 const CartItem = ({ cartData }) => {
-  const [deleteCartMutation] = useDeleteCartMutation()
   // console.log(cartData?.bookId?.image)
-
+  const { removeCartItem } = useRemoveCartItem()
 
   const formatCreatedAt = (isoTimestamp) => {
     const createdAt = new Date(isoTimestamp)
@@ -28,7 +27,7 @@ const CartItem = ({ cartData }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await deleteCartMutation(cartData._id)
+          await removeCartItem(cartData._id) // Use the removeCartItem function from the hook
           Swal.fire('Deleted!', 'Your cart item has been deleted.', 'success')
         } catch (error) {
           Swal.fire('Error!', 'Unable to delete the cart item.', 'error')
@@ -42,7 +41,11 @@ const CartItem = ({ cartData }) => {
       <div className=' flex items-center'>
         <div className='flex p-3 justify-between w-full'>
           <div>
-            <img className='w-20' src={cartData?.bookId?.images[0]?.url} alt='wishlist/book' />
+            <img
+              className='w-20'
+              src={cartData?.bookId?.images[0]?.url}
+              alt='wishlist/book'
+            />
           </div>
           <div className='pl-3 flex  flex-col justify-between py-3'>
             <div>

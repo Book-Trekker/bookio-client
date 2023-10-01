@@ -1,44 +1,66 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import {
   CitySelect,
   CountrySelect,
   StateSelect,
   LanguageSelect,
-} from "react-country-state-city";
-import "react-country-state-city/dist/react-country-state-city.css";
-import {motion, useAnimation } from "framer-motion"
-
-
+} from 'react-country-state-city'
+import 'react-country-state-city/dist/react-country-state-city.css'
+import { motion, useAnimation } from 'framer-motion'
+import { useGetCartQuery } from '../../../redux/features/cart/cartApiSlice'
+import { Link } from 'react-router-dom'
 
 export default function CartTotals() {
-  const [selectedOption, setSelectedOption] = useState("Free_shipping");
-  const [extraInfo, setExtraInfo] = useState(false);
-  const [countryid, setCountryid] = useState(0);
-  const [stateid, setstateid] = useState(0);
-  const controls = useAnimation();
+  const { data: cartData } = useGetCartQuery()
+  const [selectedOption, setSelectedOption] = useState('Free_shipping')
+  const [extraInfo, setExtraInfo] = useState(false)
+  const [countryid, setCountryid] = useState(0)
+  const [stateid, setstateid] = useState(0)
+  const controls = useAnimation()
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.id);
-  };
+  // const handleOptionChange = (event) => {
+  //   setSelectedOption(event.target.id);
+  // };
 
-  const toggleExtraInfo = () => {
-    setExtraInfo(!extraInfo);
-    controls.start({ height: extraInfo ? 0 : 'auto' });
-  };
+  // const toggleExtraInfo = () => {
+  //   setExtraInfo(!extraInfo);
+  //   controls.start({ height: extraInfo ? 0 : 'auto' });
+  // };
+
+  // Calculate the subtotal by summing up the prices of all items in the cart
+  const calculateSubtotal = () => {
+    if (cartData?.data) {
+      return cartData.data.reduce(
+        (total, cartItem) => total + cartItem.bookId.price * cartItem.quantity,
+        0
+      )
+    }
+    return 0
+  }
+
+  const total = calculateSubtotal() + 5
+
   return (
-    <div className="bg-[#f6f6f6] mb-10">
+    <div className='bg-[#f6f6f6] mb-10'>
       <div>
-        <div className="bg-[#e9e9e9] p-4 font-bold">
+        <div className='bg-[#e9e9e9] p-4 font-bold'>
           <h2>CART TOTALS</h2>
         </div>
-        <div className=" p-6 ">
-          <div className="grid grid-cols-2">
-            <h2 className="font-bold">Subtotal</h2>
-            <div>
-              <h3 className="text-[1.3rem] font-[600]">$90.00</h3>
+        <div className=' p-6 '>
+          <div className='border-b-2 border-gray pb-2 border-opacity-20'>
+            <div className='flex justify-between'>
+              <h2 className='font-bold'>Subtotal</h2>
+              <h3 className='text-[1.3rem] font-[600]'>
+                {' '}
+                ${calculateSubtotal().toFixed(2)}
+              </h3>
+            </div>
+            <div className='flex justify-between'>
+              <h2 className='font-bold'>Delivery Charge</h2>
+              <h3 className='text-[1.3rem] font-[600]'>$5</h3>
             </div>
           </div>
-          <div className="grid grid-cols-2 mt-5 ">
+          {/* <div className="grid grid-cols-2 mt-5 ">
             <div className="flex items-center">
               <h2 className="font-bold">Shipping</h2>
             </div>
@@ -114,17 +136,19 @@ export default function CartTotals() {
               
             </div> 
             
-          </div>
-          <div className="grid grid-cols-2 mt-8 items-center">
-            <h2 className="font-bold text-[1.2rem]">Total</h2>
-            <div>
-              <h3 className="text-[1.8rem] font-[600]">$90.00</h3>
+          </div> */}
+          <div className='mt-8 items-center'>
+            <div className='flex justify-between'>
+              <h2 className='font-bold text-[1.2rem]'>Total</h2>
+              <h3 className='text-[1.8rem] font-[600]'>${total.toFixed(2)}</h3>
             </div>
           </div>
 
-          <button className="bg-[#000] text-white w-full mt-4 py-6 uppercase ">Proceed to Checkout</button>
+          <button className='bg-[#000] text-white w-full mt-4 py-6 uppercase '>
+            <Link to='/checkout'>Proceed to Checkout</Link>
+          </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
