@@ -5,6 +5,7 @@ import { useGetCartQuery } from '../../../redux/features/cart/cartApiSlice'
 import { useGetProfileQuery } from '../../../redux/features/users/userApiSlice'
 import { useCreateOrderMutation } from '../../../redux/features/orders/orderApiSlice'
 import Loading from '../../Loading/Loading'
+import { useNavigate } from 'react-router-dom'
 
 const BillingDetails = () => {
   const { data: cart } = useGetCartQuery()
@@ -49,6 +50,8 @@ const BillingDetails = () => {
     setValue('email', billingDetails.email || '')
   }, [setValue])
 
+  const navigate = useNavigate()
+
   // create order function
   const onSubmit = async (data) => {
     try {
@@ -77,7 +80,9 @@ const BillingDetails = () => {
       localStorage.setItem('billingDetails', JSON.stringify(data))
 
       const result = await createOrder(orderData).unwrap()
-      console.log('Order Data:', result)
+
+      navigate('/checkout/order-info')
+      // console.log('Order Data:', result)
     } catch (error) {
       console.log(error)
     }
