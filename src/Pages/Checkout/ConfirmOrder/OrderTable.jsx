@@ -1,32 +1,37 @@
 import { Card, Typography } from '@material-tailwind/react'
-import { useGetOrderQuery } from '../../../redux/features/orders/orderApiSlice'
 
-export function OrderTable() {
-  const { data: order } = useGetOrderQuery()
-  console.log(order)
-
+export function OrderTable({ totalBookPrice, allBookNames }) {
   const TABLE_HEAD = ['Product', 'Total']
 
   const TABLE_ROWS = [
     {
-      product: 'Healed New Life × 1',
-      total: '$100.00',
+      product: allBookNames?.map((d) => <p className='py-1'>{d?.name},</p>),
+      total:
+        typeof totalBookPrice === 'number'
+          ? `$${totalBookPrice.toFixed(2)}`
+          : undefined,
     },
     {
       product: 'Subtotal:',
-      total: '$150.00',
+      total:
+        typeof totalBookPrice === 'number'
+          ? `$${totalBookPrice.toFixed(2)}`
+          : undefined,
     },
     {
       product: 'Shipping:',
-      total: '$75.00',
+      total: '$5',
     },
     {
       product: 'Payment method:',
-      total: '$75.00',
+      total: 'Cash On Delivery',
     },
     {
       product: 'Total:',
-      total: '$75.00',
+      total:
+        typeof totalBookPrice === 'number'
+          ? `$${(totalBookPrice + 5).toFixed(2)}`
+          : undefined,
     },
   ]
 
@@ -62,7 +67,7 @@ export function OrderTable() {
                   <Typography
                     variant='small'
                     color='blue-gray'
-                    className='font-normal text-md'
+                    className='font-normal text-md whitespace-normal'
                   >
                     {product}
                   </Typography>

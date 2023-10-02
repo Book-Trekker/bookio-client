@@ -79,7 +79,7 @@ const BillingDetails = () => {
       // Store other input field values in localStorage
       localStorage.setItem('billingDetails', JSON.stringify(data))
 
-      const result = await createOrder(orderData).unwrap()
+      await createOrder(orderData).unwrap()
 
       navigate('/checkout/order-info')
       // console.log('Order Data:', result)
