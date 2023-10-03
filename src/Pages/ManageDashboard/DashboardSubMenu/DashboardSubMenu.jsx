@@ -8,7 +8,7 @@ const DashboardSubMenu = ({ menu }) => {
   return (
     <div>
       <ul>
-        <NavLink to="/dashboard">
+        <NavLink to={menu?.path}>
           <li
             onClick={() => setIsSubTrue((prev) => !prev)}
             className="py-2 relative text-lg text-[#1a202c]  border-dotted hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2"
@@ -29,7 +29,7 @@ const DashboardSubMenu = ({ menu }) => {
               className=""
             >
               {menu.subMenu?.map((m) => (
-                <NavLink to="/dashboard">
+                <NavLink to={m?.path}>
                   <li className="text-lg   hover:bg-[#00000012] border-gray border-opacity-40 flex items-center gap-x-2">
                     {m.name}
                   </li>

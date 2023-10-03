@@ -8,23 +8,22 @@ const DashboardNavigationBar = () => {
     {
       icon: "ri-home-wifi-line",
       name: "Dashboards",
-      path: "/",
-      subMenu: [
-        { name: "Analytics", path: "" },
-        { name: "Analytics", path: "" },
-        { name: "Analytics", path: "" },
-      ],
+      path: "/dashboard",
+      // subMenu: [
+      //   { name: "Analytics", path: "" },
+      //   { name: "Analytics", path: "" },
+      //   { name: "Analytics", path: "" },
+      // ],
     },
-    { icon: "ri-calendar-todo-line", name: "Transaction", path: "/" },
-    { icon: "ri-pie-chart-line", name: "Statistics", path: "/" },
-    { icon: "ri-line-chart-line", name: "Analytics", path: "/" },
-    { icon: "ri-wallet-3-line", name: "My Wallet", path: "/" },
-    { icon: "ri-home-wifi-line", name: "Integrations", path: "/" },
-    { icon: "ri-user-3-line", name: "User", path: "/" },
-    { icon: "ri-calendar-line", name: "Calender", path: "/" },
-    { icon: "ri-history-line", name: "History", path: "/" },
-    { icon: "ri-settings-5-line", name: "Setting", path: "/" },
-    { icon: "ri-logout-circle-r-line", name: "Logout", path: "/" },
+    { icon: "ri-user-line", name: "My Profile", path: "/dashboard/my-profile" },
+    { icon: "ri-user-line", name: "Order", path: "/dashboard/orders" },
+    { icon: "ri-folder-add-line", name: "Create product", path: "/dashboard/create-product" },
+    { icon: "ri-list-unordered", name: "Manage order", path: "/dashboard/manage-orders" },
+    { icon: "ri-pages-line", name: "Manage product", path: "/dashboard/manage-products" },
+    { icon: "ri-user-3-line", name: "Manage users", path: "/dashboard/manage-users" },
+    { icon: "ri-bar-chart-line", name: "Total revenue", path: "/dashboard/revenue" },
+    { icon: "ri-exchange-dollar-line", name: "Total income", path: "/dashboard/income" },
+    { icon: "ri-line-chart-line", name: "Revenue chart", path: "/dashboard/revenue-chart" },
   ];
 
   return (
@@ -75,7 +74,7 @@ const DashboardNavigationBar = () => {
               n.subMenu ? (
                 <DashboardSubMenu menu={n} />
               ) : (
-                <NavLink to="/dashboard">
+                <NavLink to={n?.path}>
                   <li className="py-2 group text-lg hover:text-[#22c55e] transition-all ease-out delay-100 text-[#1a202c]  cursor-pointer border-gray border-opacity-40 flex items-center gap-x-2">
                     <span>
                       <i class={`${n.icon} text-[#1a202c] text-[22px]  transition-all ease-out delay-100 group-hover:text-[#22c55e]`}></i>
@@ -83,8 +82,17 @@ const DashboardNavigationBar = () => {
                     {n.name}
                   </li>
                 </NavLink>
+                
               )
             )}
+              <NavLink to="/dashboard">
+                  <li className="py-2 group text-lg hover:text-[#22c55e] transition-all ease-out delay-100 text-[#1a202c]  cursor-pointer border-gray border-opacity-40 flex items-center gap-x-2">
+                    <span>
+
+                    </span>{" "}
+                  Logout
+                  </li>
+                </NavLink>
           </ul>
 
           {/* <ul>
