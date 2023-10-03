@@ -160,7 +160,7 @@ const SingleBooks = () => {
           position: "top-right",
           autoClose: 3000,
         });
-        queryClient.invalidateQueries('cart')
+        QueryClient.invalidateQueries('cart')
       })
       .catch((error) => {
         // Handle errors

@@ -2,7 +2,9 @@ import React from 'react'
 
 const ManageOrders = () => {
   return (
-    <div>ManageOrders</div>
+    <section>
+      manageOrder
+    </section>
   )
 }
 
