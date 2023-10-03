@@ -37,13 +37,21 @@ const SingleBooks = () => {
   const bookId = bookData?.data?._id
   const userId = profile?.data?._id
 
+  // console.log(bookData?.data?.avgRating)
+
   const { data: books } = useGetAllBooksQuery(bookData?.data?.category)
   // console.log('RelatedBooksDataaaaaaa: --------------', books?.data)
   const [reviewCount, setReviewCount] = useState(0)
   const [avgReviewCount, setAvgReviewCount] = useState(0)
+  const [avgRating, setAvgRating] = useState(0)
   const [qty, setQty] = useState(0)
 
   // console.log(img[0])
+  useEffect(() => {
+    if (bookData?.data?.avgRating !== undefined) {
+      setAvgRating(bookData?.data?.avgRating)
+    }
+  }, [bookData, bookData?.data?.avgRating])
 
   const handleIncrease = () => {
     setQty((prevQty) => prevQty + 1)
@@ -165,13 +173,12 @@ const SingleBooks = () => {
       desc: <Description />,
     },
     {
-      label: `Reviews ${reviewCount} / (${avgReviewCount})`,
+      label: `Reviews ${reviewCount} / (${avgRating.toFixed(1)})`,
       value: 'Reviews',
       desc: (
         <Reviews
           id={id}
           setReviewCount={setReviewCount}
-          setAvgReviewCount={setAvgReviewCount}
         />
       ),
     },
@@ -224,7 +231,7 @@ const SingleBooks = () => {
                   readonly
                 />
                 <span className='text-gray pl-1'>
-                  ({avgReviewCount} / {reviewCount})
+                  ({bookData?.data?.avgRating.toFixed(1)} / {reviewCount})
                 </span>
               </div>
               <p className='text-gray py-1'>

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Discount.css'
 import { Button } from '@material-tailwind/react'
+import { Link } from 'react-router-dom'
 
 const Discount = () => {
   return (
@@ -11,9 +12,11 @@ const Discount = () => {
           <h2 className='text-2xl md:text-5xl text-white font-libre font-bold'>
             20% Off Select Books
           </h2>
-          <Button className='bg-black text-white my-5 rounded-none hover:bg-primary'>
-            Shop Now
-          </Button>
+          <Link to={'/shop'}>
+            <Button className='bg-black text-white my-5 rounded-none hover:bg-primary'>
+              Shop Now
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -6,11 +6,12 @@ import Rating from 'react-rating'
 import { useGetBookByIdQuery } from '../../../redux/features/books/bookApiSlice'
 import { format } from 'date-fns'
 
-const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
-  const [averageRating, setAverageRating] = useState(0)
+const Reviews = ({ id, setReviewCount }) => {
   const { data: reviewData } = useGetBookReviewsQuery(id)
   const { data: bookData } = useGetBookByIdQuery(id)
   const [showAllReviews, setShowAllReviews] = useState(false)
+
+  // console.log(bookData?.data?.avgRating)
 
   // Check if reviewData?.data is defined and an array, and then sort it
   const sortedReviews =
@@ -49,10 +50,7 @@ const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
         }
       })
 
-      const calculatedAverageRating = sumRatings / reviews.length
-
       // Update the state with the calculated average rating
-      setAverageRating(calculatedAverageRating.toFixed(1))
     } else {
       console.warn('No reviews found or empty reviews array.')
     }
@@ -60,8 +58,7 @@ const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
 
   useEffect(() => {
     setReviewCount(sortedReviews.length)
-    setAvgReviewCount(averageRating)
-  }, [sortedReviews.length, setReviewCount, averageRating, setAvgReviewCount])
+  }, [sortedReviews.length, setReviewCount])
   // console.log(averageRating)
 
   // Review days count
@@ -138,7 +135,9 @@ const Reviews = ({ id, setReviewCount, setAvgReviewCount }) => {
                                   return 'Review Time Not Found'
                                 }
                               })()}{' '}
-                              <span className='font-normal pl-3'>{calculateDaysAgo(d?.date)}</span>
+                              <span className='font-normal pl-3'>
+                                {calculateDaysAgo(d?.date)}
+                              </span>
                             </p>
                           </span>{' '}
                         </h2>

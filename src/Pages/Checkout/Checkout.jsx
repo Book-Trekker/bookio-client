@@ -11,7 +11,7 @@ export default function Checkout() {
       <Header />
       <div>
         <PaymentHeader />
-        <div>
+        <div className="">
           <CardReturnService />
           <BillingDetails />
         </div>

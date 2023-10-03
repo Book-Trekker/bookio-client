@@ -24,9 +24,10 @@ import ManageUsers from './Pages/ManageDashboard/ManageUsers/ManageUsers'
 import Chart from './Pages/ManageDashboard/Chart/Chart'
 import Income from './Pages/ManageDashboard/Income/Income'
 import Revenue from './Pages/ManageDashboard/Revenue/Revenue'
-import Card from "./Pages/Card/Card";
-import Checkout from "./Pages/Checkout/Checkout";
-import OrderTracking from "./Pages/OrderTracking/OrderTracking";
+import Card from './Pages/Card/Card'
+import Checkout from './Pages/Checkout/Checkout'
+import OrderTracking from './Pages/OrderTracking/OrderTracking'
+import ConfirmOrder from './Pages/Checkout/ConfirmOrder/ConfirmOrder'
 
 function App() {
   // const dispatch = useDispatch();
@@ -71,22 +72,23 @@ function App() {
         </Route>
 
         {/* dashboard  */}
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/account" element={<Account />}></Route>
-        <Route path="/sign_up" element={<SignUp />}></Route>
-        <Route path="/sign_in" element={<SignIn />}></Route>
-        <Route path="/shop" element={<Shop />}></Route>
-        <Route path="/cart" element={<Card />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route>
-        <Route path="/order-tracking" element={<OrderTracking />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/author" element={<Author />}></Route>
-        <Route path="/faq" element={<Faq />}></Route>
-        <Route path="/store-list" element={<StoreList />}></Route>
-        <Route path="/store-details" element={<Shop />}></Route>
-        <Route path="/about" element={<AboutUs />}></Route>
-        <Route path="/wishlist" element={<WishList />}></Route>
-        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path='/' element={<HomePage />}></Route>
+        <Route path='/account' element={<Account />}></Route>
+        <Route path='/sign_up' element={<SignUp />}></Route>
+        <Route path='/sign_in' element={<SignIn />}></Route>
+        <Route path='/shop' element={<Shop />}></Route>
+        <Route path='/cart' element={<Card />}></Route>
+        <Route path='/checkout' element={<Checkout />}></Route>
+        <Route path='/checkout/order-info' element={<ConfirmOrder />}></Route>
+        <Route path='/order-tracking' element={<OrderTracking />}></Route>
+        <Route path='/contact' element={<Contact />}></Route>
+        <Route path='/author' element={<Author />}></Route>
+        <Route path='/faq' element={<Faq />}></Route>
+        <Route path='/store-list' element={<StoreList />}></Route>
+        <Route path='/store-details' element={<Shop />}></Route>
+        <Route path='/about' element={<AboutUs />}></Route>
+        <Route path='/wishlist' element={<WishList />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
       </Routes>
       <MobileMenu />
       {/* <Footer /> */}

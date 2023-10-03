@@ -1,5 +1,5 @@
 .book_of_the_month {
-    background: url(../../../assets//images/booksOfTheMonth/top1.png);
+    /* background: url(../../../assets//images/booksOfTheMonth/top1.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,13 +9,13 @@
     overflow: hidden;
 }
 .book_of_the_month_main:hover .book_of_the_month {
-    background: url(../../../assets//images/booksOfTheMonth/top2.png);
+    /* background: url(../../../assets//images/booksOfTheMonth/top2.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
 }
-.book_of_the_month2 {
+/* .book_of_the_month2 {
     background: url(../../../assets//images/booksOfTheMonth/top3.png);
     background-position: center center;
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
-}
+} */
 
 .bottom_cart{
     width: 100%;
