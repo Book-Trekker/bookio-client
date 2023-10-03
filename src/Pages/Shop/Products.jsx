@@ -20,10 +20,6 @@ const Products = () => {
           <Filtering />
         </div>
         <div className=' col-span-12 lg:col-span-9'>
-          {/* Best seller items  */}
-          <BestSeller title={'Best Seller Items'} />
-          <BestSeller title={'Featured Items'} />
-          {/* Best seller items end  */}
 
           <ProductHeader {...{ showMobileFiltering, setShowMobileFiltering }} />
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-10'>

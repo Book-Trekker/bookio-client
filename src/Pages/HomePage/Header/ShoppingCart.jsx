@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
-import CartItem from "./CartItem";
-import { motion } from "framer-motion";
-import { useGetCartQuery } from "../../../redux/features/cart/cartApiSlice";
+import React from 'react'
+import CartItem from './CartItem'
+import { motion } from 'framer-motion'
+import { useGetCartQuery } from '../../../redux/features/cart/cartApiSlice'
+import { Link } from 'react-router-dom'
 
 const ShoppingCart = ({ showShoppingCart, setShowShoppingCart }) => {
   // const { data: cartData, isLoading, isError, error } = useGetCartQuery()
-  const { data: cartItems, isLoading, isError, error } = useGetCartQuery();
-  const getCartQuery = useGetCartQuery();
-  // console.log(cartItems?.data)
+  const { data: cartItems, isLoading, isError, error } = useGetCartQuery()
+
+  // Calculate the total price
+  const total = cartItems?.data?.reduce(
+    (acc, item) => acc + (item?.bookId?.price || 0),
+    0
+  )
 
 //  console.log("isLoading from card", isLoading)
 
@@ -53,16 +58,24 @@ const ShoppingCart = ({ showShoppingCart, setShowShoppingCart }) => {
               </p>
             </div>
             <div>
-              <span className="text-[#334155] font-semibold">$299.00</span>
+              <span className='text-[#334155] font-semibold'>
+                {total !== undefined ? `$${total.toFixed(2)}` : ''}
+              </span>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-4">
-            <button className="border border-[rgb(226,232,240,1)] px-[50px] py-[15px] rounded-full bg-[#fff]">
+          <div className='flex items-center justify-between mt-4'>
+            <Link
+              to='/cart'
+              className='border border-[rgb(226,232,240,1)] px-[50px] py-[15px] rounded-full bg-[#fff]'
+            >
               View cart
-            </button>
-            <button className="bg-[#0F172A] text-[#fff] px-[50px] py-[15px] rounded-full">
+            </Link>
+            <Link
+              to='/checkout'
+              className='bg-[#0F172A] text-[#fff] px-[50px] py-[15px] rounded-full'
+            >
               Check out
-            </button>
+            </Link>
           </div>
         </div>
       </div>

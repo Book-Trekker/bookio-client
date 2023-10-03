@@ -10,6 +10,8 @@ import {
   useAddToWishListMutation,
   useGetWishListQuery,
 } from '../../redux/features/wishlist/wishListApi'
+import useCart from '../../Hooks/useCart'
+import useWishList from '../../Hooks/useWishList'
 
 const Product = ({ bookData }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -26,8 +28,8 @@ const Product = ({ bookData }) => {
     isLoading: wishListIsLoading,
     error: wishListError,
   } = useGetWishListQuery()
-  const [addToCartMutation] = useAddToCartMutation()
-  const [addToWishListMutation] = useAddToWishListMutation()
+  const { addToCart } = useCart()
+  const { addToWishList } = useWishList()
   const bookId = bookData?._id
   const userId = profile?.data?._id
 
@@ -44,58 +46,15 @@ const Product = ({ bookData }) => {
   const isBookInWishList = wishListData?.data?.some(
     (item) => item.bookId?._id === bookData?._id
   )
-  // console.log(isBookInWishList)
-  // console.log(bookId?._id)
-  // const dataaa = wishListData?.data?.some((e) => console.log(e?.bookId?._id))
 
   // Add to cart
   const handleAddToCart = () => {
-    const cartItem = {
-      userId,
-      bookId,
-    }
-
-    addToCartMutation(cartItem)
-      .unwrap()
-      .then((response) => {
-        // Handle the successful response
-        console.log('Book added to cart successfully!', response)
-        toast.success('Book added to cart successfully!', {
-          position: 'top-right',
-          autoClose: 3000,
-        })
-      })
-      .catch((error) => {
-        // Handle errors
-        console.error('Error adding book to cart:', error)
-      })
+    addToCart(userId, bookId)
   }
 
-  // add to wishList
+  // Add to wishList
   const handleAddToWishlist = () => {
-    const cartItem = {
-      userId,
-      bookId,
-    }
-
-    addToWishListMutation(cartItem)
-      .unwrap()
-      .then((response) => {
-        // Handle the successful response
-        console.log('Book added to cart successfully!', response)
-        toast.success('Book added to cart successfully!', {
-          position: 'top-right',
-          autoClose: 3000,
-        })
-      })
-      .catch((error) => {
-        // Handle errors
-        const errorMessage = error?.data?.message || 'An error occurred.'
-        toast.error(errorMessage, {
-          position: 'top-right',
-          autoClose: 3000,
-        })
-      })
+    addToWishList(userId, bookId)
   }
 
   return (
