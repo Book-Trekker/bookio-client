@@ -1,8 +1,17 @@
 import React from 'react'
+import ProfileSection from './ProfileSection/ProfileSection'
+import AccountSection from './AccountSection/AccountSection'
 
 const UserProfile = () => {
   return (
-    <div>UserProfile</div>
+    <div>
+      <div>
+        <div className='bg-[#fafafa]'>
+          <ProfileSection />
+          <AccountSection />
+        </div>
+      </div>
+    </div>
   )
 }
 
