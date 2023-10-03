@@ -101,3 +101,9 @@
     background-position: center;
     background-repeat: no-repeat;
   } */
+
+  /* hide_scroll_thambs*/
+
+  .hide_scroll_thambs::-webkit-scrollbar{
+    display: none;
+  }
