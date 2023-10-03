@@ -1,4 +1,3 @@
-import { ChevronUpDownIcon } from '@heroicons/react/24/outline'
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
 import {
   Card,
@@ -10,7 +9,12 @@ import {
   IconButton,
   Tooltip,
   Chip,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
 } from '@material-tailwind/react'
+import { useState } from 'react'
 
 const TABLE_HEAD = ['Books', 'Status', 'Date', 'Action']
 
@@ -53,6 +57,9 @@ const TABLE_ROWS = [
 ]
 
 export function ManageProductTable() {
+  const [statusValue, setStatusValue] = useState('')
+  console.log(statusValue)
+
   return (
     <Card className='h-full w-full'>
       <CardBody className='overflow-scroll px-0'>
@@ -64,16 +71,40 @@ export function ManageProductTable() {
                   key={head}
                   className='cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50'
                 >
-                  <Typography
-                    variant='small'
-                    color='blue-gray'
-                    className='flex items-center justify-between gap-2 font-normal leading-none opacity-70'
+                  <Menu
+                    animate={{
+                      mount: { y: 0 },
+                      unmount: { y: 25 },
+                    }}
                   >
-                    {head}{' '}
-                    {index !== TABLE_HEAD.length - 1 && (
-                      <ChevronUpDownIcon strokeWidth={2} className='h-4 w-4' />
+                    <MenuHandler>
+                      <Button className='bg-transparent text-black shadow-none w-full h-full hover:shadow-none'>
+                        {head}
+                      </Button>
+                    </MenuHandler>
+                    {index === 1 && (
+                      <MenuList className='bg-[#ECEFF1]'>
+                        <MenuItem
+                          onClick={() => setStatusValue('all')}
+                          className='text-gray font-bold mb-[1px]'
+                        >
+                          All
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => setStatusValue('inStock')}
+                          className='text-gray font-bold mb-[1px]'
+                        >
+                          In Stock
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => setStatusValue('outOfStock')}
+                          className='text-gray font-bold mb-[1px]'
+                        >
+                          Out Of Stock
+                        </MenuItem>
+                      </MenuList>
                     )}
-                  </Typography>
+                  </Menu>
                 </th>
               ))}
             </tr>
